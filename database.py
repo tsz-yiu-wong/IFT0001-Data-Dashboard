@@ -1,8 +1,18 @@
 import os
 import mysql.connector
+from dotenv import load_dotenv
 
+load_dotenv()  # 加载 .env 文件中的变量
+db_config = {
+    'host': os.getenv('DB_HOST'),
+    'port': int(os.getenv('DB_PORT')),
+    'user': os.getenv('DB_USER'),
+    'password': os.getenv('DB_PASSWORD'),
+    'database': os.getenv('DB_NAME'),
+    "ssl_ca": os.getenv('DB_SSL_CA')
+}
 
-def connect_to_database(db_config):
+def connect_to_database(db_config=db_config):
     try:
         connection = mysql.connector.connect(**db_config)
         return connection

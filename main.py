@@ -1,6 +1,5 @@
 import os
 import glob
-from dotenv import load_dotenv
 
 from crawler import *
 from standardization import extract_text_from_pdf, find_data_in_text_pdf, extract_data
@@ -29,17 +28,7 @@ for data in all_emission_data:
     print(data)
 
 
-load_dotenv()  # 加载 .env 文件中的变量
-db_config = {
-    'host': os.getenv('DB_HOST'),
-    'port': int(os.getenv('DB_PORT')),
-    'user': os.getenv('DB_USER'),
-    'password': os.getenv('DB_PASSWORD'),
-    'database': os.getenv('DB_NAME'),
-    "ssl_ca": os.getenv('DB_SSL_CA')
-}
-
-connection = connect_to_database(db_config)
+connection = connect_to_database()
 if connection is None:
     exit()
 create_table(connection)
