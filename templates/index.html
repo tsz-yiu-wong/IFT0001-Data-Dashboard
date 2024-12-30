@@ -4,39 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Display</title>
-    <script>
-        // 页面加载后通过 API 获取数据
-        async function fetchData() {
-            const response = await fetch('/api/data');
-            const data = await response.json();
-            const tableBody = document.getElementById('data-table-body');
-
-            data.forEach(item => {
-                const row = document.createElement('tr');
-                Object.values(item).forEach(value => {
-                    const cell = document.createElement('td');
-                    cell.textContent = value;
-                    row.appendChild(cell);
-                });
-                tableBody.appendChild(row);
-            });
-        }
-
-        window.onload = fetchData;
-    </script>
+    <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-    <h1>Data from MySQL Database</h1>
-    <table border="1">
+    <h1>Company Data</h1>
+    <table id="data-table">
         <thead>
             <tr>
-                <th>Column 1</th>
-                <th>Column 2</th>
-                <th>Column 3</th>
-                <!-- 根据表格列数量调整 -->
+                <th>Company Name</th>
+                <th>Sector</th>
+                <th>Region</th>
+                <th>Scope 1</th>
+                <th>Scope 2 (Market Base)</th>
+                <th>Scope 2 (Location Base)</th>
             </tr>
         </thead>
-        <tbody id="data-table-body"></tbody>
+        <tbody>
+            <!-- 数据行将通过 JavaScript 动态填充 -->
+        </tbody>
     </table>
+
+    <script src="/static/script.js"></script>
 </body>
 </html>

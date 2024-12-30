@@ -1,0 +1,56 @@
+/* 全局样式 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+/* 过滤面板样式 */
+.filter-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filter-panel label {
+    margin-top: 10px;
+}
+
+.filter-panel select {
+    margin-top: 5px;
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* 数据显示面板样式 */
+.results-panel {
+    margin: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.results-panel ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.results-panel li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.results-panel li:last-child {
+    border-bottom: none;
+}
