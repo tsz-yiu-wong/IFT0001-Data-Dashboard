@@ -17,6 +17,7 @@ db_config = {
 def connect_to_database(db_config=db_config):
     try:
         connection = mysql.connector.connect(**db_config)
+        print("Database connected.")
         return connection
     except mysql.connector.Error as err:
         print(f"Database connection error: {err}")
@@ -147,11 +148,11 @@ def delete_table():
         if connection:
             close_connection(connection)
 
-def get_data(get_data_query):
+def get_data(get_data_query, params=None):
     try:
         connection = connect_to_database()
-        cursor = connection.cursor()
-        cursor.execute(get_data_query)
+        cursor = connection.cursor(dictionary=True)
+        cursor.execute(get_data_query, params)
         results = cursor.fetchall()
         return results
     except mysql.connector.Error as err:
@@ -167,7 +168,7 @@ get_all_data_query = "SELECT * FROM emissions_data;"
 def get_all_data():
     try:
         connection = connect_to_database()
-        cursor = connection.cursor()
+        cursor = connection.cursor(dictionary=True)
         cursor.execute(get_all_data_query)
         results = cursor.fetchall()
         return results
