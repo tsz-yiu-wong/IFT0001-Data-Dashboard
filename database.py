@@ -34,27 +34,29 @@ def close_connection(connection):
 
 
 ###----------Public----------###
-#__all__ = ['connect_to_database','close_connection','create_table','insert_data','delete_data','get_all_data']
-__all__ = ['create_table','insert_data','delete_data','delete_all_data','delete_table','get_data','get_all_data']
+__all__ = ['connect_to_database','close_connection','create_table','insert_data','delete_data','delete_all_data','delete_table','get_data','get_all_data']
 
 create_table_query = """
-CREATE TABLE IF NOT EXISTS emissions_data (
+CREATE TABLE IF NOT EXISTS {table_name} (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    company_name VARCHAR(255) UNIQUE,
-    sector VARCHAR(255),
-    region VARCHAR(255),
-    scope1_total VARCHAR(50),
-    scope2_market_based VARCHAR(50),
-    scope2_location_based VARCHAR(50)
+    company_name VARCHAR(30) UNIQUE,
+    isin VARCHAR(15) UNIQUE,
+    sector VARCHAR(30),
+    region VARCHAR(30),
+    country VARCHAR(30),
+    scope1_total VARCHAR(15),
+    scope2_market_based VARCHAR(15),
+    scope2_location_based VARCHAR(15)
 )AUTO_INCREMENT = 1;
 """
-def create_table(create_table_query=create_table_query):
+def create_table(table_name="emissions_data"):
     try:
         connection = connect_to_database()
         cursor = connection.cursor()
-        cursor.execute(create_table_query)
+        formatted_query = create_table_query.format(table_name=table_name)
+        cursor.execute(formatted_query)
         connection.commit()
-        print("Table created successfully!")
+        print(f"Table '{table_name}' created successfully!")
     except mysql.connector.Error as err:
         print(f"Error creating table: {err}")
     finally:
@@ -63,27 +65,30 @@ def create_table(create_table_query=create_table_query):
         if connection:
             close_connection(connection)
 
-
 insert_data_query = """
-INSERT INTO emissions_data (
-    company_name, sector, region, scope1_total, scope2_market_based, scope2_location_based
-) VALUES (%s, %s, %s, %s, %s, %s)
+INSERT INTO {table_name} (
+    company_name, isin, sector, region, country, scope1_total, scope2_market_based, scope2_location_based
+) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
 ON DUPLICATE KEY UPDATE
     sector = VALUES(sector),
     region = VALUES(region),
+    country = VALUES(country),
     scope1_total = VALUES(scope1_total),
     scope2_market_based = VALUES(scope2_market_based),
     scope2_location_based = VALUES(scope2_location_based);
 """
-def insert_data(data=[]):
+def insert_data(data, table_name="emissions_data"):
     try:
         connection = connect_to_database()
         cursor = connection.cursor()
+        formatted_query = insert_data_query.format(table_name=table_name)
         for record in data:
-            cursor.execute(insert_data_query, (
+            cursor.execute(formatted_query, (
                 record["company_name"],
+                record["isin"],
                 record["sector"],
                 record["region"],
+                record["country"],
                 record["scope1_total"],
                 record["scope2_market_based"],
                 record["scope2_location_based"]
@@ -100,12 +105,13 @@ def insert_data(data=[]):
             close_connection(connection)
 
 
-delete_data_query = "DELETE FROM emissions_data WHERE company_name = %s;"
-def delete_data(company_name):
+delete_data_query = "DELETE FROM {table_name} WHERE company_name = %s;"
+def delete_data(company_name, table_name="emissions_data"):
     try:
         connection = connect_to_database()
         cursor = connection.cursor()
-        cursor.execute(delete_data_query, (company_name,))
+        formatted_query = delete_data_query.format(table_name=table_name)
+        cursor.execute(formatted_query, (company_name,))
         connection.commit()
         print(f"Successfully deleted {cursor.rowcount} rows!")
     except mysql.connector.Error as err:
@@ -116,12 +122,13 @@ def delete_data(company_name):
         if connection:
             close_connection(connection)
 
-delete_all_data_query = "DELETE FROM emissions_data;"
-def delete_all_data():
+delete_all_data_query = "DELETE FROM {table_name};"
+def delete_all_data(table_name="emissions_data"):
     try:
         connection = connect_to_database()
         cursor = connection.cursor()
-        cursor.execute(delete_all_data_query)
+        formatted_query = delete_all_data_query.format(table_name=table_name)
+        cursor.execute(formatted_query)
         connection.commit()
         print(f"Successfully deleted {cursor.rowcount} rows from the table!")
     except mysql.connector.Error as err:
@@ -132,12 +139,13 @@ def delete_all_data():
         if connection:
             close_connection(connection)
 
-delete_table_query = "DROP TABLE emissions_data;"
-def delete_table():
+delete_table_query = "DROP TABLE {table_name};"
+def delete_table(table_name="emissions_data"):
     try:
         connection = connect_to_database()
         cursor = connection.cursor()
-        cursor.execute(delete_table_query)
+        formatted_query = delete_table_query.format(table_name=table_name)
+        cursor.execute(formatted_query)
         connection.commit()
         print(f"Successfully deleted {cursor.rowcount} table!")
     except mysql.connector.Error as err:
@@ -147,6 +155,7 @@ def delete_table():
             cursor.close()
         if connection:
             close_connection(connection)
+
 
 def get_data(get_data_query, params=None):
     try:
@@ -163,13 +172,13 @@ def get_data(get_data_query, params=None):
         if connection:
             close_connection(connection)
 
-
-get_all_data_query = "SELECT * FROM emissions_data;"
-def get_all_data():
+get_all_data_query = "SELECT * FROM {table_name};"
+def get_all_data(table_name="emissions_data"):
     try:
         connection = connect_to_database()
         cursor = connection.cursor(dictionary=True)
-        cursor.execute(get_all_data_query)
+        formatted_query = get_all_data_query.format(table_name=table_name)
+        cursor.execute(formatted_query)
         results = cursor.fetchall()
         return results
     except mysql.connector.Error as err:
