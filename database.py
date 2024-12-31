@@ -17,7 +17,6 @@ db_config = {
 def connect_to_database(db_config=db_config):
     try:
         connection = mysql.connector.connect(**db_config)
-        print("Database connected.")
         return connection
     except mysql.connector.Error as err:
         print(f"Database connection error: {err}")
@@ -27,7 +26,6 @@ def close_connection(connection):
     try:
         if connection and connection.is_connected():
             connection.close()
-            print("Database connection closed.")
     except mysql.connector.Error as err:
         print(f"Error closing connection: {err}")
 
@@ -40,13 +38,15 @@ create_table_query = """
 CREATE TABLE IF NOT EXISTS {table_name} (
     id INT AUTO_INCREMENT PRIMARY KEY,
     company_name VARCHAR(30) UNIQUE,
-    isin VARCHAR(15) UNIQUE,
-    sector VARCHAR(30),
-    region VARCHAR(30),
-    country VARCHAR(30),
-    scope1_total VARCHAR(15),
-    scope2_market_based VARCHAR(15),
-    scope2_location_based VARCHAR(15)
+    index_weight DECIMAL(8, 6),
+    isin VARCHAR(30) DEFAULT NULL,
+    sector VARCHAR(30) DEFAULT NULL,
+    region VARCHAR(30) DEFAULT NULL,
+    country VARCHAR(30) DEFAULT NULL,
+    scope1_direct VARCHAR(10) DEFAULT NULL,
+    scope2_indirect VARCHAR(10) DEFAULT NULL,
+    scope2_market_based VARCHAR(10) DEFAULT NULL,
+    scope2_location_based VARCHAR(10) DEFAULT NULL
 )AUTO_INCREMENT = 1;
 """
 def create_table(table_name="emissions_data"):
@@ -65,6 +65,28 @@ def create_table(table_name="emissions_data"):
         if connection:
             close_connection(connection)
 
+
+
+def insert_data(insert_data_query, data):
+    try:
+        connection = connect_to_database()
+        cursor = connection.cursor()
+        cursor.execute(insert_data_query, data)
+        connection.commit()
+        print(f"Data inserted successfully! Data: {data}")
+    except mysql.connector.Error as err:
+        print(f"Error inserting data {data}: {err}")
+    finally:
+        if 'cursor' in locals():
+            cursor.close()
+        if connection:
+            close_connection(connection)
+
+
+
+
+
+'''
 insert_data_query = """
 INSERT INTO {table_name} (
     company_name, isin, sector, region, country, scope1_total, scope2_market_based, scope2_location_based
@@ -77,7 +99,7 @@ ON DUPLICATE KEY UPDATE
     scope2_market_based = VALUES(scope2_market_based),
     scope2_location_based = VALUES(scope2_location_based);
 """
-def insert_data(data, table_name="emissions_data"):
+def insert_data2(insert_data_query, data, table_name="emissions_data"):
     try:
         connection = connect_to_database()
         cursor = connection.cursor()
@@ -103,7 +125,7 @@ def insert_data(data, table_name="emissions_data"):
             cursor.close()
         if connection:
             close_connection(connection)
-
+'''
 
 delete_data_query = "DELETE FROM {table_name} WHERE company_name = %s;"
 def delete_data(company_name, table_name="emissions_data"):
