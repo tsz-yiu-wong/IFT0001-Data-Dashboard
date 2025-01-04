@@ -35,6 +35,11 @@ const countrySelect = document.getElementById('country-select');
 const scope1 = document.getElementById('scope1');
 const scope2 = document.getElementById('scope2');
 const dataTableBody = document.getElementById('data-table-body');
+const downloadBtn = document.querySelector('#download-btn');
+const toggleFullDataBtn = document.querySelector('#toggle-full-data-btn');
+const fullDataContainer = document.querySelector('#full-data-container');
+const fullDataHeader = document.querySelector('#full-data-header');
+const fullDataBody = document.querySelector('#full-data-body');
 
 
 /****************************************************/
@@ -306,6 +311,81 @@ function resetSortConditions() {
     scope1.textContent = 'Scope1';
     scope2.textContent = 'Scope2';
 }
+
+
+// Download Event
+downloadBtn.addEventListener('click', async () => {
+    try {
+        // 构建不包含分页和排序的查询
+        let downloadQuery = basic_query;
+        let conditions = [];
+        
+        // 添加搜索条件
+        if (searchCondition) {
+            conditions.push(searchCondition);
+        }
+        
+        // 添加筛选条件
+        if (filters.sector !== 'all') conditions.push(`sector = '${filters.sector}'`);
+        if (filters.region !== 'all') conditions.push(`region = '${filters.region}'`);
+        if (filters.country !== 'all') conditions.push(`country = '${filters.country}'`);
+        
+        if (conditions.length > 0) {
+            downloadQuery += ` WHERE ${conditions.join(' AND ')}`;
+        }
+        
+        // 创建下载链接并触发下载
+        const downloadUrl = `/download_data?query=${encodeURIComponent(downloadQuery)}`;
+        window.location.href = downloadUrl;
+        
+    } catch (error) {
+        console.error('Error downloading data:', error);
+        alert('Error downloading data. Please try again.');
+    }
+});
+
+// Toggle Full Data Event
+toggleFullDataBtn.addEventListener('click', async () => {
+    const isHidden = fullDataContainer.style.display === 'none';
+    
+    if (isHidden) {
+        fullDataContainer.style.display = 'block';
+        toggleFullDataBtn.textContent = 'Hide All Data ▲';
+        
+        // 如果表格还没有数据，则加载数据
+        if (!fullDataBody.children.length) {
+            try {
+                const response = await fetch('/get_all_data');
+                const { columns, data } = await response.json();
+                
+                if (data && data.length > 0) {
+                    // 使用后端定义的列顺序生成表头
+                    fullDataHeader.innerHTML = `
+                        <tr>
+                            ${columns.map(header => `<th>${header}</th>`).join('')}
+                        </tr>
+                    `;
+                    
+                    // 使用相同的列顺序生成数据行
+                    fullDataBody.innerHTML = data.map(row => `
+                        <tr>
+                            ${columns.map(column => 
+                                `<td>${row[column] !== null ? row[column] : 'None'}</td>`
+                            ).join('')}
+                        </tr>
+                    `).join('');
+                }
+            } catch (error) {
+                console.error('Error loading full data:', error);
+                fullDataBody.innerHTML = '<tr><td colspan="100%">Error loading data</td></tr>';
+            }
+        }
+    } else {
+        fullDataContainer.style.display = 'none';
+        toggleFullDataBtn.textContent = 'Show All Data ▼';
+    }
+});
+
 
 /****************************************************/
 /*              Pagination Functions                 */

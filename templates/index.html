@@ -14,6 +14,7 @@
         <input type="text" id="search-input" placeholder="Type Company name or SIN" />
         <button id="search-btn">Search</button>
         <button id="clear-btn">Clear</button>
+        <button id="download-btn">Download Data</button>
     </div>
 
     <table>
@@ -58,27 +59,19 @@
 
     <br><br><br><br>
 
-
-
-
-    <table id="data-table">
-        <thead>
-            <tr>
-                <th>Company Name</th>
-                <th>ISIN</th>
-                <th>Sector</th>
-                <th>Region</th>
-                <th>Country</th>
-                <th>Scope 1 (direct)</th>
-                <th>Scope 2 (indirect)</th>
-                <th>Scope 2 (Market Base)</th>
-                <th>Scope 2 (Location Base)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- 数据行将通过 JavaScript 动态填充 -->
-        </tbody>
-    </table>
+    <div class="full-data-section">
+        <button id="toggle-full-data-btn">Show All Data ▼</button>
+        <div id="full-data-container" style="display: none;">
+            <table id="full-data-table">
+                <thead id="full-data-header">
+                    <!-- 表头将通过 JavaScript 动态生成 -->
+                </thead>
+                <tbody id="full-data-body">
+                    <!-- 数据行将通过 JavaScript 动态生成 -->
+                </tbody>
+            </table>
+        </div>
+    </div>
 
     <script src="/static/script.js"></script>
 </body>
