@@ -1,7 +1,17 @@
 from flask import Flask, render_template, request, jsonify
 import database as db
+import atexit
 
 app = Flask(__name__)
+
+# 在每个请求之前检查并初始化数据库连接池
+@app.before_request
+def before_request():
+    if db.connection_pool is None:
+        db.init_connection_pool()
+
+# 应用关闭时断开连接
+atexit.register(db.close_connection_pool)
 
 @app.route('/')
 def home():
@@ -9,59 +19,69 @@ def home():
 
 @app.route('/get_all_data', methods=['GET'])
 def get_all_data():
-    # 查询数据库获取所有数据
-    results = db.get_all_data()
+    results = db.get_all_data("web_test")
     return jsonify(results)  # 返回 JSON 格式的数据
 
-@app.route('/get_data', methods=['POST'])
+@app.route('/get_data', methods=['GET'])
 def get_data():
-    # 从请求中获取数据
-    print(f"Request method: {request.method}")
-    print(f"Request data: {request.json}")  # 打印接收到的 JSON 数据
+    query = request.args.get('query', '')
+    page = int(request.args.get('page', 1))
+    items_per_page = int(request.args.get('items_per_page', 10))
+    offset = (page - 1) * items_per_page
 
-    data = request.json
-    '''
-    company_name = data.get('company_name')
-    sector = data.get('sector')
-    region = data.get('region')
-    scope1 = data.get('scope1')
-    scope2_market_based = data.get('scope2_market_based')
-    scope2_location_based = data.get('scope2_location_based')
-    sort_order_scope1 = data.get('sort_order_scope1', 'ASC')
-    sort_order_scope2_market_based = data.get('sort_order_scope2', 'ASC')
-    sort_order_scope2_location_based = data.get('sort_order_scope2', 'ASC')
-    '''
+    # 使用子查询一次性获取数据和总数
+    modified_query = f"""
+    SELECT *, (
+        SELECT COUNT(*) 
+        FROM ({query}) as count_query
+    ) as total_count 
+    FROM ({query}) as data_query 
+    LIMIT {items_per_page} OFFSET {offset}
+    """
+    
+    results = db.get_data(modified_query)
+    total = results[0]['total_count'] if results else 0
+    
+    # 移除结果中的total_count字段
+    for row in results:
+        if 'total_count' in row:
+            del row['total_count']
 
-    page = data.get('page', 1)  # 默认第一页
-    per_page = data.get('per_page', 10)  # 默认每页显示 10 条数据
-    offset = (page - 1) * per_page
+    return jsonify({
+        "data": results,
+        "totalItems": total
+    })
 
-    # 根据这些数据构建查询条件
-    query = "SELECT * FROM emissions_data WHERE 1=1"
-    params = []
-    '''
-    # 添加筛选条件
-    if sector != "All":
-        query += " AND sector = %s"
-        params.append(sector)
-    if region != "All":
-        query += " AND region = %s"
-        params.append(region)
+@app.route('/get_filters', methods=['GET'])
+def get_filters():
+    sectors_query = "SELECT DISTINCT sector FROM web_test"
+    regions_query = "SELECT DISTINCT region FROM web_test"
+    countries_query = "SELECT DISTINCT country FROM web_test"
 
-    # 添加排序条件
-    if scope1:
-        query += f" ORDER BY scope1 {sort_order_scope1}"
-    if scope2_market_based:
-        query += f", scope2 {sort_order_scope2_market_based}"
-    '''
-    # 添加分页信息
-    query += f" LIMIT {per_page} OFFSET {offset}"
+    sectors = [row['sector'] for row in db.get_data(sectors_query)]
+    regions = [row['region'] for row in db.get_data(regions_query)]
+    countries = [row['country'] for row in db.get_data(countries_query)]
 
-    # 执行查询
-    results = db.get_data(query, params)
+    return jsonify({
+        "sectors": sectors,
+        "regions": regions,
+        "countries": countries
+    })
 
-    # 返回查询结果
-    return jsonify(results)
+@app.route('/get_region_country_map', methods=['GET'])
+def get_region_country_map():
+    query = "SELECT DISTINCT region, country FROM web_test"
+    data = db.get_data(query)
+
+    region_country_map = {}
+    for row in data:
+        region = row['region']
+        country = row['country']
+        if region not in region_country_map:
+            region_country_map[region] = []
+        region_country_map[region].append(country)
+
+    return jsonify(region_country_map)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
