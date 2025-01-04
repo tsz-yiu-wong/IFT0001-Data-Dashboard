@@ -79,14 +79,11 @@ h1 {
 
 /* 搜索和下载按钮特殊样式 */
 #search-btn,
-#download-btn {
+#download-btn,
+#clear-btn {
     display: flex;
     align-items: center;
     gap: 5px;
-}
-
-#download-btn::after {
-    content: "⬇️";
 }
 
 /****************************************************/
