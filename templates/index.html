@@ -7,14 +7,70 @@
     <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-    <h1>Company Data</h1>
+    <h1>Carbon Emissions Data for MSCI AW Companies</h1>
+
+    <div>
+        <label for="search-input">Search:</label>
+        <input type="text" id="search-input" placeholder="Type Company name or SIN" />
+        <button id="search-btn">Search</button>
+        <button id="clear-btn">Clear</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>
+                    <select id="sector-select" class="dropdown">
+                        <option value="all" selected>All Sectors</option>
+                    </select>
+                </th>
+                <th>
+                    <select id="region-select" class="dropdown">
+                        <option value="all" selected>All Regions</option>
+                    </select>
+                </th>
+                <th>
+                    <select id="country-select" class="dropdown">
+                        <option value="all" selected>All Countries</option>
+                    </select>
+                </th>
+                <th>
+                    <span id="scope1" class="sortable">Scope1</span>
+                </th>
+                <th>
+                    <span id="scope2" class="sortable">Scope2</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="data-table-body">
+            <!-- 数据行会通过 JavaScript 动态生成 -->
+        </tbody>
+    </table>
+
+    <div id="pagination">
+        <button id="prev-btn" class="page-btn"> &lt; </button>
+        <input type="number" id="page-input" min="1"/>
+        <span>/ <span id="total-pages"></span></span>
+        <button id="next-btn" class="page-btn"> &gt;</button>
+    </div>
+
+
+    <br><br><br><br>
+
+
+
+
     <table id="data-table">
         <thead>
             <tr>
                 <th>Company Name</th>
+                <th>ISIN</th>
                 <th>Sector</th>
                 <th>Region</th>
-                <th>Scope 1</th>
+                <th>Country</th>
+                <th>Scope 1 (direct)</th>
+                <th>Scope 2 (indirect)</th>
                 <th>Scope 2 (Market Base)</th>
                 <th>Scope 2 (Location Base)</th>
             </tr>
