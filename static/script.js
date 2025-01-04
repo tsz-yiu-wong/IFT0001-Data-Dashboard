@@ -248,24 +248,39 @@ searchBtn.addEventListener('click', async () => {
 // Clear Event
 const clearBtn = document.querySelector('#clear-btn');
 clearBtn.addEventListener('click', async () => {
-    // 清除搜索输入框和搜索条件
-    searchInput.value = '';
-    searchCondition = '';
-    
-    // 重置所有筛选条件
-    filters = { sector: 'all', region: 'all', country: 'all' };
-    sectorSelect.value = 'all';
-    regionSelect.value = 'all';
-    countrySelect.value = 'all';
-    
-    // 重置排序
-    resetSortConditions();
-    
-    // 重置页码
-    currentPage = 1;
-    
-    // 重新加载数据
-    await applyFilters();
+    try {
+        // 清除搜索输入框和搜索条件
+        searchInput.value = '';
+        searchCondition = '';
+        
+        // 重置所有筛选条件
+        filters = { sector: 'all', region: 'all', country: 'all' };
+        
+        // 重新加载筛选器选项
+        await loadFilters();
+        
+        // 重置下拉菜单的选中值
+        sectorSelect.value = 'all';
+        regionSelect.value = 'all';
+        countrySelect.value = 'all';
+        
+        // 重置排序
+        resetSortConditions();
+        
+        // 重置页码
+        currentPage = 1;
+        
+        // 重置查询
+        query = basic_query;
+        
+        // 重新加载数据
+        await loadPageData();
+    } catch (error) {
+        console.error('Error clearing filters:', error);
+        // 即使出错也要重置基本查询
+        query = basic_query;
+        await loadPageData();
+    }
 });
 
 // Filter Events
@@ -277,7 +292,12 @@ sectorSelect.addEventListener('change', async () => {
 
 regionSelect.addEventListener('change', async () => {
     filters.region = regionSelect.value;
-    updateCountryOptions();
+    // 当选择新的region时，重置country为'all'
+    filters.country = 'all';
+    // 更新country下拉菜单选项
+    updateCountryOptions(filters.region);
+    // 确保country下拉菜单显示'all'
+    countrySelect.value = 'all';
     currentPage = 1;
     await loadPageData();
 });
