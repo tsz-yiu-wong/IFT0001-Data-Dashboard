@@ -36,10 +36,7 @@ const scope1 = document.getElementById('scope1');
 const scope2 = document.getElementById('scope2');
 const dataTableBody = document.getElementById('data-table-body');
 const downloadBtn = document.querySelector('#download-btn');
-const toggleFullDataBtn = document.querySelector('#toggle-full-data-btn');
-const fullDataContainer = document.querySelector('#full-data-container');
-const fullDataHeader = document.querySelector('#full-data-header');
-const fullDataBody = document.querySelector('#full-data-body');
+const dropdowns = document.querySelectorAll('.dropdown');
 
 
 /****************************************************/
@@ -87,13 +84,43 @@ async function loadRegionCountryMap() {
 // Load Page Data with Loading State
 async function loadPageData() {
     try {
-        dataTableBody.innerHTML = '<tr><td colspan="6">Loading...</td></tr>';
-        const data = await getDataFromServer(query, currentPage, itemsPerPage);
-        updateTable(data.items);
+        // 构建查询条件
+        let conditions = [];
+        if (searchCondition) {
+            conditions.push(searchCondition);
+        }
+        
+        if (filters.sector !== 'all') conditions.push(`sector = '${filters.sector}'`);
+        if (filters.region !== 'all') conditions.push(`region = '${filters.region}'`);
+        if (filters.country !== 'all') conditions.push(`country = '${filters.country}'`);
+        
+        query = basic_query;
+        if (conditions.length > 0) {
+            query += ` WHERE ${conditions.join(' AND ')}`;
+        }
+
+        if (sortBy && sortOrder) {
+            query += ` ORDER BY CAST(${sortBy} AS DECIMAL(10,2)) ${sortOrder}`;
+        }
+
+        // 使用 fetch 获取数据
+        const response = await fetch(`/get_data?query=${encodeURIComponent(query)}&page=${currentPage}&items_per_page=${itemsPerPage}`);
+        const data = await response.json();
+        
+        // 更新表格和分页
+        updateTable(data.data);
         initPagination(data.totalItems, itemsPerPage);
+        
+        // 更新 URL，但不刷新页面
+        const searchParams = new URLSearchParams(window.location.search);
+        searchParams.set('page', currentPage);
+        searchParams.set('sector', filters.sector);
+        searchParams.set('region', filters.region);
+        searchParams.set('country', filters.country);
+        window.history.pushState({}, '', `${window.location.pathname}?${searchParams.toString()}`);
+        
     } catch (error) {
         console.error('Error loading data:', error);
-        dataTableBody.innerHTML = '<tr><td colspan="6">Error loading data</td></tr>';
     }
 }
 
@@ -208,23 +235,14 @@ async function applyFilters() {
 
 // Search Event
 searchBtn.addEventListener('click', async () => {
-    const searchQuery = searchInput.value.trim();
-    if (searchQuery) {
-        const isinPattern = /^[A-Za-z]{2}\d{8}$/;
-        searchCondition = isinPattern.test(searchQuery) 
-            ? `isin='${searchQuery}'`
-            : `company_name LIKE '%${searchQuery}%'`;
-        
-        // 重置筛选条件
-        filters = { sector: 'all', region: 'all', country: 'all' };
-        sectorSelect.value = 'all';
-        regionSelect.value = 'all';
-        countrySelect.value = 'all';
-        
-        resetSortConditions();
-        currentPage = 1;
-        await applyFilters();
+    const searchValue = searchInput.value.trim();
+    if (searchValue) {
+        searchCondition = `(company_name LIKE '%${searchValue}%' OR isin LIKE '%${searchValue}%')`;
+    } else {
+        searchCondition = '';
     }
+    currentPage = 1;
+    await loadPageData();
 });
 
 // Clear Event
@@ -251,28 +269,23 @@ clearBtn.addEventListener('click', async () => {
 });
 
 // Filter Events
-sectorSelect.addEventListener('change', (event) => {
-    filters.sector = event.target.value;
-    currentPage = 1;
-    resetSortConditions();
-    applyFilters();
+sectorSelect.addEventListener('change', async () => {
+    filters.sector = sectorSelect.value;
+    currentPage = 1;  // 重置页码
+    await loadPageData();
 });
 
-regionSelect.addEventListener('change', (event) => {
-    filters.region = event.target.value;
-    filters.country = 'all';
-    updateCountryOptions(filters.region);
-    countrySelect.value = 'all';
+regionSelect.addEventListener('change', async () => {
+    filters.region = regionSelect.value;
+    updateCountryOptions();
     currentPage = 1;
-    resetSortConditions();
-    applyFilters();
+    await loadPageData();
 });
 
-countrySelect.addEventListener('change', (event) => {
-    filters.country = event.target.value;
+countrySelect.addEventListener('change', async () => {
+    filters.country = countrySelect.value;
     currentPage = 1;
-    resetSortConditions();
-    applyFilters();
+    await loadPageData();
 });
 
 // Sort Events
@@ -344,48 +357,6 @@ downloadBtn.addEventListener('click', async () => {
     }
 });
 
-// Toggle Full Data Event
-toggleFullDataBtn.addEventListener('click', async () => {
-    const isHidden = fullDataContainer.style.display === 'none';
-    
-    if (isHidden) {
-        fullDataContainer.style.display = 'block';
-        toggleFullDataBtn.textContent = 'Hide All Data ▲';
-        
-        // 如果表格还没有数据，则加载数据
-        if (!fullDataBody.children.length) {
-            try {
-                const response = await fetch('/get_all_data');
-                const { columns, data } = await response.json();
-                
-                if (data && data.length > 0) {
-                    // 使用后端定义的列顺序生成表头
-                    fullDataHeader.innerHTML = `
-                        <tr>
-                            ${columns.map(header => `<th>${header}</th>`).join('')}
-                        </tr>
-                    `;
-                    
-                    // 使用相同的列顺序生成数据行
-                    fullDataBody.innerHTML = data.map(row => `
-                        <tr>
-                            ${columns.map(column => 
-                                `<td>${row[column] !== null ? row[column] : 'None'}</td>`
-                            ).join('')}
-                        </tr>
-                    `).join('');
-                }
-            } catch (error) {
-                console.error('Error loading full data:', error);
-                fullDataBody.innerHTML = '<tr><td colspan="100%">Error loading data</td></tr>';
-            }
-        }
-    } else {
-        fullDataContainer.style.display = 'none';
-        toggleFullDataBtn.textContent = 'Show All Data ▼';
-    }
-});
-
 
 /****************************************************/
 /*              Pagination Functions                 */
@@ -437,13 +408,42 @@ function setPaginationListener(totalPages) {
     const pageInput = document.getElementById('page-input');
     pageInput.addEventListener('keydown', async (event) => {
         if (event.key === 'Enter') {
-            const page = parseInt(pageInput.value, 10);
-            if (page >= 1 && page <= totalPages) {
-                currentPage = page;
-                await loadPageData();
-            } else {
-                alert(`请输入有效页码（1-${totalPages}）`);
+            let page = parseInt(pageInput.value, 10);
+            if (page < 1) {
+                page = 1;
+            } else if (page > totalPages) {
+                page = totalPages;
             }
+            currentPage = page;
+            pageInput.value = page;
+            await loadPageData();
         }
     });
 }
+
+// 添加下拉菜单事件监听
+dropdowns.forEach(dropdown => {
+    // 打开下拉菜单时
+    dropdown.addEventListener('mousedown', function() {
+        // 获取箭头元素（th的伪元素）
+        const th = this.closest('th');
+        if (this.getAttribute('data-open') !== 'true') {
+            this.setAttribute('data-open', 'true');
+            th.classList.add('dropdown-open');
+        } else {
+            this.setAttribute('data-open', 'false');
+            th.classList.remove('dropdown-open');
+        }
+    });
+
+    // 选择选项或失去焦点时
+    dropdown.addEventListener('change', function() {
+        this.setAttribute('data-open', 'false');
+        this.closest('th').classList.remove('dropdown-open');
+    });
+
+    dropdown.addEventListener('blur', function() {
+        this.setAttribute('data-open', 'false');
+        this.closest('th').classList.remove('dropdown-open');
+    });
+});

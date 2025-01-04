@@ -4,17 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Display</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
     <h1>Carbon Emissions Data for MSCI AW Companies</h1>
 
-    <div>
-        <label for="search-input">Search:</label>
-        <input type="text" id="search-input" placeholder="Type Company name or SIN" />
-        <button id="search-btn">Search</button>
-        <button id="clear-btn">Clear</button>
-        <button id="download-btn">Download Data</button>
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="Search ISIN or Company name" />
+            <button id="search-btn" class="button">Search 🔍</button>
+            <button id="clear-btn" class="button">Clear</button>
+        </div>
+        <button id="download-btn" class="button">Download</button>
     </div>
 
     <table>
@@ -54,23 +58,6 @@
         <input type="number" id="page-input" min="1"/>
         <span>/ <span id="total-pages"></span></span>
         <button id="next-btn" class="page-btn"> &gt;</button>
-    </div>
-
-
-    <br><br><br><br>
-
-    <div class="full-data-section">
-        <button id="toggle-full-data-btn">Show All Data ▼</button>
-        <div id="full-data-container" style="display: none;">
-            <table id="full-data-table">
-                <thead id="full-data-header">
-                    <!-- 表头将通过 JavaScript 动态生成 -->
-                </thead>
-                <tbody id="full-data-body">
-                    <!-- 数据行将通过 JavaScript 动态生成 -->
-                </tbody>
-            </table>
-        </div>
     </div>
 
     <script src="/static/script.js"></script>

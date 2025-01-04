@@ -1,99 +1,300 @@
+/****************************************************/
+/*                    基础设置                        */
+/****************************************************/
+
+/* 字体定义 */
+:root {
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-heading: 'Poppins', var(--font-primary);
+}
+
 /* 全局样式 */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    font-family: var(--font-primary);
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
     background-color: #f5f5f5;
 }
 
-/* 过滤面板样式 */
-.filter-panel {
+/* 标题样式 */
+h1 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 32px;
+    text-align: center;
+    margin: 40px 0 25px 0;
+    color: #333;
+    letter-spacing: -0.5px;
+}
+
+/****************************************************/
+/*                    搜索区域                        */
+/****************************************************/
+
+/* 搜索区域容器 */
+.search-container {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px;
-    background-color: #ffffff;
-    border: 1px solid #ccc;
-    margin: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
 }
 
-.filter-panel label {
-    margin-top: 10px;
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.filter-panel select {
-    margin-top: 5px;
-    padding: 5px;
+/* 搜索输入框 */
+#search-input {
+    font-family: var(--font-primary);
     font-size: 14px;
+    padding: 8px 10px;
     border: 1px solid #ccc;
-    border-radius: 3px;
+    border-radius: 20px;
+    width: 250px;
 }
 
-/* 数据显示面板样式 */
-.results-panel {
-    margin: 20px;
-    padding: 20px;
-    background-color: #ffffff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/* 按钮通用样式 */
+.button {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: 14px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    transition: all 0.2s ease;
 }
 
-.results-panel ul {
-    list-style-type: none;
-    padding: 0;
+.button:hover {
+    background-color: #e0e0e0;
 }
 
-.results-panel li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ccc;
+/* 搜索和下载按钮特殊样式 */
+#search-btn,
+#download-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
-.results-panel li:last-child {
-    border-bottom: none;
+#download-btn::after {
+    content: "⬇️";
 }
 
-.full-data-section {
-    margin-top: 2em;
+/****************************************************/
+/*                    数据表格                        */
+/****************************************************/
+
+/* 表格基础样式 */
+table {
+    table-layout: fixed;
     width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-#toggle-full-data-btn {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
+/* 表头样式 */
+thead {
+    background-color: #f0f0f0;
+}
+
+th {
+    font-family: var(--font-heading);
+    padding: 15px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 15px;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    letter-spacing: -0.2px;
+}
+
+/* 列宽设置 */
+th:nth-child(1) { /* Company Name */
+     width: 18%;
+}
+th:nth-child(2) {  /* Sector */
+    width: 15%;
+}
+th:nth-child(3) {  /* Region */
+    width: 10%; 
+}
+th:nth-child(4) {  /* Country */
+    width: 7%; 
+}
+th:nth-child(5),
+th:nth-child(6) {  /* Scope1 & Scope2 */
+    width: 25%; 
+    text-align: center;
+    font-weight: 600;  /* 加粗 */
+    cursor: pointer;  /* 显示可点击状态 */
+}
+
+/* 数值列表头样式 */
+th:nth-child(5),
+th:nth-child(6) {  /* Scope1 & Scope2 */
+    width: 25%; 
+    text-align: center;
+    font-size: 16px;
+    font-weight: 1000;  /* 加粗 */
+    cursor: pointer;  /* 显示可点击状态 */
+}
+
+/* 筛选列表头样式 */
+th:nth-child(2),
+th:nth-child(3),
+th:nth-child(4) {
+    padding: 0;  /* 移除内边距以便下拉菜单填充整个空间 */
     cursor: pointer;
 }
 
-#toggle-full-data-btn:hover {
-    background-color: #e9ecef;
+/* 数据单元格基础样式 */
+td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
 }
 
-#full-data-container {
-    max-height: 500px;
-    overflow-y: auto;
-    margin-top: 10px;
+/* 单元格对齐和内边距 */
+ /* 筛选项列 */
+td:nth-child(5),
+td:nth-child(6) {  /* 数值列 */
+    text-align: center;
+} 
+
+/* 分隔线样式 */
+/*
+t:nth-child(1),
+td:nth-child(1),
+th:nth-child(4),
+td:nth-child(4) {
+    border-right: 1px solid rgba(221, 221, 221, 0.6);
+}
+*/
+
+/* 表格行样式 */
+tbody tr:nth-child(even) { background-color: #f9f9f9; }
+tbody tr:hover { background-color: #f5f5f5; }
+
+/* Tooltip样式 */
+td:hover::after {
+    content: attr(title);
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 1000;
+    background-color: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    white-space: normal;
+    max-width: 300px;
+    word-wrap: break-word;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-#full-data-table {
+/* 下拉菜单样式 */
+.dropdown {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: 14px;
     width: 100%;
-    border-collapse: collapse;
+    height: 100%;  /* 填充整个表头单元格 */
+    padding: 15px 13px 15px 10px;  /* 恢复表头的内边距 */
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    appearance: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-#full-data-table th,
-#full-data-table td {
-    padding: 8px;
-    border: 1px solid #dee2e6;
-    text-align: left;
+/* 下拉箭头 */
+th:has(.dropdown)::after {
+    content: "▼";
+    position: absolute;
+    right: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: #666;
+    pointer-events: none;
 }
 
-#full-data-table thead {
-    position: sticky;
-    top: 0;
+/* 下拉菜单展开时箭头向上 */
+th.dropdown-open::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/****************************************************/
+/*                    分页控件                        */
+/****************************************************/
+
+#pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+.page-btn {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
     background-color: #fff;
-    z-index: 1;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.page-btn:disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+}
+
+#page-input {
+    font-family: var(--font-primary);
+    font-size: 14px;
+    width: 30px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+#page-input::-webkit-inner-spin-button,
+#page-input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* 总页数显示样式 */
+#total-pages {
+    display: inline-block;
+    width: 30px;  /* 与输入框相同的宽度 */
+    text-align: center;
+}
+
+/* 分页分隔符样式 */
+#pagination span {
+    white-space: nowrap;
 }
