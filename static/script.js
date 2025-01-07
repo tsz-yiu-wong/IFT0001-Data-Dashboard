@@ -140,12 +140,12 @@ function updateTable(items) {
     items.forEach(item => {
         const row = `
             <tr>
-                <td>${item.company_name !== null ? item.company_name : 'None'}</td>
-                <td>${item.sector !== null ? item.sector : 'None'}</td>
-                <td>${item.region !== null ? item.region : 'None'}</td>
-                <td>${item.country !== null ? item.country : 'None'}</td>
-                <td>${item.scope1_direct !== null ? parseFloat(item.scope1_direct) : 'None'}</td> 
-                <td>${item.scope2_indirect !== null ? parseFloat(item.scope2_indirect) : 'None'}</td>   
+                <td title="${item.company_name !== null ? item.company_name : 'None'}">${item.company_name !== null ? item.company_name : 'None'}</td>
+                <td title="${item.sector !== null ? item.sector : 'None'}">${item.sector !== null ? item.sector : 'None'}</td>
+                <td title="${item.region !== null ? item.region : 'None'}">${item.region !== null ? item.region : 'None'}</td>
+                <td title="${item.country !== null ? item.country : 'None'}">${item.country !== null ? item.country : 'None'}</td>
+                <td title="${item.scope1_direct !== null ? parseFloat(item.scope1_direct) : 'None'}">${item.scope1_direct !== null ? parseFloat(item.scope1_direct) : 'None'}</td> 
+                <td title="${item.scope2_indirect !== null ? parseFloat(item.scope2_indirect) : 'None'}">${item.scope2_indirect !== null ? parseFloat(item.scope2_indirect) : 'None'}</td>   
             </tr>
         `;
         dataTableBody.insertAdjacentHTML('beforeend', row);
@@ -243,6 +243,21 @@ searchBtn.addEventListener('click', async () => {
     }
     currentPage = 1;
     await loadPageData();
+});
+
+// Add Enter key event for search input
+searchInput.addEventListener('keypress', async (event) => {
+    if (event.key === 'Enter') {
+        event.preventDefault(); // 防止表单提交
+        const searchValue = searchInput.value.trim();
+        if (searchValue) {
+            searchCondition = `(company_name LIKE '%${searchValue}%' OR isin LIKE '%${searchValue}%')`;
+        } else {
+            searchCondition = '';
+        }
+        currentPage = 1;
+        await loadPageData();
+    }
 });
 
 // Clear Event
