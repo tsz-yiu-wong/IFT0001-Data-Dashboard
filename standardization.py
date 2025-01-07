@@ -1,12 +1,14 @@
 import os
 import re
+import requests
+import json
 from PyPDF2 import PdfReader
 import openai
 from dotenv import load_dotenv
-
+'''
 #################################################
 #                 Find  ISIN                    #
-#             (未完成，太特喵傻逼了)              #
+#                  (待优化)                      #
 #################################################
 def find_ISIN(company_name):
     # Input: campnay name
@@ -18,8 +20,8 @@ def find_ISIN(company_name):
     prompt = f"Find the ISIN of \"{company_name}\". \n \
           (If there is \"HK\" in the given name, find the ISIN for the Class H shares.) \n \
           Only answer me the ISIN, no explanation need. "
-    #ps：tmd有的公司有两个ISIN真的太他妈傻逼了，搞了我一下午，操
-    #ps2: tmd同样的prompt，chatgpt官网跟api返回的结果不一致，因为api不能访问外部链接，又搞了我一天，操
+    #ps：tmd有的公司有两个ISIN真的太傻逼了，搞了我一下午，艹
+    #ps2: tmd同样的prompt，chatgpt官网跟api返回的结果不一致，因为api不能访问外部链接，又搞了我一天，艹
 
     # Call the OpenAI ChatGPT API to find the company's details
     response = openai.chat.completions.create(
@@ -30,7 +32,7 @@ def find_ISIN(company_name):
         ],
         temperature=0.7
     )
-    '''
+    
     client = openai.OpenAI(api_key=os.getenv('OPENAI_API'))
     response = client.chat.completions.create(
         model="o1-mini",
@@ -41,12 +43,31 @@ def find_ISIN(company_name):
             }
         ]
     )
-    '''
+    
 
     # Extract the answer text from the response
     answer = response.choices[0].message.content.strip()
     return answer
 
+def find_ISIN_with_openfigi(company_name):
+    url = "https://api.openfigi.com/v3/mapping"
+    load_dotenv()
+    api_key = os.getenv('OPENFIGI_API')
+    headers = {
+        'Content-Type': 'application/json',
+        'X-OPENFIGI-APIKEY': api_key
+    }   
+    data = [{"idType": "TICKER", "idValue": "APPLE"}]
+    response = requests.post(url, json=data, headers=headers)
+    if response.status_code == 200:
+        data = response.json()
+        print(data)
+        for item in data:
+            isin = item.get("data", [{}])[0].get("idIsin", "No ISIN found")
+            print(f"Company: {company_name}, ISIN: {isin}")
+    else:
+        print(f"Error: {response.status_code}, {response.text}")
+'''
 
 #################################################
 #       Find sector, region and country         #
@@ -90,7 +111,7 @@ def find_company_details(company_name):
         "region": region,
         "country": country,
     }
-    
+
 
 #################################################
 #        Find emissions data from PDF           #
@@ -99,12 +120,7 @@ def find_emissions_data(company_name, file_path):
     
     pdf_text =extract_text_from_pdf(file_path)
     if pdf_text == None:
-        return {
-            "scope1_direct": "null",
-            "scope2_indirect": "null",
-            "scope2_market_based": "null",
-            "scope2_location_based": "null"
-        }
+        return ("null", "null", "null")
 
     data_in_text = find_data_in_text(company_name, pdf_text)
     emissions_data = data_formatting(data_in_text)
@@ -120,12 +136,8 @@ def extract_text_from_pdf(file_path):
         for i, page in enumerate(reader.pages):
             page_text = page.extract_text()
             # Only need the pages if 'scope 1' keyword is found
-            if 'scope 1' in page_text.lower(): # Use lower() for case-insensitive matching
+            if 'scope 1' in page_text.lower() or 'scope 2' in page_text.lower(): # Use lower() for case-insensitive matching
                 text += page_text
-    
-    if text == "" or len(text) <= 200:
-        print(f"Error in extract text from {file_path}, the length of text is too small:{len(text)}.")
-        return None
 
     return text
 
@@ -136,25 +148,25 @@ def find_data_in_text(company_name, pdf_text):
     load_dotenv()
     openai.api_key = os.getenv('OPENAI_API')
 
-    prompt = f"According to the given content, find the latest scope 1 and scope 2 emissions data of \"{company_name}\". \n \
-                Give me the data in the one of following pattern: \n \
-                Pattern 1: \n \
-                Scope 1 (direct): 111; unit. \n \
-                Scope 2 (indirect): 222; unit. \n \
-                Pattern 2: \n \
-                Scope 1 (direct): 111; unit. \n \
-                Scope 2 (martket-based): 333; unit. \n \
-                Scope 2 (location-based): 444; unit. \n \
-                If the data is missing, give the part as \"N/A\". \n \
-                No explanation need. \n \
-                -------------------------------------------- \n \
+    prompt = f"According to the given text, find the latest scope 1 and scope 2 emissions data of \"{company_name}\",  \
+                and then give me the data in the following summary pattern: \n \
+                Scope 1 (direct): 111 unit. \n \
+                Scope 2 (location-based): 222 unit. \n \
+                Scope 2 (martket-based): 333 unit. \n \
+                --------------------------------- \n \
+                1. You need to pay attention to the unit, if it is not found, use the default unit: tCO2e. \n \
+                2. You also need to pay attention to whether scope2 is calculated based on Location-based or Market-based. \
+                If no specific statistical method is found, it is assumed to be location-based. \n \
+                3. If the data is missing, or you not sure about the data, leave the part as \"N/A\". \n \
+                4. No explanation need. \n \
+                ---------------------------------- \n \
                 {pdf_text}."
 
     # Call the OpenAI ChatGPT API to analyze the content and find emission data
     response = openai.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
-            {"role": "system","content": "You are a professional analyst who can identify emissions-related data from a company's sustainability report."},
+            {"role": "system","content": "You are a professional analyst who can find scope 1 and scope 2 emissions data from a company's sustainability report."},
             {"role": "user", "content": prompt}
         ],
         temperature=0.7
@@ -164,85 +176,91 @@ def find_data_in_text(company_name, pdf_text):
     answer = response.choices[0].message.content.strip()
     return answer
 
+# Helper function to convert unit to MT
+def convert_unit(value_and_unit):
+    if value_and_unit != "N/A.":
+        # 分割数值和单位,处理可能包含多个空格的情况
+        parts = value_and_unit.split(";")[0].strip().split(" ", 1)
+        value = float(parts[0])
+        unit = parts[1].lower().strip()
+        
+        # 转换单位，默认单位是metric ton / MT / t / tonne
+        if "short ton" in unit or ("ton" in unit and "metric" not in unit): 
+            value = round(value * 0.90718, 2) 
+        elif "long ton" in unit: 
+            value = round(value * 1.01605, 2) 
+        elif "kilogram" in unit or "kg" in unit:
+            value = value / 1000
+            if abs(value) < 1:
+                # 找到第一个非零数字的位置
+                str_num = f"{num:.10f}"
+                first_nonzero = next(i for i, c in enumerate(str_num.replace("-", "").replace("0.", "")) if c != '0')
+                value = round(num, first_nonzero + 3) # 如果是零点几，保留三位有效数
+            else:
+                value = round(value, 2) 
+        
+        if "kilo" in unit and "gram" not in unit:
+            value = round(value * 1000, 2)
+        elif "million" in unit:
+            value = round(value * 1000000, 2)
+            
+        # 如果是整数则去掉小数点后的.0
+        if value.is_integer():
+            return str(int(value))
+        return str(value)
+    return "N/A"
+
 def data_formatting(data_in_text):
     # Input: data in string form
     # Output: data in dictonary form
-    # Sample 1:
-    #   input: Scope 1 (direct): 65.50; ton CO2e. Scope 2 (indirect): 1,046.17; ton CO2e.
-    #   output: {"scope1_direct":"65.50", "scope2_indirect":"1046.17", "scope2_market_based":"N/A", "scope2_location_based":"N/A"}
-    # Sample 2:
-    #   input: Scope 1 (direct): 59; MT CO2e. Scope 2 (market-based): 10,854; MT CO2e. Scope 2 (location-based): 20,614; MT CO2e.
-    #   output: {"scope1_direct":"59", "scope2_indirect":"N/A", "scope2_market_based":"10854", "scope2_location_based":"20614"}
+
+    scope1_direct = re.search(r"Scope 1 \(direct\):\s*([^\n]+)", data_in_text).group(1).replace(",", "").strip()
+    scope1_direct_value = convert_unit(scope1_direct)
+    if scope1_direct_value == "N/A":
+        return ("null", "null", "null")
+
+    scope2_location_based = re.search(r"Scope 2 \(location-based\):\s*([^\n]+)", data_in_text).group(1).replace(",", "").strip()
+    scope2_location_based_value = convert_unit(scope2_location_based)
+    scope2_market_based = re.search(r"Scope 2 \(market-based\):\s*([^\n]+)", data_in_text).group(1).replace(",", "").strip()
+    scope2_market_based_value = convert_unit(scope2_market_based)
     
-    # Helper function to handle error if no data found, without returning None or throwing an exception
-    def safe_search(pattern, text, default="null"):
-        match = re.search(pattern, text)
-        return match.group(1).replace(",", "").strip() if match else default
-    
-    # Helper function to convert unit to MT
-    def convert_unit(value_and_unit):
-        if value_and_unit != "N/A":
-            value, unit = value_and_unit.split(";")
-            if "kg" in unit.strip().lower() or "kilogram" in unit.strip().lower():
-                value = float(value) / 1000  # Convert to MT
-                value = str(value)
-            return value
-        return "N/A"
-
-    # If the statistical mode of scope2 is indirect
-    if "indirect" in data_in_text:
-        scope1_direct = re.search(r"Scope 1 \(direct\):\s*([^\n]+)", data_in_text).group(1).replace(",", "").strip()
-        scope1_direct_value = convert_unit(scope1_direct)
-        scope2_indirect = re.search(r"Scope 2 \(indirect\):\s*([^\n]+)", data_in_text).group(1).replace(",", "").strip()
-        scope2_indirect_value = convert_unit(scope2_indirect)
-        scope2_market_based_value = "N/A"
-        scope2_location_based_value = "N/A"
-
-    # If the statistical mode of scope2 is market based and location based
-    elif "market" in data_in_text and "location" in data_in_text:
-        scope1_direct = re.search(r"Scope 1 \(direct\):\s*([^\n]+)", data_in_text).group(1).replace(",", "").strip()
-        scope1_direct_value = convert_unit(scope1_direct)
-        scope2_market_based = re.search(r"Scope 2 \(market-based\):\s*([^\n]+)", data_in_text).group(1).replace(",", "").strip()
-        scope2_market_based_value = convert_unit(scope2_market_based)
-        scope2_location_based = re.search(r"Scope 2 \(location-based\):\s*([^\n]+)", data_in_text).group(1).replace(",", "").strip()
-        scope2_location_based_value = convert_unit(scope2_location_based)
-        scope2_indirect_value = "N/A"
-    
-    else:
-        scope1_direct_value = scope2_indirect_value = scope2_market_based_value = scope2_location_based_value = "null"
-
-    # If all data are "N/A", means the previous steps have something wrong. Mark as "null".
-    if (scope1_direct_value == 'N/A' and scope2_indirect_value == 'N/A') or \
-       (scope1_direct_value == 'N/A' and scope2_market_based_value == 'N/A' and scope2_location_based_value == 'N/A' ):
-       scope1_direct_value = scope2_indirect_value = scope2_market_based_value = scope2_location_based_value = "null"
-
-    # Construct data
-    return {
-        "scope1_direct": scope1_direct_value,
-        "scope2_indirect": scope2_indirect_value,
-        "scope2_market_based": scope2_market_based_value,
-        "scope2_location_based": scope2_location_based_value
-    }
+    return (scope1_direct_value, scope2_location_based_value, scope2_market_based_value)
 
 
 # Test
 if __name__ == "__main__":
-
-    company_name = "MICROSOFT CORP"
+    
+    company_name = "APPLE"
     file_path = f"./reports/{company_name}.pdf"
-    print(f"Start Processing {company_name}...")
+    print(f"\n==========Start Processing {company_name}==========")
+    
+    #isin = find_ISIN_with_openfigi(company_name)
+    #print(f"\n-----isin for {company_name}----- \n {isin}")
 
-    isin = find_ISIN(company_name)
-    print(f"\n----------isin for {company_name}---------- \n {isin}")
-
-    company_details = find_company_details(company_name)
-    print(f"\n----------details for {company_name}---------- \n {company_details}")
+    #company_details = find_company_details(company_name)
+    #print(f"\n-----details for {company_name}----- \n {company_details}")
     
     pdf_text = extract_text_from_pdf(file_path)
-    print("\n----------pdf text----------\n", pdf_text[:100])
-
     data_in_text = find_data_in_text(company_name,pdf_text)
-    print("\n----------data in text----------\n", data_in_text)
+    print("\n-----data in text-------\n", data_in_text)
 
     emissions_data = data_formatting(data_in_text)
-    print("\n----------emissions deta----------\n", emissions_data)
+    print("\n-----data in dict-------\n", emissions_data)
+    '''
+
+    # 获取reports目录下所有PDF文件
+    reports_dir = "./reports"
+    pdf_files = [f for f in os.listdir(reports_dir) if f.endswith('.pdf')]
+    
+    for pdf_file in pdf_files:
+        # 从文件名获取公司名称
+        company_name = os.path.splitext(pdf_file)[0]
+        file_path = os.path.join(reports_dir, pdf_file)
+        print(f"\n==========Start Processing {company_name}==========")
+        pdf_text = extract_text_from_pdf(file_path)
+        data_in_text = find_data_in_text(company_name, pdf_text)
+        print("data in text:\n", data_in_text)
+
+        emissions_data = data_formatting(data_in_text)
+        print("data in dict:\n", emissions_data)
+    '''
