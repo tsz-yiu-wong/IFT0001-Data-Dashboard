@@ -1,0 +1,22 @@
+# 基础HTTP请求库
+requests
+urllib3
+
+# 网页爬虫相关
+selenium
+
+# 数据库相关
+mysql-connector-python
+
+# PDF处理
+PyPDF2
+pycryptodome
+
+# 环境变量管理
+python-dotenv
+
+# AI API相关
+openai
+
+# 其他工具库
+datetime 

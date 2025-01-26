@@ -3,6 +3,7 @@ import time
 import datetime
 import urllib.parse
 import threading
+from concurrent.futures import ThreadPoolExecutor, wait
 
 import requests
 import urllib3
@@ -372,19 +373,19 @@ def process_batch(batch_num):
 
     STATS['total_companies'] = len(companies_to_process)
     
-    '''
+    
     # 使用线程池并行处理
     with ThreadPoolExecutor(max_workers=3) as executor:
         futures = [
             executor.submit(process_company, company_name)
             for company_name in companies_to_process
         ]
-        concurrent.futures.wait(futures)
+        wait(futures)
     '''
     # 不使用线程
     for company_name in companies_to_process:
         process_company(company_name)
-    
+    '''
     # 关闭数据库连接池
     close_connection_pool()
     
@@ -416,32 +417,6 @@ if __name__ == "__main__":
     #process_company(company_name)
 
     # 正常批处理代码
-    batch_num = 3
-    process_batch(batch_num)
-
-    '''
-    # 测试特定网页
-    # 设置日志文件
-    os.makedirs('./logs', exist_ok=True)
-    LOG_FILENAME = './logs/crawler_test_log.txt'
-    
-    # 初始化统计数据
-    STATS = {
-        'total_companies': 1,
-        'direct_pdf_success': 0,
-        'webpage_pdf_success': 0,
-        'failed_companies': []
-    }
-    
-    # 创建reports目录（如果不存在）
-    os.makedirs('./reports', exist_ok=True)
-    
-    # 测试特定网页
-    driver = init_driver()
-    find_pdf_in_webpage(
-        "https://ri.ambev.com.br/en/reports-publications/annual-and-sustainability-report/",
-        driver, 
-        "AMBEV SA"
-    )
-    driver.quit()
-    '''
+    for i in range(10):
+        batch_num = 1
+        process_batch(batch_num)
