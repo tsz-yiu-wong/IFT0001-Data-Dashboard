@@ -62,8 +62,8 @@ def get_search_results(driver, company_name, search_url, search_query, max_trial
             # If not found, wait 2 seconds and retry
             time.sleep(2)
 
+        # If there is an error, and not reached max trials, wait 2 seconds and retry
         except Exception as e:
-            # If there is an error, and not reached max trials, wait 2 seconds and retry
             if trial < max_trials - 1:
                 time.sleep(2)
                 continue
@@ -113,8 +113,8 @@ def download_pdf(url, company_name, max_trials=3):
                     write_log(f"{company_name}: Valid PDF downloaded | URL: {url}")
                     return pdf_path
         
+        # If there is an error, and not reached max trials, wait 2 seconds and retry
         except Exception as e:
-            # If there is an error, and not reached max trials, wait 2 seconds and retry
             if trial < max_trials - 1:
                 time.sleep(2)
                 continue

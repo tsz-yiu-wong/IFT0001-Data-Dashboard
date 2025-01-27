@@ -1,22 +1,22 @@
-# 基础HTTP请求库
+# Basic HTTP request library
 requests
 urllib3
 
-# 网页爬虫相关
+# Web scraping related
 selenium
 
-# 数据库相关
+# Database related
 mysql-connector-python
 
-# PDF处理
+# PDF processing
 PyPDF2
 pycryptodome
 
-# 环境变量管理
+# Environment variable management
 python-dotenv
 
-# AI API相关
+# AI API related
 openai
 
-# 其他工具库
+# Other tool libraries
 datetime 
