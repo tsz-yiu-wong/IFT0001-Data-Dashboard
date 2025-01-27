@@ -1,309 +1,399 @@
+import os
+import time
+import datetime
+import urllib.parse
+import threading
+from concurrent.futures import ThreadPoolExecutor, wait
+
 import requests
-from bs4 import BeautifulSoup
-from urllib.parse import urljoin, urlparse
-import re
+import urllib3
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException
-import logging
-import time
-import urllib.parse
-import urllib3
 
+from standardization import extract_text_from_pdf, find_emissions_data
+from database import init_connection_pool, get_data, close_connection_pool
+
+# Disable warnings
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-class ReportCrawler:
-    def __init__(self):
-        # 设置日志
-        logging.basicConfig(level=logging.INFO)
-        self.logger = logging.getLogger(__name__)
-        
-        # 初始化 Selenium
-        options = webdriver.ChromeOptions()
-        options.add_argument('--headless')  # 无头模式
-        options.add_experimental_option('excludeSwitches', ['enable-logging'])  # 禁用日志
-        # 添加以下选项来抑制警告
-        options.add_argument('--disable-gpu')
-        options.add_argument('--no-sandbox')
-        options.add_argument('--disable-dev-shm-usage')
-        options.add_argument('--log-level=3')  # 只显示严重错误
-        options.add_argument('--silent')
-        # 禁用所有设备
-        options.add_argument('--disable-usb-devices')
-        options.add_argument('--disable-dev-tools')
-        
-        self.driver = webdriver.Chrome(options=options)
-        
-        # 更新请求头
-        self.headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-            'Accept-Language': 'en-US,en;q=0.5',
-            'DNT': '1',
-            'Connection': 'keep-alive',
-            'Upgrade-Insecure-Requests': '1'
-        }
+# Initialize global variables
+LOG_FILENAME = None
+STATS = None
 
-    def find_report_page_or_pdf(self, company_name):
-        """搜索公司最新的可持续发展报告，返回PDF链接或网页链接"""
-        # 首先尝试搜索PDF文件
-        search_query = f"{company_name} sustainability report 2023 pdf -responsibilityreports"
-        search_url = f"https://www.google.com/search?q={urllib.parse.quote(search_query)}"
-        
+# Helper Function: Write log
+def write_log(message):
+    """Write log with timestamp"""
+    timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    with open(LOG_FILENAME, 'a', encoding='utf-8') as f:
+        f.write(f"[{timestamp}] {message}\n")
+
+# Helper Function: Initialize Selenium WebDriver
+def init_driver():
+    """Initialize Selenium WebDriver"""
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')
+    options.add_experimental_option('excludeSwitches', ['enable-logging'])
+    options.add_argument('--disable-gpu')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--log-level=3')
+    options.add_argument('--disable-blink-features=AutomationControlled') 
+    options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36")
+    return webdriver.Chrome(options=options)
+
+# Helper Function: Get search results using selenium
+def get_search_results(driver, company_name, search_url, search_query, max_trials=3):
+    for trial in range(max_trials): # Try up to 3 times
         try:
-            # 移除 Accept-Encoding 头，让 requests 自动处理编码
-            headers = self.headers.copy()
-            if 'Accept-Encoding' in headers:
-                del headers['Accept-Encoding']
+            # Visit search page
+            driver.get(search_url)
+            wait = WebDriverWait(driver, 30)
             
-            response = requests.get(
-                search_url, 
-                headers=headers,
-                allow_redirects=True
+            # Wait for search results to load
+            search_results = wait.until(
+                EC.presence_of_all_elements_located(search_query)
             )
-            response.encoding = 'utf-8'  # 确保使用正确的编码
             
-            print("Response URL:", response.url)  # 打印最终URL，检查是否被重定向
-            
-            soup = BeautifulSoup(response.text, 'html.parser')
-            
-            # 尝试不同的选择器
-            search_results = soup.select('div.g')  # 更通用的选择器
-            if not search_results:
-                search_results = soup.select('div.yuRUbf')
-            if not search_results:
-                search_results = soup.find_all('div', attrs={'class': 'g'})
-            
-            print("Found results:", len(search_results))
-            
-            # 如果使用普通请求方式失败，尝试使用 Selenium
-            if len(search_results) == 0:
-                print("Trying with Selenium...")
-                self.driver.get(search_url)
-                time.sleep(3)  # 等待页面加载
-                page_source = self.driver.page_source
-                soup = BeautifulSoup(page_source, 'html.parser')
-                search_results = soup.select('div.g')
-                print("Selenium found results:", len(search_results))
-            
-            # 检查前两个链接是否为PDF
-            for i, result in enumerate(search_results[:2]):
-                link = result.find('a')
-                if link:
-                    url = link.get('href')
-                    print(url)
-                    if not url:
-                        continue
-                    url_lower = url.lower()
-                    # 修改PDF判断逻辑，考虑URL参数
-                    if '.pdf' in url_lower and url_lower.split('?')[0].endswith('.pdf'):
-                        return {'type': 'pdf', 'url': url}
+            # Check if search results are retrieved successfully
+            if search_results:
+                return search_results
+            # If not found, wait 2 seconds and retry
+            time.sleep(2)
 
-            print("No PDF found, searching for sustainability page...")
-            
-            # 如果没有找到PDF，尝试搜索一般的可持续发展信息
-            search_query = f"{company_name} sustainability report -responsibilityreports"
-            search_url = f"https://www.google.com/search?q={urllib.parse.quote(search_query)}"
-            print("search_url", search_url)
-            
-            response = requests.get(
-                search_url, 
-                headers=headers,
-                allow_redirects=True
-            )
-            response.encoding = 'utf-8'
-            
-            soup = BeautifulSoup(response.text, 'html.parser')
-            search_results = soup.select('div.g')
-            print("Found results:", len(search_results))
-            if not search_results:
-                search_results = soup.select('div.yuRUbf')
-            if not search_results:
-                search_results = soup.find_all('div', attrs={'class': 'g'})
-            
-            if len(search_results) == 0:
-                self.driver.get(search_url)
-                time.sleep(3)
-                page_source = self.driver.page_source
-                soup = BeautifulSoup(page_source, 'html.parser')
-                search_results = soup.select('div.g')
-            
-            for result in search_results:
-                link = result.find('a')
-                if link:
-                    url = link.get('href')
-                    print(url)
-                    if not url:
-                        continue
-                    url_lower = url.lower()
-                    # 同样修改这里的PDF判断逻辑
-                    if '.pdf' in url_lower and url_lower.split('?')[0].endswith('.pdf'):
-                        return {'type': 'pdf', 'url': url}
-                    # 如果是网页链接，返回用于进一步搜索
-                    else:
-                        return {'type': 'webpage', 'url': url}
-            
-            return None
         except Exception as e:
-            self.logger.error(f"搜索报告失败: {str(e)}")
-            return None
-
-    def find_pdf_link(self, url):
-        """在页面中查找PDF下载链接"""
-        max_retries = 3
-        for attempt in range(max_retries):
-            try:
-                self.driver.get(url)
-                wait = WebDriverWait(self.driver, 15)
-                
-                # 等待页面加载完成
-                wait.until(EC.presence_of_element_located((By.TAG_NAME, "body")))
-                time.sleep(3)
-                
-                # 尝试滚动页面以加载更多内容
-                self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            # If there is an error, and not reached max trials, wait 2 seconds and retry
+            if trial < max_trials - 1:
                 time.sleep(2)
-                
-                # 获取页面上所有链接
-                links = self.driver.find_elements(By.TAG_NAME, "a")
-                print(f"Found {len(links)} links on attempt {attempt + 1}")
-                
-                for link in links:
-                    try:
-                        href = link.get_attribute('href')
-                        if not href:
-                            continue
-                        
-                        href = href.lower()
-                        # 修改PDF判断逻辑
-                        if '.pdf' in href and href.split('?')[0].endswith('.pdf') and \
-                           any(keyword in href for keyword in ['2023', 'sustainability', 'esg', 'impact']):
-                            print(f"Found PDF link: {href}")
-                            return href
-                            
-                    except Exception as e:
-                        print(f"Error processing link: {e}")
-                        continue
-
-                if attempt < max_retries - 1:
-                    print(f"Retry attempt {attempt + 1} failed, trying again...")
-                    time.sleep(2)
-                else:
-                    print("All retry attempts failed")
-                    return None
-
-            except Exception as e:
-                self.logger.error(f"查找PDF链接时出错 (attempt {attempt + 1}): {str(e)}")
-                if attempt < max_retries - 1:
-                    time.sleep(2)
-                    continue
-                return None
-
-        return None
-
-    def download_report(self, url, company_name):
-        """下载报告"""
-        max_retries = 3
-        for attempt in range(max_retries):
-            try:
-                # 添加更多的请求头，模拟真实浏览器
-                headers = {
-                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-                    'Accept': 'application/pdf,application/x-pdf',
-                    'Accept-Language': 'en-US,en;q=0.9',
-                    'Connection': 'keep-alive',
-                    'Referer': url
-                }
-                
-                # 设置较长的超时时间
-                response = requests.get(url, headers=headers)
-                
-                if response.status_code == 200:
-                    filename = f"{company_name}_sustainability_report_2023.pdf"
-                    with open(filename, 'wb') as f:
-                        for chunk in response.iter_content(chunk_size=8192):
-                            if chunk:
-                                f.write(chunk)
-                    return filename
-                    
-            except Exception as e:
-                self.logger.error(f"下载报告失败 (attempt {attempt + 1}): {str(e)}")
-                if attempt < max_retries - 1:
-                    time.sleep(5)  # 失败后等待5秒再重试
-                    continue
-                
-        return None
-
-    def crawl(self, company_name):
-        """主要爬虫流程"""
-        try:
-            # 1. 搜索报告页面或PDF
-            result = self.find_report_page_or_pdf(company_name)
-            if not result:
-                self.logger.error(f"无法找到 {company_name} 的报告")
-                return None
-
-            # 2. 如果直接找到PDF，直接下载
-            if result['type'] == 'pdf':
-                return self.download_report(result['url'], company_name)
-            
-            # 3. 如果是网页，在页面中查找PDF链接
-            pdf_link = self.find_pdf_link(result['url'])
-            if not pdf_link:
-                self.logger.error(f"无法找到PDF下载链接")
-                return None
-
-            # 4. 下载报告
-            return self.download_report(pdf_link, company_name)
-
-        except Exception as e:
-            self.logger.error(f"爬取过程出错: {str(e)}")
+                continue
+            # If reached max trials, write log and return None
+            write_log(f"{company_name}: Failed to get search results after {max_trials} attempts: {str(e)}")
             return None
+        
+    # If all attempts failed, return None
+    return None
 
-        finally:
-            self.driver.quit()
+# Helper Function: Download PDF file (including verify whether content contains scope 1 or scope 2)
+def download_pdf(url, company_name, max_trials=3):
+    
+    # Check if URL is PDF
+    if 'pdf' not in url:
+        write_log(f"{company_name}: Is not a PDF URL | URL: {url}")
+        return None
+    
+    # Set download request headers
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+        'Accept': 'application/pdf'
+    }
+
+    # Create PDF file path
+    pdf_path = f"./reports/{company_name}.pdf"
+
+    for trial in range(max_trials): # Try up to 3 times
+        try:
+            # Send request
+            response = requests.get(url, headers=headers, verify=False, timeout=30)
+            
+            # If request successful, process PDF file
+            if response.status_code == 200:
+                with open(pdf_path, 'wb') as f:
+                    f.write(response.content)
+                
+                # Check if PDF content contains scope 1 or scope 2
+                text = extract_text_from_pdf(pdf_path)
+
+                if text == None or text == "":
+                    write_log(f"{company_name}: PDF content does not contain 'scope 1' or 'scope 2' | URL: {url}")
+                    if os.path.exists(pdf_path):
+                        os.remove(pdf_path)
+                    return None
+                else:
+                    write_log(f"{company_name}: Valid PDF downloaded | URL: {url}")
+                    return pdf_path
+        
+        except Exception as e:
+            # If there is an error, and not reached max trials, wait 2 seconds and retry
+            if trial < max_trials - 1:
+                time.sleep(2)
+                continue
+            # If reached max trials, delete PDF file
+            if os.path.exists(pdf_path):
+                os.remove(pdf_path)
+            write_log(f"{company_name}: PDF Processing Error | Error: {e} | URL: {url}")
+            return None
+    
+    write_log(f"{company_name}: Failed to download PDF after {max_trials} attempts | URL: {url}")
+    if os.path.exists(pdf_path):
+        os.remove(pdf_path)
+    return None
+
+
+# Step 1: Try to search PDF directly in Bing
+def search_pdf_in_bing(company_name, driver):
+    
+    # Search query
+    search_query = f"{company_name} sustainability report 2024 pdf -responsibilityreports"
+    search_url = f"https://www.bing.com/search?q={urllib.parse.quote(search_query)}&first=1&form=QBRE"
+    write_log(f"{company_name}: Searching PDF in Bing | URL: {search_url}")
+
+    # Call helper function to get search results
+    search_query = (By.CSS_SELECTOR, '.b_algo h2 a')
+    search_results = get_search_results(driver, company_name, search_url, search_query)
+    
+    if not search_results:
+        write_log(f"{company_name}: No Search Results Found | URL: {search_url}")
+        return None
+
+    # Extract PDF links from search results
+    pdf_links = []
+    for result in search_results:
+        url = result.get_attribute('href').lower()
+        if url and '.pdf' in url:
+            pdf_links.append(url)   
+
+    if not pdf_links:
+        write_log(f"{company_name}: No PDF Links Found in Search Results | URL: {search_url}")
+        return None
+
+    # Try to download PDF (only pdf content contains scope 1 or scope 2 will be downloaded)
+    for pdf in pdf_links:
+        pdf_path = download_pdf(pdf, company_name)
+        if pdf_path:
+            return pdf_path
+        
+    write_log(f"{company_name}: No Valid PDF Found in Search Results")
+    return None
+
+
+# Step 2: If PDF not found directly in Bing, search company's sustainability website
+def search_webpage_in_bing(company_name, driver):
+    
+    # Search query
+    search_query = f"{company_name} sustainability report -responsibilityreports"
+    search_url = f"https://www.bing.com/search?q={urllib.parse.quote(search_query)}&first=1&form=QBRE"
+    write_log(f"{company_name}: Searching Webpage in Bing | URL: {search_url}")
+        
+    # Call helper function to get search results
+    search_query = (By.CSS_SELECTOR, '.b_algo h2 a')
+    search_results = get_search_results(driver, company_name, search_url, search_query)
+
+    if not search_results:
+        write_log(f"{company_name}: No Search Results Found | URL: {search_url}")
+        return None
+    
+    # Extract first 3 non-PDF webpage links from search results
+    url_list = []
+    count = 0
+    for result in search_results:
+        if count >= 3:
+            break
+        try:
+            url = result.get_attribute('href')
+            if url and '.pdf' not in url.lower(): # Only non-PDF links will be added
+                url_list.append(url)
+                count += 1
+        except Exception as e:
+            write_log(f"{company_name}: Error getting URL from search result: {str(e)}")
+            continue
+
+    if not url_list:
+        write_log(f"{company_name}: No Valid URL Found in Search Results")
+        return None
+            
+    return url_list
+
+
+# Step 3: Find PDF links in company's sustainability website
+def find_pdf_in_webpage(url, driver, company_name):
+
+    write_log(f"{company_name}: Searching PDF in Webpage | URL: {url}")
+
+    # Call helper function to get search results
+    search_query = (By.TAG_NAME, "a")
+    search_results = get_search_results(driver, company_name, url, search_query)
+    if not search_results:
+        write_log(f"{company_name}: No Search Results Found | URL: {url}")
+        return None
+    
+    # Extract PDF links from search results
+    pdf_links = []
+    for result in search_results:
+        try:
+            # Get href attribute of link
+            href = result.get_attribute('href')
+            if not href:  # Skip if href is None or empty string
+                continue
+            # Check if link is PDF
+            is_pdf = ('.pdf' in href.lower())
+
+            # Check if link text contains keywords
+            text = result.text.lower()
+            keywords = ['report', 'esg', 'sustainability', 'impact', 'environment', 'green', 'carbon', 'emissions']
+            has_keywords = any(keyword in text for keyword in keywords)
+            
+            # Check if it's PDF and contains keywords
+            if is_pdf and has_keywords and (href not in pdf_links):
+                pdf_links.append(href)
+                
+        except Exception as e:
+            # If element is stale, continue to next one
+            continue
+    write_log(f"{company_name}: Found {len(pdf_links)} PDF on webpage.")
+
+    if not pdf_links:
+        return None
+
+    # Download and check first 10 PDFs
+    for pdf in pdf_links[:10]:
+        pdf_path = download_pdf(pdf, company_name)
+        if pdf_path:
+            return pdf_path
+    
+    write_log(f"{company_name}: No Valid PDF Found in Webpage")
+    return None
+        
+# Process single company
+def process_company(company_name):
+    print(f"Processing {company_name}...")
+    driver = init_driver()
+    
+    # 1. Search PDF directly
+    pdf_url = search_pdf_in_bing(company_name, driver)
+    if pdf_url:
+        with threading.Lock():  # Use lock to protect shared resource access
+            STATS['direct_pdf_success'] += 1
+        driver.quit()
+        return
+    
+    # 2. If PDF not found, search webpage
+    webpage_url_list = search_webpage_in_bing(company_name, driver)
+    if webpage_url_list:
+        for url in webpage_url_list:
+            pdf_url = find_pdf_in_webpage(url, driver, company_name)
+            if pdf_url: 
+                with threading.Lock():  # Use lock to protect shared resource access
+                    STATS['webpage_pdf_success'] += 1
+                driver.quit()
+                return
+    
+    # If all methods failed
+    with threading.Lock():  # Use lock to protect shared resource access
+        STATS['failed_companies'].append(company_name)
+    driver.quit()
+
+# Process a batch of companies
+def process_batch(batch_num):
+    print(f"\nStarting Batch {batch_num}...")
+    
+    # Initialize global statistics
+    global STATS
+    STATS = {
+        'total_companies': 0,
+        'direct_pdf_success': 0,
+        'webpage_pdf_success': 0,
+        'failed_companies': []
+    }
+    
+    # Create logs directory (if not exists)
+    os.makedirs('./logs', exist_ok=True)
+    
+    # Set global log filename
+    global LOG_FILENAME
+    LOG_FILENAME = f'./logs/crawler_batch{batch_num}_log.txt'
+    summary_filename = f'./logs/crawler_batch{batch_num}_summary.txt'
+    
+    # Initialize database connection
+    init_connection_pool()
+    
+    # Get company list from database
+    query = "SELECT company_name FROM emissions_data_2336"
+    companies = get_data(query)
+    
+    '''
+    # Set test batch
+    batch_companies = [
+        company['company_name'] 
+        for i, company in enumerate(companies) 
+        if (i > 80) and (i < 120)  # Only take first 20 companies
+    ]
+    '''
+    # Get company list for corresponding batch
+    batch_companies = [
+        company['company_name'] 
+        for i, company in enumerate(companies) 
+        if i % 10 == (batch_num - 1)
+    ]
+    
+    # Get list of existing PDF files
+    existing_pdfs = {
+        os.path.splitext(f)[0] 
+        for f in os.listdir('./reports') 
+        if f.endswith('.pdf')
+    }
+    # Filter out companies that already have PDFs
+    companies_to_process = [
+        company_name 
+        for company_name in batch_companies 
+        if company_name not in existing_pdfs
+    ]
+
+    # Add start delimiter to log
+    with open(LOG_FILENAME, 'a', encoding='utf-8') as f:
+        start_time = datetime.datetime.now()
+        f.write("="*50 + "\n")
+        f.write(f"Start Time: {start_time.strftime('%Y-%m-%d %H:%M:%S')}\n")
+        f.write("="*50 + "\n")
+
+    STATS['total_companies'] = len(companies_to_process)
+    
+    
+    # Use ThreadPoolExecutor for parallel processing
+    with ThreadPoolExecutor(max_workers=3) as executor:
+        futures = [
+            executor.submit(process_company, company_name)
+            for company_name in companies_to_process
+        ]
+        wait(futures)
+    '''
+    # Without using threads
+    for company_name in companies_to_process:
+        process_company(company_name)
+    '''
+    
+    #close database connection pool
+    close_connection_pool()
+    
+    # Generate summary report
+    with open(summary_filename, 'a', encoding='utf-8') as f:
+        f.write("="*50 + "\n")
+        f.write(f"Crawler Summary Report - Batch {batch_num}\n")
+        f.write(f"Total Companies: {STATS['total_companies']}\n")
+        f.write(f"Direct PDF Search Success: {STATS['direct_pdf_success']}\n")
+        f.write(f"Webpage PDF Search Success: {STATS['webpage_pdf_success']}\n")
+        f.write(f"Failed Companies: {len(STATS['failed_companies'])}\n")
+        f.write("\nList of Failed Companies:\n")
+        for company in STATS['failed_companies']:
+            f.write(f"- {company}\n")
+        f.write("\n" + "="*50 + "\n")
+    
+    # Add end delimiter to log
+    with open(LOG_FILENAME, 'a', encoding='utf-8') as f:
+        end_time = datetime.datetime.now()
+        f.write("="*50 + "\n")
+        f.write(f"End Time: {end_time.strftime('%Y-%m-%d %H:%M:%S')}\n")
+        f.write("="*50 + "\n")
+    
+    print(f"Batch {batch_num} completed")
 
 if __name__ == "__main__":
-    '''
+    # Test single company
+    #company_name = "APPLE"
+    #process_company(company_name)
 
-SALESFORCE: 逆子 下载按钮放在了shadow root里 纯畜
-SEB: 逆子 下载按钮是一个跳转链接 纯畜
-DIASORIN:    逆子 把数据放4页的Carbon Reduction Plan里 纯畜
-
-BCE INC: 会下到summary report
-
-ZURICH INSURANCE GROUP: bug fixed
-F5	bug fixed (responsiblity report提供了一个垃圾report然后被爬了)
-'''
-    
-    crawler = ReportCrawler()
-    company_name = "SWATCH GROUP NAM"
-    result = crawler.crawl(company_name)
-    
-    if result:
-        print(f"报告已下载: {result}")
-    else:
-        print("未能找到或下载报告")
-    '''
-    # 读取公司列表文件
-    with open('1410_test_list.txt', 'r', encoding='utf-8') as file:
-        # 处理每一行
-        for line in file:
-            # 提取公司名（从行首到第一个制表符）
-            company_name = line.split('\t')[0].strip()
-            if not company_name:  # 跳过空行
-                continue
-                
-            print(f"\n正在处理公司: {company_name}")
-            
-            # 创建新的爬虫实例（因为每次都会在finally中关闭driver）
-            crawler = ReportCrawler()
-            result = crawler.crawl(company_name)
-            
-            if result:
-                print(f"报告已下载: {result}")
-            else:
-                print(f"未能找到或下载 {company_name} 的报告")
-    '''
+    # Batch processing
+    for i in range(8): # each batch try 8 times
+        for j in range(10): # total 10 batches
+            batch_num = j + 1
+            process_batch(batch_num)
