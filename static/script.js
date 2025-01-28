@@ -3,7 +3,7 @@
 /****************************************************/
 
 // Database and Query Related
-const table_name = "web_test";
+const table_name = "emissions_data";
 const basic_query = `SELECT * from ${table_name}`;
 let query = basic_query;
 
@@ -33,7 +33,8 @@ const sectorSelect = document.getElementById('sector-select');
 const regionSelect = document.getElementById('region-select');
 const countrySelect = document.getElementById('country-select');
 const scope1 = document.getElementById('scope1');
-const scope2 = document.getElementById('scope2');
+const scope2_location = document.getElementById('scope2_location');
+const scope2_market = document.getElementById('scope2_market');
 const dataTableBody = document.getElementById('data-table-body');
 const downloadBtn = document.querySelector('#download-btn');
 const dropdowns = document.querySelectorAll('.dropdown');
@@ -60,7 +61,7 @@ async function loadFilters() {
         const filters = await response.json();
         updateSelectOptions(sectorSelect, filters.sectors, 'All Sectors');
         updateSelectOptions(regionSelect, filters.regions, 'All Regions');
-        updateSelectOptions(countrySelect, filters.countries, 'All Countries');
+        updateSelectOptions(countrySelect, filters.countries, 'All Countries/Regions');
     } catch (error) {
         console.error('Error loading filters:', error);
     }
@@ -91,8 +92,8 @@ async function loadPageData() {
         }
         
         if (filters.sector !== 'all') conditions.push(`sector = '${filters.sector}'`);
-        if (filters.region !== 'all') conditions.push(`region = '${filters.region}'`);
-        if (filters.country !== 'all') conditions.push(`country = '${filters.country}'`);
+        if (filters.region !== 'all') conditions.push(`area = '${filters.region}'`);
+        if (filters.country !== 'all') conditions.push(`country_region = '${filters.country}'`);
         
         query = basic_query;
         if (conditions.length > 0) {
@@ -142,10 +143,11 @@ function updateTable(items) {
             <tr>
                 <td title="${item.company_name !== null ? item.company_name : 'None'}">${item.company_name !== null ? item.company_name : 'None'}</td>
                 <td title="${item.sector !== null ? item.sector : 'None'}">${item.sector !== null ? item.sector : 'None'}</td>
-                <td title="${item.region !== null ? item.region : 'None'}">${item.region !== null ? item.region : 'None'}</td>
-                <td title="${item.country !== null ? item.country : 'None'}">${item.country !== null ? item.country : 'None'}</td>
-                <td title="${item.scope1_direct !== null ? parseFloat(item.scope1_direct) : 'None'}">${item.scope1_direct !== null ? parseFloat(item.scope1_direct) : 'None'}</td> 
-                <td title="${item.scope2_indirect !== null ? parseFloat(item.scope2_indirect) : 'None'}">${item.scope2_indirect !== null ? parseFloat(item.scope2_indirect) : 'None'}</td>   
+                <td title="${item.area !== null ? item.area : 'None'}">${item.area !== null ? item.area : 'None'}</td>
+                <td title="${item.country_region !== null ? item.country_region : 'None'}">${item.country_region !== null ? item.country_region : 'None'}</td>
+                <td title="${item.scope1_direct !== null ? parseFloat(item.scope1_direct) : 'None'}">${item.scope1_direct !== null ? parseFloat(item.scope1_direct) : 'None'}</td>
+                <td title="${item.scope2_location !== null ? parseFloat(item.scope2_location) : 'None'}">${item.scope2_location !== null ? parseFloat(item.scope2_location) : 'None'}</td>
+                <td title="${item.scope2_market !== null ? parseFloat(item.scope2_market) : 'None'}">${item.scope2_market !== null ? parseFloat(item.scope2_market) : 'None'}</td>
             </tr>
         `;
         dataTableBody.insertAdjacentHTML('beforeend', row);
@@ -179,7 +181,7 @@ function updateCountryOptions(region) {
     countrySelect.innerHTML = '';
     const allCountriesOption = document.createElement('option');
     allCountriesOption.value = 'all';
-    allCountriesOption.textContent = 'All Countries';
+    allCountriesOption.textContent = 'All Countries/Regions';
     countrySelect.appendChild(allCountriesOption);
 
     if (region !== 'all') {
@@ -213,8 +215,8 @@ async function applyFilters() {
     }
 
     if (filters.sector !== 'all') conditions.push(`sector = '${filters.sector}'`);
-    if (filters.region !== 'all') conditions.push(`region = '${filters.region}'`);
-    if (filters.country !== 'all') conditions.push(`country = '${filters.country}'`);
+    if (filters.region !== 'all') conditions.push(`area = '${filters.region}'`);
+    if (filters.country !== 'all') conditions.push(`country_region = '${filters.country}'`);
     
     query = basic_query;
     if (conditions.length > 0) {
@@ -332,21 +334,38 @@ scope1.addEventListener('click', () => {
         sortBy = 'scope1_direct';
         sortOrder = 'DESC';
         scope1.textContent = 'Scope1 ▼';
-        scope2.textContent = 'Scope2';
+        scope2_location.textContent = 'Scope2-Location';
+        scope2_market.textContent = 'Scope2-Market';
     }
     currentPage = 1;
     applyFilters();
 });
 
-scope2.addEventListener('click', () => {
-    if (sortBy === 'scope2_indirect') {
+scope2_location.addEventListener('click', () => {
+    if (sortBy === 'scope2_location') {
         sortOrder = sortOrder === 'ASC' ? 'DESC' : 'ASC';
-        scope2.textContent = `Scope2 ${sortOrder === 'ASC' ? '▲' : '▼'}`;
+        scope2_location.textContent = `Scope2-Location ${sortOrder === 'ASC' ? '▲' : '▼'}`;
     } else {
-        sortBy = 'scope2_indirect';
+        sortBy = 'scope2_location';
         sortOrder = 'DESC';
-        scope2.textContent = 'Scope2 ▼';
+        scope2_location.textContent = 'Scope2-Location ▼';
         scope1.textContent = 'Scope1';
+        scope2_market.textContent = 'Scope2-Market';
+    }
+    currentPage = 1;
+    applyFilters();
+});
+
+scope2_market.addEventListener('click', () => {
+    if (sortBy === 'scope2_market') {
+        sortOrder = sortOrder === 'ASC' ? 'DESC' : 'ASC';
+        scope2_market.textContent = `Scope2-Market ${sortOrder === 'ASC' ? '▲' : '▼'}`;
+    } else {
+        sortBy = 'scope2_market';
+        sortOrder = 'DESC';
+        scope2_market.textContent = 'Scope2-Market ▼';
+        scope1.textContent = 'Scope1';
+        scope2_location.textContent = 'Scope2-Location';
     }
     currentPage = 1;
     applyFilters();
@@ -357,7 +376,8 @@ function resetSortConditions() {
     sortBy = null;
     sortOrder = null;
     scope1.textContent = 'Scope1';
-    scope2.textContent = 'Scope2';
+    scope2_location.textContent = 'Scope2-Location';
+    scope2_market.textContent = 'Scope2-Market';
 }
 
 
@@ -375,8 +395,8 @@ downloadBtn.addEventListener('click', async () => {
         
         // 添加筛选条件
         if (filters.sector !== 'all') conditions.push(`sector = '${filters.sector}'`);
-        if (filters.region !== 'all') conditions.push(`region = '${filters.region}'`);
-        if (filters.country !== 'all') conditions.push(`country = '${filters.country}'`);
+        if (filters.region !== 'all') conditions.push(`area = '${filters.region}'`);
+        if (filters.country !== 'all') conditions.push(`country_region = '${filters.country}'`);
         
         if (conditions.length > 0) {
             downloadQuery += ` WHERE ${conditions.join(' AND ')}`;

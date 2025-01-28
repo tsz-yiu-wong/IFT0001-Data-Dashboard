@@ -119,34 +119,24 @@ th {
     letter-spacing: -0.2px;
 }
 
-/* 列宽设置 */
+/* 修改列宽设置 */
 th:nth-child(1) { /* Company Name */
-     width: 18%;
+     width: 13%;
 }
 th:nth-child(2) {  /* Sector */
-    width: 15%;
+    width: 14%;
 }
 th:nth-child(3) {  /* Region */
-    width: 10%; 
+    width: 14%; 
 }
 th:nth-child(4) {  /* Country */
-    width: 7%; 
+    width: 14%; 
 }
 th:nth-child(5),
-th:nth-child(6) {  /* Scope1 & Scope2 */
-    width: 25%; 
+th:nth-child(6),
+th:nth-child(7) {  /* Scope1, Scope2-Location & Scope2-Market */
+    width: 15%; 
     text-align: center;
-    font-weight: 600;  /* 加粗 */
-    cursor: pointer;  /* 显示可点击状态 */
-}
-
-/* 数值列表头样式 */
-th:nth-child(5),
-th:nth-child(6) {  /* Scope1 & Scope2 */
-    width: 25%; 
-    text-align: center;
-    font-size: 16px;
-    font-weight: 1000;  /* 加粗 */
     cursor: pointer;  /* 显示可点击状态 */
 }
 
@@ -171,9 +161,10 @@ td {
 /* 单元格对齐和内边距 */
  /* 筛选项列 */
 td:nth-child(5),
-td:nth-child(6) {  /* 数值列 */
+td:nth-child(6),
+td:nth-child(7) {  /* 数值列 */
     text-align: center;
-} 
+}
 
 /* 分隔线样式 */
 /*
@@ -214,7 +205,7 @@ td:hover::after {
     font-size: 14px;
     width: 100%;
     height: 100%;  /* 填充整个表头单元格 */
-    padding: 15px 13px 15px 10px;  /* 恢复表头的内边距 */
+    padding: 15px 10px 15px 20px;  /* 修改内边距，为左侧箭头留出空间 */
     border: none;
     background-color: transparent;
     cursor: pointer;
@@ -228,7 +219,7 @@ td:hover::after {
 th:has(.dropdown)::after {
     content: "▼";
     position: absolute;
-    right: 7px;
+    left: 7px;  /* 改为left */
     top: 50%;
     transform: translateY(-50%);
     font-size: 12px;
@@ -238,7 +229,7 @@ th:has(.dropdown)::after {
 
 /* 下拉菜单展开时箭头向上 */
 th.dropdown-open::after {
-    transform: translateY(-50%) rotate(180deg);
+    transform: translateY(-50%) rotate(180deg);  /* 只旋转，不改变位置 */
 }
 
 /****************************************************/

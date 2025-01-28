@@ -23,8 +23,8 @@ def home():
 def get_all_data():
     # 定义列的顺序
     columns = [
-        'company_name', 'isin', 'sector', 'region', 'country',
-        'scope1_direct', 'scope2_indirect', 'scope2_market_based', 'scope2_location_based'
+        'company_name', 'isin', 'sector', 'area', 'country_region',
+        'is_fiscal_year', 'scope1_direct', 'scope2_location', 'scope2_market', 'scope1_and_2'
     ]
     
     # 使用指定的列顺序获取数据
@@ -68,13 +68,13 @@ def get_data():
 
 @app.route('/get_filters', methods=['GET'])
 def get_filters():
-    sectors_query = "SELECT DISTINCT sector FROM web_test"
-    regions_query = "SELECT DISTINCT region FROM web_test"
-    countries_query = "SELECT DISTINCT country FROM web_test"
+    sectors_query = "SELECT DISTINCT sector FROM emissions_data ORDER BY sector"
+    regions_query = "SELECT DISTINCT area FROM emissions_data ORDER BY area"
+    countries_query = "SELECT DISTINCT country_region FROM emissions_data ORDER BY country_region"
 
     sectors = [row['sector'] for row in db.get_data(sectors_query)]
-    regions = [row['region'] for row in db.get_data(regions_query)]
-    countries = [row['country'] for row in db.get_data(countries_query)]
+    regions = [row['area'] for row in db.get_data(regions_query)]
+    countries = [row['country_region'] for row in db.get_data(countries_query)]
 
     return jsonify({
         "sectors": sectors,
@@ -84,16 +84,20 @@ def get_filters():
 
 @app.route('/get_region_country_map', methods=['GET'])
 def get_region_country_map():
-    query = "SELECT DISTINCT region, country FROM web_test"
+    query = "SELECT DISTINCT area, country_region FROM emissions_data ORDER BY area, country_region"
     data = db.get_data(query)
 
     region_country_map = {}
     for row in data:
-        region = row['region']
-        country = row['country']
+        region = row['area']
+        country = row['country_region']
         if region not in region_country_map:
             region_country_map[region] = []
         region_country_map[region].append(country)
+
+    # 确保每个区域下的国家/地区也是排序的
+    for region in region_country_map:
+        region_country_map[region].sort()
 
     return jsonify(region_country_map)
 
