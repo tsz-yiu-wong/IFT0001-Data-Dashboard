@@ -1,0 +1,520 @@
+==================================================
+Start Time: 2025-01-24 14:12:34
+==================================================
+[2025-01-24 14:12:36] ALFA LAVAL: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALFA%20LAVAL%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:12:39] ALFA LAVAL: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://www.alfalaval.com/globalassets/documents/investors/english/quarterly-publications/2024/2024-q1-presentation.pdf
+[2025-01-24 14:12:41] ALFA LAVAL: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://www.alfalaval.com/globalassets/documents/investors/english/quarterly-publications/2024/2024-q2-presentation.pdf
+[2025-01-24 14:12:41] ALFA LAVAL: No Valid PDF Found in Search Results
+[2025-01-24 14:12:41] ALFA LAVAL: Searching Webpage in Bing | URL: https://www.bing.com/search?q=ALFA%20LAVAL%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:12:42] ALFA LAVAL: Searching PDF in Webpage | URL: https://www.alfalaval.com/about-us/sustainability/a-matter-of-trust/sustainability-reports/
+[2025-01-24 14:13:12] ALFA LAVAL: Found 21 PDF on webpage.
+[2025-01-24 14:13:22] ALFA LAVAL: Valid PDF downloaded | URL: https://www.alfalaval.com/globalassets/documents/investors/english/annual-reports/2023/annual-report-2023.pdf
+[2025-01-24 14:13:26] ALIBABA GROUP HOLDING LTD: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALIBABA%20GROUP%20HOLDING%20LTD%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:13:27] ALIBABA GROUP HOLDING LTD: No PDF Links Found in Search Results | URL: https://www.bing.com/search?q=ALIBABA%20GROUP%20HOLDING%20LTD%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:13:27] ALIBABA GROUP HOLDING LTD: Searching Webpage in Bing | URL: https://www.bing.com/search?q=ALIBABA%20GROUP%20HOLDING%20LTD%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:13:29] ALIBABA GROUP HOLDING LTD: Searching PDF in Webpage | URL: https://www.alibabagroup.com/en-US/document-1620276223567462400
+==================================================
+Start Time: 2025-01-24 14:14:05
+==================================================
+[2025-01-24 14:14:07] ALIBABA GROUP HOLDING LTD: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALIBABA%20GROUP%20HOLDING%20LTD%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:14:08] ALIGN TECHNOLOGY INC: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALIGN%20TECHNOLOGY%20INC%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:14:08] ALIBABA HEALTH INFORMATION TECH LT: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALIBABA%20HEALTH%20INFORMATION%20TECH%20LT%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:14:10] ALIBABA GROUP HOLDING LTD: No PDF Links Found in Search Results | URL: https://www.bing.com/search?q=ALIBABA%20GROUP%20HOLDING%20LTD%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:14:10] ALIBABA GROUP HOLDING LTD: Searching Webpage in Bing | URL: https://www.bing.com/search?q=ALIBABA%20GROUP%20HOLDING%20LTD%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:14:10] ALIBABA HEALTH INFORMATION TECH LT: Failed to download PDF after 3 attempts | URL: http://static.cninfo.com.cn/finalpage/2024-07-30/1220754940.pdf
+[2025-01-24 14:14:11] ALIGN TECHNOLOGY INC: Failed to download PDF after 3 attempts | URL: https://www.aligntech.com/documents/align%202023%20sustainability%20report%20(v1%20june%2024%202024)_final%20-%20signed%20sb%20ks%20jt%201.pdf
+[2025-01-24 14:14:12] ALIBABA HEALTH INFORMATION TECH LT: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://www1.hkexnews.hk/listedco/listconews/sehk/2024/0730/2024073000876.pdf
+[2025-01-24 14:14:13] ALIBABA GROUP HOLDING LTD: Searching PDF in Webpage | URL: https://www.alibabagroup.com/en-US/document-1620276223567462400
+[2025-01-24 14:14:20] ALIBABA HEALTH INFORMATION TECH LT: Valid PDF downloaded | URL: https://www1.hkexnews.hk/listedco/listconews/sehk/2023/0713/2023071300434.pdf
+[2025-01-24 14:14:25] ALIMENTATION COUCHE TARD INC: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALIMENTATION%20COUCHE%20TARD%20INC%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:14:27] ALIMENTATION COUCHE TARD INC: Failed to download PDF after 3 attempts | URL: https://filecache.investorroom.com/mr5ircnw_alimentationcouchetard/403/act_sustainability_report_2024.pdf
+[2025-01-24 14:14:28] ALIMENTATION COUCHE TARD INC: Failed to download PDF after 3 attempts | URL: https://www.circlek.dk/media-assets/uploads/2024-09/sustainability%20report%202023-24_0.pdf
+[2025-01-24 14:14:35] ALIMENTATION COUCHE TARD INC: Failed to download PDF after 3 attempts | URL: https://corpo.couche-tard.com/wp-content/uploads/2024/07/act_gri_index_en_20240702.pdf
+[2025-01-24 14:14:40] ALIGN TECHNOLOGY INC: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://stocklight.com/stocks/us/nasdaq-algn/align-technology/annual-reports/nasdaq-algn-2024-10k-24696834.pdf
+[2025-01-24 14:14:40] ALIMENTATION COUCHE TARD INC: Failed to download PDF after 3 attempts | URL: https://corpo.couche-tard.com/wp-content/uploads/2024/07/act_sasb_index_en_20240702.pdf
+[2025-01-24 14:14:42] ALIMENTATION COUCHE TARD INC: Failed to download PDF after 3 attempts | URL: https://filecache.investorroom.com/mr5ircnw_alimentationcouchetard/400/cota78_act_annual-report_web_en_20240626.pdf
+[2025-01-24 14:14:44] ALIMENTATION COUCHE TARD INC: Failed to download PDF after 3 attempts | URL: https://filecache.investorroom.com/mr5ircnw_alimentationcouchetard/399/2024-aif-en-april-28-2024.pdf
+[2025-01-24 14:14:44] ALIMENTATION COUCHE TARD INC: No Valid PDF Found in Search Results
+[2025-01-24 14:14:44] ALIMENTATION COUCHE TARD INC: Searching Webpage in Bing | URL: https://www.bing.com/search?q=ALIMENTATION%20COUCHE%20TARD%20INC%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:14:49] ALINMA BANK: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALINMA%20BANK%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:15:00] ALIGN TECHNOLOGY INC: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://annualreport.stocklight.com/nasdaq/algn/23674723.pdf
+[2025-01-24 14:15:00] ALIGN TECHNOLOGY INC: No Valid PDF Found in Search Results
+[2025-01-24 14:15:00] ALIGN TECHNOLOGY INC: Searching Webpage in Bing | URL: https://www.bing.com/search?q=ALIGN%20TECHNOLOGY%20INC%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:15:02] ALIGN TECHNOLOGY INC: Searching PDF in Webpage | URL: https://www.aligntech.com/about/corporate_social_responsibility
+[2025-01-24 14:15:03] ALINMA BANK: Valid PDF downloaded | URL: https://ir.alinma.com/media/nbufyfpf/alinma-bank-sustainability-report-2023_assurance_1.pdf
+[2025-01-24 14:15:07] ALKEM LABORATORIES LTD: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALKEM%20LABORATORIES%20LTD%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:15:14] ALKEM LABORATORIES LTD: Valid PDF downloaded | URL: https://www.alkemlabs.com/investors/digital-annual-report-2023-24/pdf/business-responsibility-and-sustainability-report.pdf
+[2025-01-24 14:15:19] ALLEGION PLC: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALLEGION%20PLC%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:15:21] ALIGN TECHNOLOGY INC: Found 1 PDF on webpage.
+[2025-01-24 14:15:21] ALLEGION PLC: Failed to download PDF after 3 attempts | URL: https://www.allegion.com/content/dam/allegion-corp/migration/esg/esg_sustainabilityupdate_2023.09.28_fina.pdf
+[2025-01-24 14:15:27] ALIGN TECHNOLOGY INC: Valid PDF downloaded | URL: https://www.aligntech.com/documents/Align%202023%20Sustainability%20Report%20(v1%20June%2024%202024)_final%20-%20Signed%20SB%20KS%20JT%201.pdf
+[2025-01-24 14:15:32] ALLEGRO SA: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALLEGRO%20SA%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:15:42] ALLEGION PLC: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://stocklight.com/stocks/us/nyse-alle/allegion/annual-reports/nyse-alle-2024-10k-24650503.pdf
+[2025-01-24 14:15:42] ALLEGION PLC: No Valid PDF Found in Search Results
+[2025-01-24 14:15:42] ALLEGION PLC: Searching Webpage in Bing | URL: https://www.bing.com/search?q=ALLEGION%20PLC%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:15:43] ALLEGION PLC: Searching PDF in Webpage | URL: https://www.allegion.com/corp/en/news/year/2023/annual-report-2022-esg-metrics.html
+[2025-01-24 14:15:46] ALLEGRO SA: Valid PDF downloaded | URL: https://www.allegromicro.com/-/media/files/corporate-responsibility/allegro-2024-esg-final.pdf?sc_lang=en&hash=252a9fb6b0c105c0b6c6c9da78ce9fe2
+[2025-01-24 14:15:51] ALLIANT ENERGY CORP: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALLIANT%20ENERGY%20CORP%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:15:53] ALLIANT ENERGY CORP: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://s201.q4cdn.com/991130938/files/doc_downloads/2024/02/2024-2-22-1000710-corporate-profile-broch-final.pdf
+[2025-01-24 14:15:53] ALLIANT ENERGY CORP: No Valid PDF Found in Search Results
+[2025-01-24 14:15:53] ALLIANT ENERGY CORP: Searching Webpage in Bing | URL: https://www.bing.com/search?q=ALLIANT%20ENERGY%20CORP%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:15:55] ALLIANT ENERGY CORP: Searching PDF in Webpage | URL: https://www.alliantenergy.com/cleanenergy/ourenergyvision/responsibilityreport/esgdatareports
+[2025-01-24 14:15:55] ALIBABA GROUP HOLDING LTD: Found 1 PDF on webpage.
+[2025-01-24 14:15:55] ALIBABA GROUP HOLDING LTD: Failed to download PDF after 3 attempts | URL: https://data.alibabagroup.com/ecms-files/1532295521/9cb90875-9724-4811-adbf-227457b66794/Alibaba%20Group%20Releases%202023%20Environmental%2C%20Social%20and%20Governance%EF%BC%88ESG%EF%BC%89Report.pdf
+[2025-01-24 14:15:55] ALIBABA GROUP HOLDING LTD: No Valid PDF Found in Webpage
+[2025-01-24 14:15:55] ALIBABA GROUP HOLDING LTD: Searching PDF in Webpage | URL: https://www.alibabagroup.com/en-US/esg
+[2025-01-24 14:16:10] ALLEGION PLC: Found 0 PDF on webpage.
+[2025-01-24 14:16:10] ALLEGION PLC: Searching PDF in Webpage | URL: https://www.allegion.com/corp/en/news/year/2024/2023-esg-annual-report.html
+[2025-01-24 14:16:22] ALLEGION PLC: Found 0 PDF on webpage.
+[2025-01-24 14:16:22] ALLEGION PLC: Searching PDF in Webpage | URL: https://www.allegion.com/corp/en/about/ESG.html
+[2025-01-24 14:17:07] ALLEGION PLC: Found 1 PDF on webpage.
+[2025-01-24 14:17:07] ALLEGION PLC: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://www.allegion.com/content/dam/allegion-corp/migration/esg/EEO-1_2021_Summary-FINAL.pdf
+[2025-01-24 14:17:07] ALLEGION PLC: No Valid PDF Found in Webpage
+[2025-01-24 14:17:11] ALLIANZ: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALLIANZ%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:17:12] ALLIANZ: Failed to download PDF after 3 attempts | URL: https://www.allianz.com/content/dam/onemarketing/azcom/allianz_com/sustainability/documents/allianz_group_sustainability_report_2023-web.pdf
+[2025-01-24 14:17:12] ALLIANZ: Failed to download PDF after 3 attempts | URL: https://commercial.allianz.com/content/dam/onemarketing/commercial/commercial/reports/allianz-risk-barometer-2024.pdf
+[2025-01-24 14:17:13] ALIBABA GROUP HOLDING LTD: Found 0 PDF on webpage.
+[2025-01-24 14:17:13] ALIBABA GROUP HOLDING LTD: Searching PDF in Webpage | URL: https://sustainabilityreports.com/reports/alibaba-group-holding-limited-2022-esg-report-pdf/
+[2025-01-24 14:17:18] ALLIANZ: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://www.allianz.lu/content/dam/onemarketing/benelu/azlux/pdf/allianz-sustainability-report-english.pdf
+[2025-01-24 14:17:18] ALLIANZ: Failed to download PDF after 3 attempts | URL: https://commercial.allianz.com/content/dam/onemarketing/commercial/commercial/reports/commercial-safety-shipping-review-2024.pdf
+[2025-01-24 14:17:18] ALLIANZ: Failed to download PDF after 3 attempts | URL: https://www.allianz.com/content/dam/onemarketing/azcom/allianz_com/sustainability/documents/allianzgi-sustainability-and-stewardship-report-2023-apr24.pdf
+[2025-01-24 14:17:18] ALLIANZ: No Valid PDF Found in Search Results
+[2025-01-24 14:17:18] ALLIANZ: Searching Webpage in Bing | URL: https://www.bing.com/search?q=ALLIANZ%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:17:19] ALLIANZ: Searching PDF in Webpage | URL: https://www.allianz.com/en/sustainability/sustainability-hub/sustainability-report-and-other-publications.html
+[2025-01-24 14:17:37] ALIBABA GROUP HOLDING LTD: Found 0 PDF on webpage.
+[2025-01-24 14:17:41] ALLSTATE CORP: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALLSTATE%20CORP%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:17:42] ALLSTATE CORP: No PDF Links Found in Search Results | URL: https://www.bing.com/search?q=ALLSTATE%20CORP%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:17:42] ALLSTATE CORP: Searching Webpage in Bing | URL: https://www.bing.com/search?q=ALLSTATE%20CORP%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:17:43] ALLSTATE CORP: Searching PDF in Webpage | URL: https://www.allstatesustainability.com/
+[2025-01-24 14:17:46] ALLIANZ: Found 9 PDF on webpage.
+[2025-01-24 14:17:46] ALLIANZ: Failed to download PDF after 3 attempts | URL: https://www.allianz.com/content/dam/onemarketing/azcom/Allianz_com/sustainability/documents/AllianzGI-Sustainability-and-Stewardship-Report-2023-Apr24.pdf
+[2025-01-24 14:17:47] ALLIANZ: Failed to download PDF after 3 attempts | URL: https://www.allianz.com/content/dam/onemarketing/azcom/Allianz_com/responsibility/documents/Allianz_ESG_Integration_Framework.pdf
+[2025-01-24 14:17:47] ALLIANZ: Failed to download PDF after 3 attempts | URL: https://www.allianz.com/content/dam/onemarketing/azcom/Allianz_com/sustainability/documents/Group_Environmental_Guideline_April_2021.pdf
+[2025-01-24 14:17:47] ALLIANZ: Failed to download PDF after 3 attempts | URL: https://www.allianz.com/content/dam/onemarketing/azcom/Allianz_com/sustainability/documents/Allianz_Group_Sustainability_Report_2022-web.pdf
+[2025-01-24 14:17:48] ALLIANZ: Failed to download PDF after 3 attempts | URL: https://www.allianz.com/content/dam/onemarketing/azcom/Allianz_com/sustainability/documents/Allianz_Group_TTR_2022-web.pdf
+[2025-01-24 14:17:48] ALLIANZ: Failed to download PDF after 3 attempts | URL: https://www.allianz.com/content/dam/onemarketing/azcom/Allianz_com/sustainability/documents/Allianz_Group_TTR_Constituent_Entities_2022-web.pdf
+[2025-01-24 14:17:48] ALLIANZ: Failed to download PDF after 3 attempts | URL: https://www.allianz.com/content/dam/onemarketing/azcom/Allianz_com/sustainability/documents/Allianz_Country_by_Country_Reporting_2022.pdf
+[2025-01-24 14:17:49] ALLIANZ: Failed to download PDF after 3 attempts | URL: https://www.allianz.com/content/dam/onemarketing/azcom/Allianz_com/responsibility/documents/20201004_Allianz_Group_PSI_Report_2019.pdf
+[2025-01-24 14:17:49] ALLIANZ: Failed to download PDF after 3 attempts | URL: https://www.allianz.com/content/dam/onemarketing/azcom/Allianz_com/sustainability/documents/2020/PSI_Report_on_Progress_Allianz_2020.pdf
+[2025-01-24 14:17:49] ALLIANZ: No Valid PDF Found in Webpage
+[2025-01-24 14:17:49] ALLIANZ: Searching PDF in Webpage | URL: https://www.allianz.com/en/investor_relations/results-reports/sustainability.html
+[2025-01-24 14:18:00] ALLIANT ENERGY CORP: Found 7 PDF on webpage.
+[2025-01-24 14:18:08] ALLIANT ENERGY CORP: Valid PDF downloaded | URL: https://www.alliantenergy.com/-/media/alliant/documents/cleanenergy/responsibility-report/corporateresponsibilityreport.pdf?la=en&sc_lang=en&hash=FE9FCAD261F7298BB72AB5DF9B3FFCF7
+[2025-01-24 14:18:08] ALLIANZ: Found 3 PDF on webpage.
+[2025-01-24 14:18:09] ALLIANZ: Failed to download PDF after 3 attempts | URL: https://www.allianz.com/content/dam/onemarketing/azcom/Allianz_com/sustainability/documents/Allianz_Group_Sustainability_Report_2023-web.pdf
+[2025-01-24 14:18:09] ALLIANZ: Failed to download PDF after 3 attempts | URL: https://www.allianz.com/content/dam/onemarketing/azcom/Allianz_com/investor-relations/en/results-reports/annual-report/ar-2023/en-Allianz-Group-Annual-Report-2023.pdf#page=56
+[2025-01-24 14:18:09] ALLIANZ: Failed to download PDF after 3 attempts | URL: https://www.allianz.com/content/dam/onemarketing/azcom/Allianz_com/sustainability/documents/Allianz_Group_SASB_Index_2023-web.pdf
+[2025-01-24 14:18:09] ALLIANZ: No Valid PDF Found in Webpage
+[2025-01-24 14:18:09] ALLIANZ: Searching PDF in Webpage | URL: https://www.allianzgi.com/en/sustainability/sustainability-report-2023
+[2025-01-24 14:18:12] ALLY FINANCIAL INC: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALLY%20FINANCIAL%20INC%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:18:13] ALLY FINANCIAL INC: Failed to download PDF after 3 attempts | URL: https://www.sec.gov/archives/edgar/data/40729/000119312524088484/d802478dars.pdf
+[2025-01-24 14:18:20] ALLY FINANCIAL INC: Valid PDF downloaded | URL: https://www.ally.com/content/dam/pdf/investor-relations/2024-proxy.pdf
+[2025-01-24 14:18:24] ALMARAI: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALMARAI%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:18:26] ALMARAI: Failed to download PDF after 3 attempts | URL: https://sustainability.almarai.com/en/pdf/assurance-statement-almarai-2024-final.pdf
+[2025-01-24 14:18:26] ALMARAI: No Valid PDF Found in Search Results
+[2025-01-24 14:18:26] ALMARAI: Searching Webpage in Bing | URL: https://www.bing.com/search?q=ALMARAI%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:18:28] ALMARAI: Searching PDF in Webpage | URL: https://sustainability.almarai.com/en/download.html
+[2025-01-24 14:18:55] ALMARAI: Found 1 PDF on webpage.
+[2025-01-24 14:19:13] ALLSTATE CORP: Found 2 PDF on webpage.
+[2025-01-24 14:19:13] ALLSTATE CORP: Is not a PDF URL | URL: https://delivery.contenthub.allstate.com/api/public/content/2023-sustainability-report?v=67b36ebf
+[2025-01-24 14:19:13] ALLSTATE CORP: Is not a PDF URL | URL: https://delivery.contenthub.allstate.com/api/public/content/2023-public-policy-report?v=a02623ce
+[2025-01-24 14:19:13] ALLSTATE CORP: No Valid PDF Found in Webpage
+[2025-01-24 14:19:13] ALLSTATE CORP: Searching PDF in Webpage | URL: https://delivery.contenthub.allstate.com/api/public/content/2eda6586d01b4b3bb0605047eacdc4e7?v=19494efc
+[2025-01-24 14:19:25] ALMARAI: Valid PDF downloaded | URL: https://sustainability.almarai.com/en/pdf/AlmaraiSustainabilityReport-2023-PDF.pdf
+[2025-01-24 14:19:28] ALNYLAM PHARMACEUTICALS INC: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALNYLAM%20PHARMACEUTICALS%20INC%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:19:37] ALNYLAM PHARMACEUTICALS INC: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://www.alnylam.com/sites/default/files/pdfs/global-corporate-social-responsibility-international.pdf
+[2025-01-24 14:19:37] ALNYLAM PHARMACEUTICALS INC: No Valid PDF Found in Search Results
+[2025-01-24 14:19:37] ALNYLAM PHARMACEUTICALS INC: Searching Webpage in Bing | URL: https://www.bing.com/search?q=ALNYLAM%20PHARMACEUTICALS%20INC%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:19:38] ALNYLAM PHARMACEUTICALS INC: Searching PDF in Webpage | URL: https://www.alnylam.com/about-alnylam/corporate-responsibility
+[2025-01-24 14:20:06] ALLIANZ: Found 2 PDF on webpage.
+[2025-01-24 14:20:09] ALLIANZ: Valid PDF downloaded | URL: https://www.allianzglobalinvestors.de/MDBWS/doc/AllianzGI_Sustainability_and_Stewardship_Report_2023_Apr24.pdf?3de732ec1cdfe8be1ef9702ada8b578974b3bac1
+[2025-01-24 14:20:13] ALPHA SERVICES AND HOLDINGS SA: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALPHA%20SERVICES%20AND%20HOLDINGS%20SA%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:20:14] ALPHA SERVICES AND HOLDINGS SA: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://www.alpha.gr/-/media/alphagr/files/group/press-releases/2023/20230627-deltio-typou-en.pdf
+[2025-01-24 14:20:21] ALPHA SERVICES AND HOLDINGS SA: Valid PDF downloaded | URL: https://www.alpha.gr/-/media/alphaholdings/files/apotelesmata/q32024/20241108-presentation.pdf
+[2025-01-24 14:20:25] ALPHABET INC CLASS A: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALPHABET%20INC%20CLASS%20A%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:20:42] ALPHABET INC CLASS A: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://stocklight.com/stocks/us/nasdaq-googl/alphabet/annual-reports/nasdaq-googl-2024-10k-24580445.pdf
+[2025-01-24 14:20:45] ALPHABET INC CLASS A: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://abc.xyz/assets/ae/e9/753110054014b6de4d620a2853f6/goog-10-q-q2-2024.pdf
+[2025-01-24 14:20:45] ALPHABET INC CLASS A: No Valid PDF Found in Search Results
+[2025-01-24 14:20:45] ALPHABET INC CLASS A: Searching Webpage in Bing | URL: https://www.bing.com/search?q=ALPHABET%20INC%20CLASS%20A%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:20:46] ALPHABET INC CLASS A: Searching PDF in Webpage | URL: http://abc.xyz/investor/esg
+[2025-01-24 14:20:48] ALLSTATE CORP: Failed to get search results after 3 attempts: Message: 
+
+[2025-01-24 14:20:48] ALLSTATE CORP: No Search Results Found | URL: https://delivery.contenthub.allstate.com/api/public/content/2eda6586d01b4b3bb0605047eacdc4e7?v=19494efc
+[2025-01-24 14:20:48] ALLSTATE CORP: Searching PDF in Webpage | URL: https://delivery.contenthub.allstate.com/api/public/content/00d7f92d46f24d5caf5d9ef1352e924d?v=beb1057d
+[2025-01-24 14:21:05] ALPHABET INC CLASS A: Found 9 PDF on webpage.
+[2025-01-24 14:21:06] ALPHABET INC CLASS A: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://www.abc.xyz/assets/91/27/a6ed8339413ab66f449baff8f000/alphabet-2020-sustainability-bond-framework.pdf
+[2025-01-24 14:21:07] ALPHABET INC CLASS A: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://www.abc.xyz/assets/36/d7/84a25d7246cc954a9442f95fcf73/alphabet-2022-sustainability-bond-impact-report.pdf
+[2025-01-24 14:21:08] ALPHABET INC CLASS A: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://www.abc.xyz/assets/a1/21/6915e9a14ffe8116202b99294e17/alphabet-2021-sustainability-bond-impact-report.pdf
+[2025-01-24 14:21:10] ALPHABET INC CLASS A: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://www.abc.xyz/assets/9e/5f/46b613934c9e8d904362ef99bfb2/q3-esg-investor-call-transcript-october-11-2023-docx.pdf
+[2025-01-24 14:21:11] ALPHABET INC CLASS A: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://services.google.com/fh/files/misc/ads_safety_report_2023.pdf
+[2025-01-24 14:21:11] ALPHABET INC CLASS A: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://www.abc.xyz/assets/a2/b3/3868b83d486abf4d06b21015325d/google-2023-consolidated-eeo-report.pdf
+[2025-01-24 14:21:24] ALPHABET INC CLASS A: Valid PDF downloaded | URL: https://www.gstatic.com/gumdrop/sustainability/google-2024-environmental-report.pdf
+[2025-01-24 14:21:27] ALPHABET INC CLASS C: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALPHABET%20INC%20CLASS%20C%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:21:36] ALPHABET INC CLASS C: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://abc.xyz/assets/9c/12/c198d05b4f7aba1e9487ba1c8b79/goog-10-q-q1-2024.pdf
+[2025-01-24 14:21:51] ALPHABET INC CLASS C: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://stocklight.com/stocks/us/nasdaq-googl/alphabet/annual-reports/nasdaq-googl-2024-10k-24580445.pdf
+[2025-01-24 14:21:54] ALPHABET INC CLASS C: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://abc.xyz/assets/ae/e9/753110054014b6de4d620a2853f6/goog-10-q-q2-2024.pdf
+[2025-01-24 14:21:54] ALPHABET INC CLASS C: No Valid PDF Found in Search Results
+[2025-01-24 14:21:54] ALPHABET INC CLASS C: Searching Webpage in Bing | URL: https://www.bing.com/search?q=ALPHABET%20INC%20CLASS%20C%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:21:55] ALPHABET INC CLASS C: Searching PDF in Webpage | URL: http://abc.xyz/investor/esg
+[2025-01-24 14:22:06] ALNYLAM PHARMACEUTICALS INC: Found 0 PDF on webpage.
+[2025-01-24 14:22:06] ALNYLAM PHARMACEUTICALS INC: Searching PDF in Webpage | URL: https://news.alnylam.com/responsibility/articles/alnylam-publishes-2023-corporate-responsibility-report
+[2025-01-24 14:22:08] ALPHABET INC CLASS C: Found 9 PDF on webpage.
+[2025-01-24 14:22:10] ALPHABET INC CLASS C: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://www.abc.xyz/assets/91/27/a6ed8339413ab66f449baff8f000/alphabet-2020-sustainability-bond-framework.pdf
+[2025-01-24 14:22:11] ALPHABET INC CLASS C: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://www.abc.xyz/assets/36/d7/84a25d7246cc954a9442f95fcf73/alphabet-2022-sustainability-bond-impact-report.pdf
+[2025-01-24 14:22:13] ALPHABET INC CLASS C: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://www.abc.xyz/assets/a1/21/6915e9a14ffe8116202b99294e17/alphabet-2021-sustainability-bond-impact-report.pdf
+[2025-01-24 14:22:16] ALPHABET INC CLASS C: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://www.abc.xyz/assets/9e/5f/46b613934c9e8d904362ef99bfb2/q3-esg-investor-call-transcript-october-11-2023-docx.pdf
+[2025-01-24 14:22:17] ALPHABET INC CLASS C: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://services.google.com/fh/files/misc/ads_safety_report_2023.pdf
+[2025-01-24 14:22:17] ALPHABET INC CLASS C: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://www.abc.xyz/assets/a2/b3/3868b83d486abf4d06b21015325d/google-2023-consolidated-eeo-report.pdf
+[2025-01-24 14:22:24] ALLSTATE CORP: Failed to get search results after 3 attempts: Message: 
+
+[2025-01-24 14:22:24] ALLSTATE CORP: No Search Results Found | URL: https://delivery.contenthub.allstate.com/api/public/content/00d7f92d46f24d5caf5d9ef1352e924d?v=beb1057d
+[2025-01-24 14:22:29] ALSTOM SA: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALSTOM%20SA%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:22:31] ALSTOM SA: Failed to download PDF after 3 attempts | URL: https://www.alstom.com/sites/alstom.com/files/2024/05/07/20240508_alstom_fy_%202023_24_annual_results_management_report_en.pdf
+[2025-01-24 14:22:31] ALSTOM SA: Failed to download PDF after 3 attempts | URL: https://portal-eba.factsetdigitalsolutions.com/modules/res/pdfrenderer.php?f=fr0010220475-2024-11-10.pdf&u=%2fmodules%2fres%2fcompany_profile%2fdownload.php%3flang%3den%26market%3dat%26isin%3dfr0010220475
+[2025-01-24 14:22:31] ALSTOM SA: No Valid PDF Found in Search Results
+[2025-01-24 14:22:31] ALSTOM SA: Searching Webpage in Bing | URL: https://www.bing.com/search?q=ALSTOM%20SA%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:22:32] ALSTOM SA: Searching PDF in Webpage | URL: https://www.alstom.com/commitments
+[2025-01-24 14:22:40] ALPHABET INC CLASS C: Valid PDF downloaded | URL: https://www.gstatic.com/gumdrop/sustainability/google-2024-environmental-report.pdf
+[2025-01-24 14:22:45] ALTAGAS LTD: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALTAGAS%20LTD%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:22:49] ALTAGAS LTD: Failed to download PDF after 3 attempts | URL: https://www.altagas.ca/sites/default/files/2024-09/altagas%202023%20sustainability%20update%20final_0.pdf
+[2025-01-24 14:22:51] ALTAGAS LTD: Failed to download PDF after 3 attempts | URL: https://www.altagas.ca/sites/default/files/2024-08/altagas%20q2%202024%20presentation_final.pdf
+[2025-01-24 14:22:51] ALTAGAS LTD: No Valid PDF Found in Search Results
+[2025-01-24 14:22:51] ALTAGAS LTD: Searching Webpage in Bing | URL: https://www.bing.com/search?q=ALTAGAS%20LTD%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:22:52] ALTAGAS LTD: Searching PDF in Webpage | URL: https://www.marketscreener.com/quote/stock/ALTAGAS-LTD-1408970/news/AltaGas-Financials-Document-AltaGas-2023-Sustainability-Update-Final-0-48080482/
+[2025-01-24 14:23:55] ALTAGAS LTD: Found 0 PDF on webpage.
+[2025-01-24 14:23:55] ALTAGAS LTD: Searching PDF in Webpage | URL: https://sustainabilityreports.com/reports/altagas-ltd-2022-esg-update-report-pdf/
+[2025-01-24 14:24:02] ALSTOM SA: Found 3 PDF on webpage.
+[2025-01-24 14:24:22] ALNYLAM PHARMACEUTICALS INC: Found 1 PDF on webpage.
+[2025-01-24 14:24:22] ALNYLAM PHARMACEUTICALS INC: Is not a PDF URL | URL: https://www.alnylam.com/CorporateResponsibilityReport2023
+[2025-01-24 14:24:22] ALTAGAS LTD: Found 0 PDF on webpage.
+[2025-01-24 14:24:22] ALNYLAM PHARMACEUTICALS INC: No Valid PDF Found in Webpage
+[2025-01-24 14:24:22] ALNYLAM PHARMACEUTICALS INC: Searching PDF in Webpage | URL: https://investors.alnylam.com/press-release?id=28151
+al-environmental-social-governance-report
+[2025-01-24 14:24:48] ALSTOM SA: Valid PDF downloaded | URL: https://www.alstom.com/sites/alstom.com/files/2024/05/15/20240515_Alstom_Universal_Registration_Document_EN.pdf
+[2025-01-24 14:24:51] ALTEOGEN INC: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALTEOGEN%20INC%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:24:52] ALTEOGEN INC: No PDF Links Found in Search Results | URL: https://www.bing.com/search?q=ALTEOGEN%20INC%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:24:52] ALTEOGEN INC: Searching Webpage in Bing | URL: https://www.bing.com/search?q=ALTEOGEN%20INC%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:24:53] ALTEOGEN INC: Searching PDF in Webpage | URL: https://www.researchandmarkets.com/reports/5631633/esg-performance-analysis-report-2022
+[2025-01-24 14:25:35] ALTEOGEN INC: Found 0 PDF on webpage.
+[2025-01-24 14:25:35] ALTEOGEN INC: Searching PDF in Webpage | URL: https://www.spglobal.com/esg/scores/results?cid=4811885
+[2025-01-24 14:25:48] ALTAGAS LTD: Found 0 PDF on webpage.
+[2025-01-24 14:25:52] ALTRIA GROUP INC: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALTRIA%20GROUP%20INC%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:25:52] ALTEOGEN INC: Found 0 PDF on webpage.
+[2025-01-24 14:25:52] ALTEOGEN INC: Searching PDF in Webpage | URL: http://www.alteogen.com/en/esg_goal/
+[2025-01-24 14:26:24] ALTRIA GROUP INC: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://stocklight.com/stocks/us/nyse-mo/altria-group/annual-reports/nyse-mo-2024-10k-24685265.pdf
+[2025-01-24 14:26:26] ALTRIA GROUP INC: Failed to download PDF after 3 attempts | URL: https://stocklight.com/stocks/us/nyse-mo/altria-group/annual-reports/nyse-mo-2024-10k-241021503.pdf
+[2025-01-24 14:26:27] ALTRIA GROUP INC: Failed to download PDF after 3 attempts | URL: https://www.sec.gov/archives/edgar/data/764180/000076418023000054/annualreportaltriagroup22a.pdf
+[2025-01-24 14:26:27] ALTRIA GROUP INC: No Valid PDF Found in Search Results
+[2025-01-24 14:26:27] ALTRIA GROUP INC: Searching Webpage in Bing | URL: https://www.bing.com/search?q=ALTRIA%20GROUP%20INC%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:26:27] ALTRIA GROUP INC: Searching PDF in Webpage | URL: https://www.altria.com/responsibility/esg-reporting-and-data
+[2025-01-24 14:27:09] ALNYLAM PHARMACEUTICALS INC: Found 1 PDF on webpage.
+[2025-01-24 14:27:09] ALNYLAM PHARMACEUTICALS INC: Is not a PDF URL | URL: https://cts.businesswire.com/ct/CT?id=smartlink&url=https%3A%2F%2Fwww.alnylam.com%2FCorporateResponsibilityReport2023&esheet=53973872&newsitemid=20240507507791&lan=en-US&anchor=2023+Corporate+Responsibility+Report&index=2&md5=31065fc0600f50aa2e32d86421c69ff6
+[2025-01-24 14:27:09] ALNYLAM PHARMACEUTICALS INC: No Valid PDF Found in Webpage
+[2025-01-24 14:27:13] ALUMINUM CORPORATION OF CHINA LTD: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALUMINUM%20CORPORATION%20OF%20CHINA%20LTD%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:27:18] ALUMINUM CORPORATION OF CHINA LTD: Failed to download PDF after 3 attempts | URL: https://www.chalco.com.cn/tzzgx/yjbg/ndbg/202404/p020240403370231841073.pdf
+[2025-01-24 14:27:20] ALTRIA GROUP INC: Found 3 PDF on webpage.
+[2025-01-24 14:27:21] ALTRIA GROUP INC: Failed to download PDF after 3 attempts | URL: https://www.altria.com/-/media/Project/Altria/Altria/documents/responsibility/2023-Engage-and-Lead-Report.pdf?src=esg-engage-and-lead-responsibly
+[2025-01-24 14:27:21] ALTRIA GROUP INC: Failed to download PDF after 3 attempts | URL: https://www.altria.com/-/media/Project/Altria/Altria/responsibility/esg-reporting-and-data/Engage-Lead-2022-Report.pdf?src=esg-engage-and-lead-responsibly
+[2025-01-24 14:27:21] ALTRIA GROUP INC: Failed to download PDF after 3 attempts | URL: https://www.altria.com/-/media/Project/Altria/Altria/responsibility/esg-reporting-and-data/engage-and-lead-responsibly-2021.pdf?src=esg-engage-and-lead-responsibly
+[2025-01-24 14:27:21] ALTRIA GROUP INC: No Valid PDF Found in Webpage
+[2025-01-24 14:27:21] ALTRIA GROUP INC: Searching PDF in Webpage | URL: https://www.altria.com/responsibility/esg-reporting-and-data/esg-data-and-disclosures?src=esg-all-reports-and-snapshots
+[2025-01-24 14:27:39] ALUMINUM CORPORATION OF CHINA LTD: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://www1.hkexnews.hk/listedco/listconews/sehk/2024/0416/2024041600757.pdf
+[2025-01-24 14:27:49] ALUMINUM CORPORATION OF CHINA LTD: Valid PDF downloaded | URL: https://www1.hkexnews.hk/listedco/listconews/sehk/2024/0327/2024032703551.pdf
+[2025-01-24 14:27:54] AMADEUS IT GROUP SA: Searching PDF in Bing | URL: https://www.bing.com/search?q=AMADEUS%20IT%20GROUP%20SA%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:27:56] AMADEUS IT GROUP SA: Failed to download PDF after 3 attempts | URL: https://corporate.amadeus.com/documents/en/resources/corporate-information/corporate-documents/amadeus%20sustainability%20policy%20-%202024.06.pdf
+[2025-01-24 14:27:58] AMADEUS IT GROUP SA: Failed to download PDF after 3 attempts | URL: https://amadeus.com/content/dam/amadeuswebevo/brand/amadeus/photos/sections/company/sustainability-/overview/documents/esg-ebook-2024-web.pdf
+[2025-01-24 14:28:03] AMADEUS IT GROUP SA: Failed to download PDF after 3 attempts | URL: https://group.amadeus-fire.de/wp-content/uploads/2024/01/sustainability_report_englisch_22.pdf
+[2025-01-24 14:28:06] AMADEUS IT GROUP SA: Failed to download PDF after 3 attempts | URL: https://group.amadeus-fire.de/wp-content/uploads/2024/03/sustainability-report-2023-e-1.pdf
+[2025-01-24 14:28:06] AMADEUS IT GROUP SA: No Valid PDF Found in Search Results
+[2025-01-24 14:28:06] AMADEUS IT GROUP SA: Searching Webpage in Bing | URL: https://www.bing.com/search?q=AMADEUS%20IT%20GROUP%20SA%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:28:09] AMADEUS IT GROUP SA: Searching PDF in Webpage | URL: https://amadeus.com/en/sustainability/overview
+[2025-01-24 14:28:09] AMADEUS IT GROUP SA: Found 0 PDF on webpage.
+[2025-01-24 14:28:09] AMADEUS IT GROUP SA: Searching PDF in Webpage | URL: https://corporate.amadeus.com/en/annual-reports
+[2025-01-24 14:28:56] ALTEOGEN INC: Found 0 PDF on webpage.
+[2025-01-24 14:28:56] ALTRIA GROUP INC: Failed to get search results after 3 attempts: Message: 
+
+[2025-01-24 14:28:56] ALTRIA GROUP INC: No Search Results Found | URL: https://www.altria.com/responsibility/esg-reporting-and-data/esg-data-and-disclosures?src=esg-all-reports-and-snapshots
+[2025-01-24 14:28:56] ALTRIA GROUP INC: Searching PDF in Webpage | URL: https://www.altria.com/responsibility/esg-reporting-and-data/all-reports-and-snapshots?src=esg-protect-the-environment
+[2025-01-24 14:28:58] AMADEUS IT GROUP SA: Found 11 PDF on webpage.
+[2025-01-24 14:28:59] AMAZON COM INC: Searching PDF in Bing | URL: https://www.bing.com/search?q=AMAZON%20COM%20INC%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:29:02] AMAZON COM INC: Valid PDF downloaded | URL: https://sustainability.aboutamazon.com/2023-sustainability-executive-summary.pdf
+[2025-01-24 14:29:06] AMBEV SA: Searching PDF in Bing | URL: https://www.bing.com/search?q=AMBEV%20SA%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:29:07] AMBEV SA: No PDF Links Found in Search Results | URL: https://www.bing.com/search?q=AMBEV%20SA%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:29:07] AMBEV SA: Searching Webpage in Bing | URL: https://www.bing.com/search?q=AMBEV%20SA%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:29:08] AMBEV SA: Searching PDF in Webpage | URL: https://sustainabilityreports.com/reports/ambev-sa-2022-annual-and-esg-report-pdf/
+[2025-01-24 14:29:29] AMADEUS IT GROUP SA: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://corporate.amadeus.com/documents/en/resources/corporate-information/corporate-documents/global-reports/2018/amadeus-global-report-2018.pdf
+[2025-01-24 14:29:36] AMBEV SA: Found 0 PDF on webpage.
+[2025-01-24 14:29:36] AMBEV SA: Searching PDF in Webpage | URL: https://ri.ambev.com.br/en/reports-publications/annual-and-sustainability-report/
+[2025-01-24 14:29:45] AMADEUS IT GROUP SA: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://corporate.amadeus.com/documents/en/resources/corporate-information/corporate-documents/global-reports/2017/amadeus-global-report-2017.pdf
+[2025-01-24 14:30:01] AMADEUS IT GROUP SA: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://corporate.amadeus.com/documents/en/resources/corporate-information/corporate-documents/global-reports/2016/amadeus-global-report-2016.pdf
+[2025-01-24 14:30:20] AMADEUS IT GROUP SA: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://corporate.amadeus.com/documents/en/resources/corporate-information/corporate-documents/global-reports/2015/amadeus-global-report-2015.pdf
+[2025-01-24 14:30:34] ALTRIA GROUP INC: Failed to get search results after 3 attempts: Message: 
+
+[2025-01-24 14:30:34] ALTRIA GROUP INC: No Search Results Found | URL: https://www.altria.com/responsibility/esg-reporting-and-data/all-reports-and-snapshots?src=esg-protect-the-environment
+[2025-01-24 14:30:34] AMBEV SA: Found 0 PDF on webpage.
+[2025-01-24 14:30:34] AMBEV SA: Searching PDF in Webpage | URL: https://www.marketscreener.com/quote/stock/AMBEV-S-A-15458762/news/Ambev-S-A-Annual-and-Sustainability-Report-2024-Fiscal-Year-2023-47271343/
+[2025-01-24 14:30:40] AMBUJA CEMENTS LTD: Searching PDF in Bing | URL: https://www.bing.com/search?q=AMBUJA%20CEMENTS%20LTD%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:30:49] AMADEUS IT GROUP SA: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://corporate.amadeus.com/documents/en/resources/corporate-information/corporate-documents/global-reports/2014/amadeus-global-report-2014.pdf
+[2025-01-24 14:31:14] AMADEUS IT GROUP SA: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://corporate.amadeus.com/documents/en/resources/corporate-information/corporate-documents/global-reports/2013/amadeus-global-report-2013.pdf
+[2025-01-24 14:31:31] AMADEUS IT GROUP SA: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://corporate.amadeus.com/documents/en/resources/corporate-information/corporate-documents/global-reports/2012/amadeus-annual-report-2012.pdf
+[2025-01-24 14:31:32] AMBUJA CEMENTS LTD: Valid PDF downloaded | URL: https://www.ambujacement.com/upload/content_files/annual-reports/ambuja_cement_annual_report_2024_latest.pdf
+[2025-01-24 14:31:37] AMCOR PLC: Searching PDF in Bing | URL: https://www.bing.com/search?q=AMCOR%20PLC%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:31:38] AMCOR PLC: Failed to download PDF after 3 attempts | URL: https://sustainability.amcor.com/content/dam/amcor-sustainability-report/sustainability-reports/reports/2024%20amcor_sustainability_report_2024_summary_2.pdf
+[2025-01-24 14:31:39] AMCOR PLC: Failed to download PDF after 3 attempts | URL: https://sustainability.amcor.com/content/dam/amcor-sustainability-report/sustainability-reports/reports/2024_amcor_sustainability_report_2024_appendix_2.pdf
+[2025-01-24 14:31:39] AMCOR PLC: No Valid PDF Found in Search Results
+[2025-01-24 14:31:39] AMCOR PLC: Searching Webpage in Bing | URL: https://www.bing.com/search?q=AMCOR%20PLC%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:31:49] AMADEUS IT GROUP SA: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://corporate.amadeus.com/documents/en/resources/corporate-information/corporate-documents/global-reports/2012/amadeus-corporate-sustainability-report-2012.pdf
+[2025-01-24 14:32:05] AMADEUS IT GROUP SA: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://corporate.amadeus.com/documents/en/resources/corporate-information/corporate-documents/global-reports/2011/amadeus-annual-report-2011.pdf
+[2025-01-24 14:32:13] AMCOR PLC: Searching PDF in Webpage | URL: https://sustainability.amcor.com/en
+[2025-01-24 14:32:16] AMADEUS IT GROUP SA: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://corporate.amadeus.com/documents/en/resources/corporate-information/corporate-documents/global-reports/2011/amadeus-corporate-sustainability-report-2011.pdf
+[2025-01-24 14:32:16] AMADEUS IT GROUP SA: No Valid PDF Found in Webpage
+[2025-01-24 14:32:16] AMADEUS IT GROUP SA: Searching PDF in Webpage | URL: https://amadeus.com/en/sustainability/environment
+[2025-01-24 14:32:16] AMADEUS IT GROUP SA: Found 0 PDF on webpage.
+[2025-01-24 14:32:19] AMCOR PLC: Found 2 PDF on webpage.
+[2025-01-24 14:32:21] AMEREN CORP: Searching PDF in Bing | URL: https://www.bing.com/search?q=AMEREN%20CORP%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:32:23] AMEREN CORP: No PDF Links Found in Search Results | URL: https://www.bing.com/search?q=AMEREN%20CORP%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:32:23] AMEREN CORP: Searching Webpage in Bing | URL: https://www.bing.com/search?q=AMEREN%20CORP%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:32:26] AMEREN CORP: Searching PDF in Webpage | URL: https://www.amereninvestors.com/corporate-governance/Sustainability-ESG-Reporting/default.aspx
+[2025-01-24 14:32:31] AMCOR PLC: Valid PDF downloaded | URL: https://sustainability.amcor.com/content/dam/amcor-sustainability-report/sustainability-reports/reports/Amcor_Sustainability_Report_2024_AW_12-11-2024.pdf
+[2025-01-24 14:32:35] AMERICA MOVIL B: Searching PDF in Bing | URL: https://www.bing.com/search?q=AMERICA%20MOVIL%20B%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:32:37] AMERICA MOVIL B: Failed to download PDF after 3 attempts | URL: https://sustainability.americamovil.com/portal/su/pdf/climate-transition-plan.pdf
+[2025-01-24 14:32:37] AMERICA MOVIL B: No Valid PDF Found in Search Results
+[2025-01-24 14:32:37] AMERICA MOVIL B: Searching Webpage in Bing | URL: https://www.bing.com/search?q=AMERICA%20MOVIL%20B%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:32:38] AMERICA MOVIL B: Searching PDF in Webpage | URL: https://sustainability.americamovil.com/reports/
+[2025-01-24 14:32:55] AMERICA MOVIL B: Found 1 PDF on webpage.
+[2025-01-24 14:32:57] AMEREN CORP: Found 12 PDF on webpage.
+[2025-01-24 14:32:57] AMBEV SA: Found 0 PDF on webpage.
+[2025-01-24 14:33:01] AMERICAN ELECTRIC POWER INC: Searching PDF in Bing | URL: https://www.bing.com/search?q=AMERICAN%20ELECTRIC%20POWER%20INC%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:33:05] AMEREN CORP: Valid PDF downloaded | URL: https://s21.q4cdn.com/448935352/files/doc_downloads/2024/08/ameren-sustainability-investor-deck_august2024-vfinal.pdf
+[2025-01-24 14:33:09] AMERICAN EXPRESS: Searching PDF in Bing | URL: https://www.bing.com/search?q=AMERICAN%20EXPRESS%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:33:14] AMERICAN EXPRESS: Failed to download PDF after 3 attempts | URL: https://s26.q4cdn.com/747928648/files/doc_downloads/esg/2024/american-express-2024-sustainability-financing-report.pdf
+[2025-01-24 14:33:14] AMERICAN ELECTRIC POWER INC: Valid PDF downloaded | URL: https://aepsustainability.com/lib/docs/2023-aep-sustainability-report.pdf
+[2025-01-24 14:33:15] AMERICAN EXPRESS: Failed to download PDF after 3 attempts | URL: https://www.americanexpress.com/content/dam/amex/en-us/newsroom/pdfs/axp_2023_2024_esg_report.pdf
+[2025-01-24 14:33:16] AMERICAN EXPRESS: No Valid PDF Found in Search Results
+[2025-01-24 14:33:16] AMERICAN EXPRESS: Searching Webpage in Bing | URL: https://www.bing.com/search?q=AMERICAN%20EXPRESS%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:33:17] AMERICAN EXPRESS: Searching PDF in Webpage | URL: https://www.americanexpress.com/en-us/company/corporate-sustainability/
+[2025-01-24 14:33:18] AMERICAN FINANCIAL GROUP INC: Searching PDF in Bing | URL: https://www.bing.com/search?q=AMERICAN%20FINANCIAL%20GROUP%20INC%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:33:35] AMERICA MOVIL B: Valid PDF downloaded | URL: https://sustentabilidad.americamovil.com/portal/su/pdf/2023-Sustainability-Report.pdf
+[2025-01-24 14:33:39] AMERICAN HOMES RENT REIT CLASS A: Searching PDF in Bing | URL: https://www.bing.com/search?q=AMERICAN%20HOMES%20RENT%20REIT%20CLASS%20A%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:33:42] AMERICAN HOMES RENT REIT CLASS A: Failed to download PDF after 3 attempts | URL: https://s29.q4cdn.com/671712101/files/doc_downloads/esg_report/2022/amh-2022-sustainability-report.pdf
+[2025-01-24 14:33:44] AMERICAN HOMES RENT REIT CLASS A: Failed to download PDF after 3 attempts | URL: https://s29.q4cdn.com/671712101/files/doc_news/2022/04/amh-2021-sustainability-report-release_final-042122.pdf
+[2025-01-24 14:33:44] AMERICAN HOMES RENT REIT CLASS A: No Valid PDF Found in Search Results
+[2025-01-24 14:33:44] AMERICAN HOMES RENT REIT CLASS A: Searching Webpage in Bing | URL: https://www.bing.com/search?q=AMERICAN%20HOMES%20RENT%20REIT%20CLASS%20A%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:33:46] AMERICAN HOMES RENT REIT CLASS A: Searching PDF in Webpage | URL: https://investors.amh.com/corporate-responsibility/esg-report/default.aspx
+[2025-01-24 14:33:58] AMERICAN FINANCIAL GROUP INC: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://app.stocklight.com/stocks/us/nyse-afgd/american-financial-group/annual-reports/nyse-afgd-2024-10k-24670967.pdf
+[2025-01-24 14:34:00] AMERICAN FINANCIAL GROUP INC: Valid PDF downloaded | URL: https://www.aarcorp.com/globalassets/5.-about/sustainability/aar-2024-sustainability-report.pdf
+[2025-01-24 14:34:04] AMERICAN INTERNATIONAL GROUP INC: Searching PDF in Bing | URL: https://www.bing.com/search?q=AMERICAN%20INTERNATIONAL%20GROUP%20INC%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:34:10] AMERICAN INTERNATIONAL GROUP INC: Valid PDF downloaded | URL: https://www.aig.com/content/dam/aig/america-canada/us/documents/about-us/report/aig-sustainability-report-2023.pdf
+[2025-01-24 14:34:14] AMERICAN TOWER REIT CORP: Searching PDF in Bing | URL: https://www.bing.com/search?q=AMERICAN%20TOWER%20REIT%20CORP%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:34:19] AMERICAN TOWER REIT CORP: Failed to download PDF after 3 attempts | URL: https://tower-reit.com/storage/app/media/agm%202024/02/annual%20report%202024.pdf
+[2025-01-24 14:34:19] AMERICAN TOWER REIT CORP: No Valid PDF Found in Search Results
+[2025-01-24 14:34:19] AMERICAN TOWER REIT CORP: Searching Webpage in Bing | URL: https://www.bing.com/search?q=AMERICAN%20TOWER%20REIT%20CORP%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:34:20] AMERICAN TOWER REIT CORP: Searching PDF in Webpage | URL: https://www.americantower.com/sustainability
+[2025-01-24 14:34:25] AMERICAN HOMES RENT REIT CLASS A: Found 6 PDF on webpage.
+[2025-01-24 14:34:32] AMERICAN HOMES RENT REIT CLASS A: Valid PDF downloaded | URL: https://s29.q4cdn.com/671712101/files/doc_presentations/esg/MK-8644_2023-Sustainability-Report.pdf
+[2025-01-24 14:34:36] AMERICAN WATER WORKS INC: Searching PDF in Bing | URL: https://www.bing.com/search?q=AMERICAN%20WATER%20WORKS%20INC%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:34:39] AMERICAN WATER WORKS INC: Failed to download PDF after 3 attempts | URL: https://s26.q4cdn.com/750150140/files/doc_downloads/esg_docs/2024/2023-sustainability-report.pdf
+[2025-01-24 14:34:40] AMERICAN WATER WORKS INC: Failed to download PDF after 3 attempts | URL: https://s26.q4cdn.com/750150140/files/doc_downloads/esg_docs/2024/esg-at-awk-overview-presentation.pdf
+[2025-01-24 14:34:40] AMERICAN WATER WORKS INC: No Valid PDF Found in Search Results
+[2025-01-24 14:34:40] AMERICAN WATER WORKS INC: Searching Webpage in Bing | URL: https://www.bing.com/search?q=AMERICAN%20WATER%20WORKS%20INC%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:34:41] AMERICAN TOWER REIT CORP: Found 0 PDF on webpage.
+[2025-01-24 14:34:41] AMERICAN TOWER REIT CORP: Searching PDF in Webpage | URL: https://www.americantower.com/media-hub/american-tower-corporation-releases-2022-sustainability-report
+[2025-01-24 14:34:41] AMERICAN TOWER REIT CORP: Found 0 PDF on webpage.
+[2025-01-24 14:34:41] AMERICAN TOWER REIT CORP: Searching PDF in Webpage | URL: https://www.americantower.com/environment
+[2025-01-24 14:34:41] AMERICAN TOWER REIT CORP: Found 0 PDF on webpage.
+[2025-01-24 14:34:41] AMERICAN WATER WORKS INC: Searching PDF in Webpage | URL: https://ir.amwater.com/sustainability/overview/default.aspx
+[2025-01-24 14:34:46] AMERICANA RESTAURANTS INTERNATIONA: Searching PDF in Bing | URL: https://www.bing.com/search?q=AMERICANA%20RESTAURANTS%20INTERNATIONA%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:34:56] AMERICANA RESTAURANTS INTERNATIONA: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://portalvhds1fxb0jchzgjph.blob.core.windows.net/press-releases-attachments/1648171/en_20240325174604_49.pdf
+[2025-01-24 14:34:57] AMERICANA RESTAURANTS INTERNATIONA: Failed to download PDF after 3 attempts | URL: https://www.americanarestaurants.com/wp-content/uploads/2024/10/amr-9m-2024-financials-english.pdf
+[2025-01-24 14:34:58] AMERICANA RESTAURANTS INTERNATIONA: Failed to download PDF after 3 attempts | URL: https://www.americanarestaurants.com/wp-content/uploads/2024/05/signed-consolidated-fs-31-march-2024-q1-en.pdf
+[2025-01-24 14:34:59] AMERICANA RESTAURANTS INTERNATIONA: Failed to download PDF after 3 attempts | URL: https://www.americanarestaurants.com/wp-content/uploads/2024/02/31-december-2023-ye-consolidated-fs-signed-en.pdf
+[2025-01-24 14:34:59] AMERICANA RESTAURANTS INTERNATIONA: No Valid PDF Found in Search Results
+[2025-01-24 14:34:59] AMERICANA RESTAURANTS INTERNATIONA: Searching Webpage in Bing | URL: https://www.bing.com/search?q=AMERICANA%20RESTAURANTS%20INTERNATIONA%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:35:00] AMERICANA RESTAURANTS INTERNATIONA: Searching PDF in Webpage | URL: https://adxservices.adx.ae/cdn/contentdownload.aspx?doc=3076064
+[2025-01-24 14:35:03] AMERICAN WATER WORKS INC: Found 2 PDF on webpage.
+[2025-01-24 14:35:06] AMERICAN WATER WORKS INC: Valid PDF downloaded | URL: https://s26.q4cdn.com/750150140/files/doc_downloads/esg_docs/2024/2023-Sustainability-Report.pdf
+[2025-01-24 14:35:09] AMERIPRISE FINANCE INC: Searching PDF in Bing | URL: https://www.bing.com/search?q=AMERIPRISE%20FINANCE%20INC%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:35:26] AMERIPRISE FINANCE INC: Valid PDF downloaded | URL: https://www.ameriprise.com/binaries/content/assets/ampcom/responsible-business/2024-responsible-business-report.pdf
+[2025-01-24 14:35:45] AMERICAN EXPRESS: Found 1 PDF on webpage.
+[2025-01-24 14:36:39] AMERICANA RESTAURANTS INTERNATIONA: Failed to get search results after 3 attempts: Message: 
+
+[2025-01-24 14:36:39] AMERICANA RESTAURANTS INTERNATIONA: No Search Results Found | URL: https://adxservices.adx.ae/cdn/contentdownload.aspx?doc=3076064
+[2025-01-24 14:36:39] AMERICANA RESTAURANTS INTERNATIONA: Searching PDF in Webpage | URL: https://tools.euroland.com/tools/Pressreleases/GetPressRelease/?ID=4486758&lang=en-GB&companycode=ae-america&v=ae-america_adx
+[2025-01-24 14:36:49] AMERICANA RESTAURANTS INTERNATIONA: Found 1 PDF on webpage.
+[2025-01-24 14:36:50] AMERICANA RESTAURANTS INTERNATIONA: Is not a PDF URL | URL: https://adxservices.adx.ae/cdn/contentdownload.aspx?doc=3076064
+[2025-01-24 14:36:50] AMERICANA RESTAURANTS INTERNATIONA: No Valid PDF Found in Webpage
+[2025-01-24 14:36:50] AMERICANA RESTAURANTS INTERNATIONA: Searching PDF in Webpage | URL: https://www.americanarestaurants.com/community-impact/
+[2025-01-24 14:37:05] AMERICANA RESTAURANTS INTERNATIONA: Found 0 PDF on webpage.
+[2025-01-24 14:37:28] AMERICAN EXPRESS: Valid PDF downloaded | URL: https://www.americanexpress.com/content/dam/amex/en-us/newsroom/pdfs/AXP_2023_2024_ESG_Report.pdf
+==================================================
+End Time: 2025-01-24 14:37:30
+==================================================
+==================================================
+Start Time: 2025-01-24 14:38:20
+==================================================
+[2025-01-24 14:38:22] ALIBABA GROUP HOLDING LTD: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALIBABA%20GROUP%20HOLDING%20LTD%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:38:22] ALLEGION PLC: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALLEGION%20PLC%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:38:22] ALIMENTATION COUCHE TARD INC: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALIMENTATION%20COUCHE%20TARD%20INC%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:38:23] ALIBABA GROUP HOLDING LTD: No PDF Links Found in Search Results | URL: https://www.bing.com/search?q=ALIBABA%20GROUP%20HOLDING%20LTD%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:38:23] ALIBABA GROUP HOLDING LTD: Searching Webpage in Bing | URL: https://www.bing.com/search?q=ALIBABA%20GROUP%20HOLDING%20LTD%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:38:23] ALIBABA GROUP HOLDING LTD: Searching PDF in Webpage | URL: https://www.alibabagroup.com/en-US/document-1620276223567462400
+[2025-01-24 14:38:26] ALIMENTATION COUCHE TARD INC: Failed to download PDF after 3 attempts | URL: https://filecache.investorroom.com/mr5ircnw_alimentationcouchetard/403/act_sustainability_report_2024.pdf
+[2025-01-24 14:38:31] ALIMENTATION COUCHE TARD INC: Failed to download PDF after 3 attempts | URL: https://corpo.couche-tard.com/wp-content/uploads/2024/07/act_gri_index_en_20240702.pdf
+[2025-01-24 14:38:33] ALIMENTATION COUCHE TARD INC: Failed to download PDF after 3 attempts | URL: https://www.circlek.dk/media-assets/uploads/2024-09/sustainability%20report%202023-24_0.pdf
+[2025-01-24 14:38:40] ALIMENTATION COUCHE TARD INC: Failed to download PDF after 3 attempts | URL: https://corpo.couche-tard.com/wp-content/uploads/2024/07/act_sasb_index_en_20240702.pdf
+[2025-01-24 14:38:42] ALIMENTATION COUCHE TARD INC: Failed to download PDF after 3 attempts | URL: https://filecache.investorroom.com/mr5ircnw_alimentationcouchetard/399/2024-aif-en-april-28-2024.pdf
+[2025-01-24 14:38:42] ALIMENTATION COUCHE TARD INC: No Valid PDF Found in Search Results
+[2025-01-24 14:38:42] ALIMENTATION COUCHE TARD INC: Searching Webpage in Bing | URL: https://www.bing.com/search?q=ALIMENTATION%20COUCHE%20TARD%20INC%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:38:42] ALLEGION PLC: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://stocklight.com/stocks/us/nyse-alle/allegion/annual-reports/nyse-alle-2024-10k-24650503.pdf
+[2025-01-24 14:38:42] ALLEGION PLC: No Valid PDF Found in Search Results
+[2025-01-24 14:38:42] ALLEGION PLC: Searching Webpage in Bing | URL: https://www.bing.com/search?q=ALLEGION%20PLC%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:38:43] ALIMENTATION COUCHE TARD INC: Searching PDF in Webpage | URL: https://corporate.couche-tard.com/sustainability
+[2025-01-24 14:38:43] ALLEGION PLC: Searching PDF in Webpage | URL: https://www.allegion.com/corp/en/news/year/2023/annual-report-2022-esg-metrics.html
+[2025-01-24 14:39:05] ALLEGION PLC: Found 0 PDF on webpage.
+[2025-01-24 14:39:05] ALLEGION PLC: Searching PDF in Webpage | URL: https://www.allegion.com/corp/en/news/year/2024/2023-esg-annual-report.html
+[2025-01-24 14:39:15] ALLEGION PLC: Found 0 PDF on webpage.
+[2025-01-24 14:39:15] ALLEGION PLC: Searching PDF in Webpage | URL: https://www.allegion.com/corp/en/about/ESG.html
+[2025-01-24 14:39:28] ALLEGION PLC: Found 1 PDF on webpage.
+[2025-01-24 14:39:28] ALLEGION PLC: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://www.allegion.com/content/dam/allegion-corp/migration/esg/EEO-1_2021_Summary-FINAL.pdf
+[2025-01-24 14:39:28] ALLEGION PLC: No Valid PDF Found in Webpage
+[2025-01-24 14:39:32] ALLSTATE CORP: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALLSTATE%20CORP%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:39:33] ALLSTATE CORP: No PDF Links Found in Search Results | URL: https://www.bing.com/search?q=ALLSTATE%20CORP%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:39:33] ALLSTATE CORP: Searching Webpage in Bing | URL: https://www.bing.com/search?q=ALLSTATE%20CORP%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:39:34] ALLSTATE CORP: Searching PDF in Webpage | URL: https://www.allstatesustainability.com/
+[2025-01-24 14:39:52] ALIBABA GROUP HOLDING LTD: Found 1 PDF on webpage.
+[2025-01-24 14:39:52] ALIBABA GROUP HOLDING LTD: Failed to download PDF after 3 attempts | URL: https://data.alibabagroup.com/ecms-files/1532295521/9cb90875-9724-4811-adbf-227457b66794/Alibaba%20Group%20Releases%202023%20Environmental%2C%20Social%20and%20Governance%EF%BC%88ESG%EF%BC%89Report.pdf
+[2025-01-24 14:39:52] ALIBABA GROUP HOLDING LTD: No Valid PDF Found in Webpage
+[2025-01-24 14:39:52] ALIBABA GROUP HOLDING LTD: Searching PDF in Webpage | URL: https://www.alibabagroup.com/en-US/esg
+[2025-01-24 14:40:37] ALIMENTATION COUCHE TARD INC: Found 1 PDF on webpage.
+[2025-01-24 14:40:49] ALIMENTATION COUCHE TARD INC: Valid PDF downloaded | URL: https://corporate.couche-tard.com/image/ACT_Sustainability_Report_2024.pdf
+[2025-01-24 14:40:49] ALLSTATE CORP: Found 2 PDF on webpage.
+[2025-01-24 14:40:49] ALLSTATE CORP: Is not a PDF URL | URL: https://delivery.contenthub.allstate.com/api/public/content/2023-sustainability-report?v=67b36ebf
+[2025-01-24 14:40:49] ALLSTATE CORP: Is not a PDF URL | URL: https://delivery.contenthub.allstate.com/api/public/content/2023-public-policy-report?v=a02623ce
+[2025-01-24 14:40:49] ALLSTATE CORP: No Valid PDF Found in Webpage
+[2025-01-24 14:40:49] ALLSTATE CORP: Searching PDF in Webpage | URL: https://delivery.contenthub.allstate.com/api/public/content/2eda6586d01b4b3bb0605047eacdc4e7?v=19494efc
+[2025-01-24 14:40:54] ALNYLAM PHARMACEUTICALS INC: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALNYLAM%20PHARMACEUTICALS%20INC%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:41:03] ALIBABA GROUP HOLDING LTD: Found 0 PDF on webpage.
+[2025-01-24 14:41:03] ALIBABA GROUP HOLDING LTD: Searching PDF in Webpage | URL: https://sustainabilityreports.com/reports/alibaba-group-holding-limited-2022-esg-report-pdf/
+[2025-01-24 14:41:10] ALNYLAM PHARMACEUTICALS INC: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://www.alnylam.com/sites/default/files/pdfs/global-corporate-social-responsibility-international.pdf
+[2025-01-24 14:41:10] ALNYLAM PHARMACEUTICALS INC: No Valid PDF Found in Search Results
+[2025-01-24 14:41:10] ALNYLAM PHARMACEUTICALS INC: Searching Webpage in Bing | URL: https://www.bing.com/search?q=ALNYLAM%20PHARMACEUTICALS%20INC%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:41:12] ALNYLAM PHARMACEUTICALS INC: Searching PDF in Webpage | URL: https://www.alnylam.com/about-alnylam/corporate-responsibility
+[2025-01-24 14:41:35] ALIBABA GROUP HOLDING LTD: Found 0 PDF on webpage.
+[2025-01-24 14:41:38] ALTAGAS LTD: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALTAGAS%20LTD%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:41:41] ALTAGAS LTD: Failed to download PDF after 3 attempts | URL: https://www.altagas.ca/sites/default/files/2024-09/altagas%202023%20sustainability%20update%20final_0.pdf
+[2025-01-24 14:41:43] ALTAGAS LTD: Failed to download PDF after 3 attempts | URL: https://www.altagas.ca/sites/default/files/2024-05/q1%202024%20pr_md%26a%20and%20fs.pdf
+[2025-01-24 14:41:43] ALTAGAS LTD: No Valid PDF Found in Search Results
+[2025-01-24 14:41:43] ALTAGAS LTD: Searching Webpage in Bing | URL: https://www.bing.com/search?q=ALTAGAS%20LTD%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:41:45] ALTAGAS LTD: Searching PDF in Webpage | URL: https://www.marketscreener.com/quote/stock/ALTAGAS-LTD-1408970/news/AltaGas-Financials-Document-AltaGas-2023-Sustainability-Update-Final-0-48080482/
+[2025-01-24 14:42:24] ALLSTATE CORP: Failed to get search results after 3 attempts: Message: 
+
+[2025-01-24 14:42:24] ALLSTATE CORP: No Search Results Found | URL: https://delivery.contenthub.allstate.com/api/public/content/2eda6586d01b4b3bb0605047eacdc4e7?v=19494efc
+[2025-01-24 14:42:24] ALLSTATE CORP: Searching PDF in Webpage | URL: https://delivery.contenthub.allstate.com/api/public/content/00d7f92d46f24d5caf5d9ef1352e924d?v=beb1057d
+[2025-01-24 14:42:54] ALTAGAS LTD: Found 0 PDF on webpage.
+[2025-01-24 14:42:54] ALTAGAS LTD: Searching PDF in Webpage | URL: https://sustainabilityreports.com/reports/altagas-ltd-2022-esg-update-report-pdf/
+[2025-01-24 14:43:17] ALNYLAM PHARMACEUTICALS INC: Found 0 PDF on webpage.
+[2025-01-24 14:43:17] ALNYLAM PHARMACEUTICALS INC: Searching PDF in Webpage | URL: https://news.alnylam.com/responsibility/articles/alnylam-publishes-2023-corporate-responsibility-report
+[2025-01-24 14:43:19] ALTAGAS LTD: Found 0 PDF on webpage.
+[2025-01-24 14:43:19] ALTAGAS LTD: Searching PDF in Webpage | URL: https://www.altagas.ca/newsroom/news-releases/altagas-releases-inaugural-environmental-social-governance-report
+[2025-01-24 14:43:59] ALLSTATE CORP: Failed to get search results after 3 attempts: Message: 
+
+[2025-01-24 14:43:59] ALLSTATE CORP: No Search Results Found | URL: https://delivery.contenthub.allstate.com/api/public/content/00d7f92d46f24d5caf5d9ef1352e924d?v=beb1057d
+[2025-01-24 14:44:03] ALTEOGEN INC: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALTEOGEN%20INC%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:44:04] ALTEOGEN INC: No PDF Links Found in Search Results | URL: https://www.bing.com/search?q=ALTEOGEN%20INC%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:44:04] ALTEOGEN INC: Searching Webpage in Bing | URL: https://www.bing.com/search?q=ALTEOGEN%20INC%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:44:05] ALTEOGEN INC: Searching PDF in Webpage | URL: https://www.researchandmarkets.com/reports/5631633/esg-performance-analysis-report-2022
+[2025-01-24 14:44:39] ALTAGAS LTD: Found 0 PDF on webpage.
+[2025-01-24 14:44:43] ALTRIA GROUP INC: Searching PDF in Bing | URL: https://www.bing.com/search?q=ALTRIA%20GROUP%20INC%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:44:49] ALTEOGEN INC: Found 0 PDF on webpage.
+[2025-01-24 14:44:49] ALTEOGEN INC: Searching PDF in Webpage | URL: https://www.spglobal.com/esg/scores/results?cid=4811885
+[2025-01-24 14:45:19] ALTRIA GROUP INC: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://stocklight.com/stocks/us/nyse-mo/altria-group/annual-reports/nyse-mo-2024-10k-24685265.pdf
+[2025-01-24 14:45:21] ALTRIA GROUP INC: Failed to download PDF after 3 attempts | URL: https://stocklight.com/stocks/us/nyse-mo/altria-group/annual-reports/nyse-mo-2024-10k-241021503.pdf
+[2025-01-24 14:45:21] ALTRIA GROUP INC: No Valid PDF Found in Search Results
+[2025-01-24 14:45:21] ALTRIA GROUP INC: Searching Webpage in Bing | URL: https://www.bing.com/search?q=ALTRIA%20GROUP%20INC%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:45:22] ALNYLAM PHARMACEUTICALS INC: Found 1 PDF on webpage.
+[2025-01-24 14:45:22] ALNYLAM PHARMACEUTICALS INC: Is not a PDF URL | URL: https://www.alnylam.com/CorporateResponsibilityReport2023
+[2025-01-24 14:45:22] ALNYLAM PHARMACEUTICALS INC: No Valid PDF Found in Webpage
+[2025-01-24 14:45:22] ALNYLAM PHARMACEUTICALS INC: Searching PDF in Webpage | URL: https://investors.alnylam.com/press-release?id=28151
+[2025-01-24 14:45:23] ALTRIA GROUP INC: Searching PDF in Webpage | URL: https://www.altria.com/en/responsibility/esg-reporting-and-data
+[2025-01-24 14:45:32] ALTEOGEN INC: Found 0 PDF on webpage.
+[2025-01-24 14:45:32] ALTEOGEN INC: Searching PDF in Webpage | URL: http://www.alteogen.com/en/esg_goal/
+[2025-01-24 14:46:17] ALTRIA GROUP INC: Found 3 PDF on webpage.
+[2025-01-24 14:46:18] ALTRIA GROUP INC: Failed to download PDF after 3 attempts | URL: https://www.altria.com/-/media/Project/Altria/Altria/documents/responsibility/2023-Engage-and-Lead-Report.pdf?src=esg-engage-and-lead-responsibly
+[2025-01-24 14:46:19] ALTRIA GROUP INC: Failed to download PDF after 3 attempts | URL: https://www.altria.com/-/media/Project/Altria/Altria/responsibility/esg-reporting-and-data/Engage-Lead-2022-Report.pdf?src=esg-engage-and-lead-responsibly
+[2025-01-24 14:46:21] ALTRIA GROUP INC: Failed to download PDF after 3 attempts | URL: https://www.altria.com/-/media/Project/Altria/Altria/responsibility/esg-reporting-and-data/engage-and-lead-responsibly-2021.pdf?src=esg-engage-and-lead-responsibly
+[2025-01-24 14:46:21] ALTRIA GROUP INC: No Valid PDF Found in Webpage
+[2025-01-24 14:46:21] ALTRIA GROUP INC: Searching PDF in Webpage | URL: https://www.altria.com/responsibility/esg-reporting-and-data/esg-data-and-disclosures?src=esg-protect-the-environment
+[2025-01-24 14:47:47] ALNYLAM PHARMACEUTICALS INC: Found 1 PDF on webpage.
+[2025-01-24 14:47:47] ALNYLAM PHARMACEUTICALS INC: Is not a PDF URL | URL: https://cts.businesswire.com/ct/CT?id=smartlink&url=https%3A%2F%2Fwww.alnylam.com%2FCorporateResponsibilityReport2023&esheet=53973872&newsitemid=20240507507791&lan=en-US&anchor=2023+Corporate+Responsibility+Report&index=2&md5=31065fc0600f50aa2e32d86421c69ff6
+[2025-01-24 14:47:47] ALNYLAM PHARMACEUTICALS INC: No Valid PDF Found in Webpage
+[2025-01-24 14:47:51] AMADEUS IT GROUP SA: Searching PDF in Bing | URL: https://www.bing.com/search?q=AMADEUS%20IT%20GROUP%20SA%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:47:57] ALTRIA GROUP INC: Failed to get search results after 3 attempts: Message: 
+
+[2025-01-24 14:47:57] ALTRIA GROUP INC: No Search Results Found | URL: https://www.altria.com/responsibility/esg-reporting-and-data/esg-data-and-disclosures?src=esg-protect-the-environment
+[2025-01-24 14:47:57] ALTRIA GROUP INC: Searching PDF in Webpage | URL: https://www.altria.com/responsibility/esg-reporting-and-data/all-reports-and-snapshots?src=esg-protect-the-environment
+[2025-01-24 14:47:58] AMADEUS IT GROUP SA: Failed to download PDF after 3 attempts | URL: https://corporate.amadeus.com/documents/en/resources/corporate-information/corporate-documents/amadeus%20sustainability%20policy%20-%202024.06.pdf
+[2025-01-24 14:47:59] AMADEUS IT GROUP SA: Failed to download PDF after 3 attempts | URL: https://amadeus.com/content/dam/amadeuswebevo/brand/amadeus/photos/sections/company/sustainability-/overview/documents/esg-ebook-2024-web.pdf
+[2025-01-24 14:48:03] AMADEUS IT GROUP SA: Failed to download PDF after 3 attempts | URL: https://group.amadeus-fire.de/wp-content/uploads/2024/01/sustainability_report_englisch_22.pdf
+[2025-01-24 14:48:06] AMADEUS IT GROUP SA: Failed to download PDF after 3 attempts | URL: https://group.amadeus-fire.de/wp-content/uploads/2024/03/sustainability-report-2023-e-1.pdf
+[2025-01-24 14:48:06] AMADEUS IT GROUP SA: No Valid PDF Found in Search Results
+[2025-01-24 14:48:06] AMADEUS IT GROUP SA: Searching Webpage in Bing | URL: https://www.bing.com/search?q=AMADEUS%20IT%20GROUP%20SA%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:48:07] AMADEUS IT GROUP SA: Searching PDF in Webpage | URL: https://amadeus.com/en/sustainability/overview
+[2025-01-24 14:48:08] AMADEUS IT GROUP SA: Found 0 PDF on webpage.
+[2025-01-24 14:48:08] AMADEUS IT GROUP SA: Searching PDF in Webpage | URL: https://corporate.amadeus.com/en/annual-reports
+[2025-01-24 14:48:38] AMADEUS IT GROUP SA: Found 11 PDF on webpage.
+[2025-01-24 14:48:55] ALTEOGEN INC: Found 0 PDF on webpage.
+[2025-01-24 14:49:00] AMBEV SA: Searching PDF in Bing | URL: https://www.bing.com/search?q=AMBEV%20SA%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:49:02] AMBEV SA: No PDF Links Found in Search Results | URL: https://www.bing.com/search?q=AMBEV%20SA%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:49:02] AMBEV SA: Searching Webpage in Bing | URL: https://www.bing.com/search?q=AMBEV%20SA%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:49:03] AMBEV SA: Searching PDF in Webpage | URL: https://sustainabilityreports.com/reports/ambev-sa-2022-annual-and-esg-report-pdf/
+[2025-01-24 14:49:07] AMADEUS IT GROUP SA: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://corporate.amadeus.com/documents/en/resources/corporate-information/corporate-documents/global-reports/2018/amadeus-global-report-2018.pdf
+[2025-01-24 14:49:24] AMADEUS IT GROUP SA: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://corporate.amadeus.com/documents/en/resources/corporate-information/corporate-documents/global-reports/2017/amadeus-global-report-2017.pdf
+[2025-01-24 14:49:34] AMBEV SA: Found 0 PDF on webpage.
+[2025-01-24 14:49:34] AMBEV SA: Searching PDF in Webpage | URL: https://ri.ambev.com.br/en/reports-publications/annual-and-sustainability-report/
+[2025-01-24 14:49:36] ALTRIA GROUP INC: Failed to get search results after 3 attempts: Message: 
+
+[2025-01-24 14:49:36] ALTRIA GROUP INC: No Search Results Found | URL: https://www.altria.com/responsibility/esg-reporting-and-data/all-reports-and-snapshots?src=esg-protect-the-environment
+[2025-01-24 14:49:41] AMERICAN TOWER REIT CORP: Searching PDF in Bing | URL: https://www.bing.com/search?q=AMERICAN%20TOWER%20REIT%20CORP%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:49:45] AMERICAN TOWER REIT CORP: Failed to download PDF after 3 attempts | URL: https://tower-reit.com/storage/app/media/agm%202024/02/annual%20report%202024.pdf
+[2025-01-24 14:49:46] AMERICAN TOWER REIT CORP: No Valid PDF Found in Search Results
+[2025-01-24 14:49:46] AMERICAN TOWER REIT CORP: Searching Webpage in Bing | URL: https://www.bing.com/search?q=AMERICAN%20TOWER%20REIT%20CORP%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:49:47] AMERICAN TOWER REIT CORP: Searching PDF in Webpage | URL: https://www.americantower.com/sustainability
+[2025-01-24 14:50:04] AMADEUS IT GROUP SA: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://corporate.amadeus.com/documents/en/resources/corporate-information/corporate-documents/global-reports/2016/amadeus-global-report-2016.pdf
+[2025-01-24 14:50:33] AMADEUS IT GROUP SA: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://corporate.amadeus.com/documents/en/resources/corporate-information/corporate-documents/global-reports/2015/amadeus-global-report-2015.pdf
+[2025-01-24 14:50:35] AMBEV SA: Found 0 PDF on webpage.
+[2025-01-24 14:50:35] AMBEV SA: Searching PDF in Webpage | URL: https://www.marketscreener.com/quote/stock/AMBEV-S-A-15458762/news/Ambev-S-A-Annual-and-Sustainability-Report-2024-Fiscal-Year-2023-47271343/
+[2025-01-24 14:50:54] AMADEUS IT GROUP SA: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://corporate.amadeus.com/documents/en/resources/corporate-information/corporate-documents/global-reports/2014/amadeus-global-report-2014.pdf
+[2025-01-24 14:50:55] AMERICAN TOWER REIT CORP: Found 0 PDF on webpage.
+[2025-01-24 14:50:55] AMERICAN TOWER REIT CORP: Searching PDF in Webpage | URL: https://www.americantower.com/media-hub/american-tower-corporation-releases-2022-sustainability-report
+[2025-01-24 14:50:55] AMERICAN TOWER REIT CORP: Found 0 PDF on webpage.
+[2025-01-24 14:50:55] AMERICAN TOWER REIT CORP: Searching PDF in Webpage | URL: https://www.americantower.com/environment
+[2025-01-24 14:50:56] AMERICAN TOWER REIT CORP: Found 0 PDF on webpage.
+[2025-01-24 14:51:01] AMERICANA RESTAURANTS INTERNATIONA: Searching PDF in Bing | URL: https://www.bing.com/search?q=AMERICANA%20RESTAURANTS%20INTERNATIONA%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:51:06] AMERICANA RESTAURANTS INTERNATIONA: Failed to download PDF after 3 attempts | URL: https://www.americanarestaurants.com/wp-content/uploads/2024/10/amr-9m-2024-financials-english.pdf
+[2025-01-24 14:51:08] AMERICANA RESTAURANTS INTERNATIONA: Failed to download PDF after 3 attempts | URL: https://www.americanarestaurants.com/wp-content/uploads/2024/05/signed-consolidated-fs-31-march-2024-q1-en.pdf
+[2025-01-24 14:51:09] AMADEUS IT GROUP SA: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://corporate.amadeus.com/documents/en/resources/corporate-information/corporate-documents/global-reports/2013/amadeus-global-report-2013.pdf
+[2025-01-24 14:51:10] AMERICANA RESTAURANTS INTERNATIONA: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://portalvhds1fxb0jchzgjph.blob.core.windows.net/press-releases-attachments/1648171/en_20240325174604_49.pdf
+[2025-01-24 14:51:11] AMERICANA RESTAURANTS INTERNATIONA: Failed to download PDF after 3 attempts | URL: https://www.americanarestaurants.com/wp-content/uploads/2024/02/amr_2023a_earnings-presentation_vf.pdf
+[2025-01-24 14:51:11] AMERICANA RESTAURANTS INTERNATIONA: No Valid PDF Found in Search Results
+[2025-01-24 14:51:11] AMERICANA RESTAURANTS INTERNATIONA: Searching Webpage in Bing | URL: https://www.bing.com/search?q=AMERICANA%20RESTAURANTS%20INTERNATIONA%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-24 14:51:13] AMERICANA RESTAURANTS INTERNATIONA: Searching PDF in Webpage | URL: https://adxservices.adx.ae/cdn/contentdownload.aspx?doc=3076064
+[2025-01-24 14:51:26] AMADEUS IT GROUP SA: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://corporate.amadeus.com/documents/en/resources/corporate-information/corporate-documents/global-reports/2012/amadeus-annual-report-2012.pdf
+[2025-01-24 14:51:44] AMADEUS IT GROUP SA: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://corporate.amadeus.com/documents/en/resources/corporate-information/corporate-documents/global-reports/2012/amadeus-corporate-sustainability-report-2012.pdf
+[2025-01-24 14:51:58] AMADEUS IT GROUP SA: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://corporate.amadeus.com/documents/en/resources/corporate-information/corporate-documents/global-reports/2011/amadeus-annual-report-2011.pdf
+[2025-01-24 14:52:09] AMADEUS IT GROUP SA: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://corporate.amadeus.com/documents/en/resources/corporate-information/corporate-documents/global-reports/2011/amadeus-corporate-sustainability-report-2011.pdf
+[2025-01-24 14:52:09] AMADEUS IT GROUP SA: No Valid PDF Found in Webpage
+[2025-01-24 14:52:09] AMADEUS IT GROUP SA: Searching PDF in Webpage | URL: https://amadeus.com/en/sustainability/environment
+[2025-01-24 14:52:09] AMADEUS IT GROUP SA: Found 0 PDF on webpage.
+[2025-01-24 14:52:43] AMBEV SA: Found 0 PDF on webpage.
+[2025-01-24 14:52:51] AMERICANA RESTAURANTS INTERNATIONA: Failed to get search results after 3 attempts: Message: 
+
+[2025-01-24 14:52:51] AMERICANA RESTAURANTS INTERNATIONA: No Search Results Found | URL: https://adxservices.adx.ae/cdn/contentdownload.aspx?doc=3076064
+[2025-01-24 14:52:51] AMERICANA RESTAURANTS INTERNATIONA: Searching PDF in Webpage | URL: https://tools.euroland.com/tools/Pressreleases/GetPressRelease/?ID=4486758&lang=en-GB&companycode=ae-america&v=ae-america_adx
+[2025-01-24 14:52:55] AMERICANA RESTAURANTS INTERNATIONA: Found 1 PDF on webpage.
+[2025-01-24 14:52:55] AMERICANA RESTAURANTS INTERNATIONA: Is not a PDF URL | URL: https://adxservices.adx.ae/cdn/contentdownload.aspx?doc=3076064
+[2025-01-24 14:52:55] AMERICANA RESTAURANTS INTERNATIONA: No Valid PDF Found in Webpage
+[2025-01-24 14:52:55] AMERICANA RESTAURANTS INTERNATIONA: Searching PDF in Webpage | URL: https://www.americanarestaurants.com/community-impact/
+[2025-01-24 14:52:59] AMERICANA RESTAURANTS INTERNATIONA: Found 0 PDF on webpage.
+==================================================
+End Time: 2025-01-24 14:53:02
+==================================================

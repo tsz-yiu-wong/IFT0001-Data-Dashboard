@@ -1,0 +1,576 @@
+[2025-01-22 04:38:06] ABN AMRO BANK NV: Webpage Found | URL: https://www.abnamro.com/en/over-abn-amro/information/sustainability-reporting-and-publications
+[2025-01-22 04:38:06] 3I GROUP PLC: Webpage Found | URL: https://www.3i.com/sustainability/sustainability-reports-and-data-library/
+[2025-01-22 04:38:06] ABN AMRO BANK NV: No PDF Found in Webpage | URL: https://www.abnamro.com/en/over-abn-amro/information/sustainability-reporting-and-publications
+[2025-01-22 04:38:06] ACS ACTIVIDADES DE CONSTRUCCION Y: Search Failed | Error: Message: 
+
+[2025-01-22 04:38:06] 3I GROUP PLC: PDF Found in Webpage | URL: https://www.3i.com/media/k5rhd4el/sustainability.pdf
+[2025-01-22 04:38:13] ADMIRAL GROUP PLC: Search Failed | Error: Message: 
+
+[2025-01-22 04:38:20] AED CASH: PDF Found Directly | URL: https://aepsustainability.com/lib/docs/2024-AEP-GRI-and-SASB-Report.pdf
+[2025-01-22 04:38:27] AIRBUS GROUP: PDF Found Directly | URL: https://www.aerlingus.com/media/pdfs/ei-2023-environmental-report.pdf
+[2025-01-22 04:38:33] AKZO NOBEL NV: Webpage Found | URL: https://www.akzonobel.com/en/about-us/annual-report
+[2025-01-22 04:38:35] ALEXANDRIA REAL ESTATE EQUITIES RE: Search Failed | Error: Message: 
+
+[2025-01-22 04:38:20] AGILENT TECHNOLOGIES INC: Webpage Found | URL: https://www.agilent.com/about/companyinfo/sustainability/2020-Agilent-CSR.html
+[2025-01-22 04:38:33] AKZO NOBEL NV: PDF Found in Webpage | URL: https://www.akzonobel.com/content/dam/akzonobel-corporate/global/en/investor-relations-images/result-center/archive-annual-reports/2029-2020/akzonobel-annual-report-2023.pdf
+[2025-01-22 04:38:20] AGILENT TECHNOLOGIES INC: Search Failed | Error: Message: 
+
+[2025-01-22 04:38:50] ALLIANT ENERGY CORP: PDF Found Directly | URL: https://www.constellationenergy.com/content/dam/constellationenergy/pdfs/Constellation-2024-Sustainability-Report.pdf
+[2025-01-22 04:39:23] AMETEK INC: Search Failed | Error: Message: stale element reference: stale element not found
+  (Session info: chrome=131.0.6778.265); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+	GetHandleVerifier [0x00007FF638FB80D5+2992373]
+	(No symbol) [0x00007FF638C4BFD0]
+	(No symbol) [0x00007FF638AE590A]
+	(No symbol) [0x00007FF638AF9F04]
+	(No symbol) [0x00007FF638AF89B4]
+	(No symbol) [0x00007FF638AED0E9]
+	(No symbol) [0x00007FF638AED263]
+	(No symbol) [0x00007FF638AEAF32]
+	(No symbol) [0x00007FF638AEF49F]
+	(No symbol) [0x00007FF638B80840]
+	(No symbol) [0x00007FF638B5F36A]
+	(No symbol) [0x00007FF638B7F584]
+	(No symbol) [0x00007FF638B5F113]
+	(No symbol) [0x00007FF638B2A918]
+	(No symbol) [0x00007FF638B2BA81]
+	GetHandleVerifier [0x00007FF639016A2D+3379789]
+	GetHandleVerifier [0x00007FF63902C32D+3468109]
+	GetHandleVerifier [0x00007FF639020043+3418211]
+	GetHandleVerifier [0x00007FF638DAC78B+847787]
+	(No symbol) [0x00007FF638C5757F]
+	(No symbol) [0x00007FF638C52FC4]
+	(No symbol) [0x00007FF638C5315D]
+	(No symbol) [0x00007FF638C42979]
+	BaseThreadInitThunk [0x00007FFFB374259D+29]
+	RtlUserThreadStart [0x00007FFFB4B4AF38+40]
+
+[2025-01-22 04:39:14] ALTAGAS LTD: Search Failed | Error: Message: 
+
+[2025-01-22 04:39:30] ANGLO AMERICAN PLC: Search Failed | Error: Message: 
+
+[2025-01-22 04:39:30] ANZ GROUP HOLDINGS LTD: Search Failed | Error: Message: 
+
+[2025-01-22 04:39:20] AMERICA MOVIL B: Webpage Found | URL: https://sustainability.americamovil.com/reports/
+[2025-01-22 04:39:44] APTIV LTD: PDF Found Directly | URL: https://downloads.aptiv.com/libraries/docs/default-source/aptiv-storage/2020_aptiv_sustainabilityreport_apt001_v23.pdf?sfvrsn=d904f53d_5
+[2025-01-22 04:39:49] ARISTA NETWORKS INC: Search Failed | Error: Message: 
+
+[2025-01-22 04:40:03] ASIA CEMENT CORP: Webpage Found | URL: https://esg.acc.com.tw/en/resource_center/esg_report
+[2025-01-22 04:40:03] ASSICURAZIONI GENERALI: Search Failed | Error: Message: 
+
+[2025-01-22 04:39:20] AMERICA MOVIL B: PDF Found in Webpage | URL: https://sustentabilidad.americamovil.com/portal/su/pdf/2023-Sustainability-Report.pdf
+[2025-01-22 04:40:18] ATLAS COPCO CLASS A: Search Failed | Error: Message: 
+
+[2025-01-22 04:40:30] AUTODESK INC: Search Failed | Error: Message: 
+
+[2025-01-22 04:40:45] BACHEM HOLDING AG: Webpage Found | URL: https://www.bachem.com/about-bachem/sustainability/
+[2025-01-22 04:40:45] BACHEM HOLDING AG: No PDF Found in Webpage | URL: https://www.bachem.com/about-bachem/sustainability/
+[2025-01-22 04:40:34] AVIVA PLC: PDF Found Directly | URL: https://www.aviva.ca/content/dam/aviva-public/ca/pdf/2022-sustainability-report-en.pdf
+[2025-01-22 04:40:54] BANCO BILBAO VIZCAYA ARGENTARIA SA: Search Failed | Error: Message: 
+
+[2025-01-22 04:41:09] BANK NEGARA INDONESIA: Webpage Found | URL: https://www.bni.co.id/en-us/investors/sustainability-report
+[2025-01-22 04:40:03] ASIA CEMENT CORP: PDF Found in Webpage | URL: https://esg.acc.com.tw/upload/2024/r12_files/2023_Sustainability_Summary_Report(en).pdf
+[2025-01-22 04:41:07] BANCO SANTANDER SA: Search Failed | Error: Message: 
+
+[2025-01-22 04:41:20] BANK OF JIANGSU CORPORATION LTD A: Search Failed | Error: Message: 
+
+[2025-01-22 04:41:22] BANQUE SAUDI FRANSI: Search Failed | Error: Message: 
+
+[2025-01-22 04:41:35] BB SEGURIDADE SA: Webpage Found | URL: https://www.bbseguridaderi.com.br/en/sustainability-and-governance/sustainability/
+[2025-01-22 04:41:35] BB SEGURIDADE SA: No PDF Found in Webpage | URL: https://www.bbseguridaderi.com.br/en/sustainability-and-governance/sustainability/
+[2025-01-22 04:41:37] BEIJER REF CLASS B: Search Failed | Error: Message: 
+
+[2025-01-22 04:41:52] BIO RAD LABORATORIES INC CLASS A: Webpage Found | URL: https://www.bio-rad.com/sites/default/files/2024-12/2023_BioRad_SustainabilityReport.pdf
+[2025-01-22 04:41:52] BIO RAD LABORATORIES INC CLASS A: Search Failed | Error: Message: 
+
+[2025-01-22 04:42:15] BLUESCOPE STEEL LTD: Webpage Found | URL: https://www.bluescope.com/news/FY2024-BlueScope-Sustainability-Report-Suite
+[2025-01-22 04:41:09] BANK NEGARA INDONESIA: PDF Found in Webpage | URL: https://www.bni.co.id/Portals/1/BNI/Perusahaan/HubunganInvestor/Docs/SR-BNI-2023-ENG-final_highres.pdf
+[2025-01-22 04:42:33] BOOKING HOLDINGS INC: Webpage Found | URL: http://www.bookingholdings.com/wp-content/uploads/2023/04/BKNG-Sustainability-Report-2022.pdf
+[2025-01-22 04:42:15] BLUESCOPE STEEL LTD: PDF Found in Webpage | URL: https://www.bluescope.com/content/dam/bluescope/corporate/bluescope-com/sustainability/documents/FY2024-Climate_Action_Reportv2.pdf
+[2025-01-22 04:42:33] BOOKING HOLDINGS INC: Search Failed | Error: Message: 
+
+[2025-01-22 04:42:55] BRF BRASIL FOODS SA: Webpage Found | URL: https://www.brf-global.com/en/sustainability/how-we-act/integrated-report/
+[2025-01-22 04:42:56] BROOKFIELD RENEWABLE SUBORDINATE V: Webpage Found | URL: https://www.bep.brookfield.com/bep/responsibility
+[2025-01-22 04:41:44] BHARAT ELECTRONICS LTD: PDF Found Directly | URL: https://bel-india.in/wp-content/uploads/2024/02/Integrated-Annual-Report-2022-23.pdf
+[2025-01-22 04:43:11] BUNZL: Search Failed | Error: Message: 
+
+[2025-01-22 04:42:55] BRF BRASIL FOODS SA: PDF Found in Webpage | URL: https://www.brf-global.com/en//wp-content/uploads/2024/07/integrated-report-2023.pdf
+[2025-01-22 04:43:27] CAE INC: Webpage Found | URL: https://www.cae.com/sustainability/
+[2025-01-22 04:43:27] CAE INC: No PDF Found in Webpage | URL: https://www.cae.com/sustainability/
+[2025-01-22 04:43:41] CAPITEC LTD: Webpage Found | URL: https://www.capitecbank.co.za/esg/
+[2025-01-22 04:43:41] CAPITEC LTD: No PDF Found in Webpage | URL: https://www.capitecbank.co.za/esg/
+[2025-01-22 04:43:38] CANADIAN PACIFIC KANSAS CITY LTD: Search Failed | Error: Message: 
+
+[2025-01-22 04:42:56] BROOKFIELD RENEWABLE SUBORDINATE V: PDF Found in Webpage | URL: https://bep.brookfield.com/sites/bep-brookfield-ir/files/Brookfield-BEP-IR-V2/2024/bep-sustainability-2023.pdf
+[2025-01-22 04:43:51] CARRIER GLOBAL CORP: Search Failed | Error: Message: 
+
+[2025-01-22 04:43:53] CDW CORP: Search Failed | Error: Message: 
+
+[2025-01-22 04:44:04] CENTRAIS ELETR BRAS-ELETROBRAS: Webpage Found | URL: https://eletrobras.com/en/Paginas/Sustainability.aspx
+[2025-01-22 04:44:10] CHENIERE ENERGY INC: Webpage Found | URL: https://lngir.cheniere.com/news-events/press-releases/detail/251/cheniere-publishes-2021-corporate-responsibility-report
+[2025-01-22 04:44:05] CHAILEASE HOLDING LTD: Search Failed | Error: Message: 
+
+[2025-01-22 04:44:22] CHINA CONSTRUCTION BANK CORP H: Search Failed | Error: Message: 
+
+[2025-01-22 04:44:10] CHENIERE ENERGY INC: PDF Found in Webpage | URL: https://cheniere.s3.amazonaws.com/media/2021-Corporate-Responsibility-Report-Final.pdf
+[2025-01-22 04:44:37] CHINA LIFE INSURANCE LTD H: Search Failed | Error: Message: 
+
+[2025-01-22 04:44:38] CHINA MINSHENG BANKING CORP LTD H: Search Failed | Error: Message: 
+
+[2025-01-22 04:44:04] CENTRAIS ELETR BRAS-ELETROBRAS: PDF Found in Webpage | URL: https://eletrobras.com/en/SobreaEletrobras/Annual-Report-2022.pdf
+[2025-01-22 04:44:52] CHINA RESOURCES BEER HOLDINGS LTD: Search Failed | Error: Message: 
+
+[2025-01-22 04:44:53] CHINA STATE CONSTRUCTION ENGINEERI: Search Failed | Error: Message: 
+
+[2025-01-22 04:44:59] CHINA YANGTZE POWER LTD A: Search Failed | Error: Message: 
+
+[2025-01-22 04:45:07] CHUNGHWA TELECOM LTD: Webpage Found | URL: https://www.cht.com.tw/en/home/cht/esg/esg-report/sustainability-esg-report
+[2025-01-22 04:45:08] CISCO SYSTEMS INC: Search Failed | Error: Message: 
+
+[2025-01-22 04:45:14] CLICKS GROUP LTD: Search Failed | Error: Message: 
+
+[2025-01-22 04:45:23] CNY CASH: Search Failed | Error: Message: 
+
+[2025-01-22 04:45:28] COLES GROUP LTD: Search Failed | Error: Message: 
+
+[2025-01-22 04:45:37] COMPAGNIE FINANCIERE RICHEMONT SA: Webpage Found | URL: https://sustainabilityreports.com/reports/compagnie-financiere-richemont-sa-2023-esg-report-pdf/
+[2025-01-22 04:45:43] CONSOLIDATED EDISON INC: Search Failed | Error: Message: 
+
+[2025-01-22 04:45:57] CORNING INC: Webpage Found | URL: https://www.corning.com/worldwide/en/corning-reports/2023-corning-reports
+[2025-01-22 04:45:37] COMPAGNIE FINANCIERE RICHEMONT SA: No PDF Found in Webpage | URL: https://sustainabilityreports.com/reports/compagnie-financiere-richemont-sa-2023-esg-report-pdf/
+[2025-01-22 04:45:57] CORNING INC: Search Failed | Error: Message: 
+
+[2025-01-22 04:46:14] COVESTRO V AG: Search Failed | Error: Message: 
+
+[2025-01-22 04:46:17] CROWN CASTLE INC: Search Failed | Error: Message: 
+
+[2025-01-22 04:46:29] CUMMINS INDIA LTD: Search Failed | Error: Message: 
+
+[2025-01-22 04:46:32] DAIICHI SANKYO LTD: Search Failed | Error: Message: 
+
+[2025-01-22 04:46:47] DBS GROUP HOLDINGS LTD: Webpage Found | URL: https://www.dbs.com/sustainability/reports-and-disclosures/default.page
+[2025-01-22 04:46:44] DAR AL ARKAN REAL ESTATE DEVELOPME: Search Failed | Error: Message: 
+
+[2025-01-22 04:46:47] DBS GROUP HOLDINGS LTD: No PDF Found in Webpage | URL: https://www.dbs.com/sustainability/reports-and-disclosures/default.page
+[2025-01-22 04:47:03] DIAGEO PLC: Webpage Found | URL: https://www.diageo.com/en/esg/esg-governance-and-reporting-centre/reporting-archive
+[2025-01-22 04:45:07] CHUNGHWA TELECOM LTD: PDF Found in Webpage | URL: https://www.cht.com.tw/en/home/cht/-/media/Web/PDF/Sustainability/CSR-Report-Download/CSR-Report-en/2023/2023-ESG-Report_website2.pdf
+[2025-01-22 04:47:22] DIVIS LABORATORIES LTD: Search Failed | Error: Message: 
+
+[2025-01-22 04:47:00] DENSO CORP: Webpage Found | URL: https://www.denso.com/global/en/about-us/sustainability/
+[2025-01-22 04:47:38] DOORDASH INC CLASS A: Search Failed | Error: Message: 
+
+[2025-01-22 04:47:00] DENSO CORP: No PDF Found in Webpage | URL: https://www.denso.com/global/en/about-us/sustainability/
+[2025-01-22 04:47:52] DSV: Search Failed | Error: Message: 
+
+[2025-01-22 04:47:59] EAST MONEY INFORMATION LTD A: Search Failed | Error: Message: 
+
+[2025-01-22 04:48:07] EDISON INTERNATIONAL: Search Failed | Error: Message: 
+
+[2025-01-22 04:47:03] DIAGEO PLC: PDF Found in Webpage | URL: https://www.diageo.com/~/media/Files/D/Diageo-V2/Diageo-Corp/investors/results-reports-and-events/annual-reports/diageo-annual-report-2024.pdf
+[2025-01-22 04:48:13] ELEVANCE HEALTH INC: Search Failed | Error: Message: 
+
+[2025-01-22 04:48:23] ENDESA SA: Webpage Found | URL: https://www.endesa.com/en/shareholders-and-investors/financial-information
+[2025-01-22 04:48:29] ENPHASE ENERGY INC: Webpage Found | URL: https://enphase.com/company/sustainability
+[2025-01-22 04:48:29] ENPHASE ENERGY INC: No PDF Found in Webpage | URL: https://enphase.com/company/sustainability
+[2025-01-22 04:48:52] EQT CORP: Webpage Found | URL: https://eqtgroup.com/sustainability-reports/
+[2025-01-22 04:48:21] EMIRATES NBD: Webpage Found | URL: https://www.emiratesnbd.com/en/about-emirates-nbd/sustainability/esg-and-integrated-reports
+[2025-01-22 04:48:52] EQT CORP: No PDF Found in Webpage | URL: https://eqtgroup.com/sustainability-reports/
+[2025-01-22 04:49:06] ERIE INDEMNITY CLASS A: Webpage Found | URL: https://www.erieinsurance.com/investor
+[2025-01-22 04:48:23] ENDESA SA: PDF Found in Webpage | URL: https://www.endesa.com/content/dam/enel-es/endesa-en/home/investors/financialinformation/annualreports/documents/2024/Consolidated%20Annual%20Financial%20Report%20ENDESA%202023.pdf
+[2025-01-22 04:49:06] ERIE INDEMNITY CLASS A: No PDF Found in Webpage | URL: https://www.erieinsurance.com/investor
+[2025-01-22 04:48:21] EMIRATES NBD: No PDF Found in Webpage | URL: https://www.emiratesnbd.com/en/about-emirates-nbd/sustainability/esg-and-integrated-reports
+[2025-01-22 04:49:44] EUROBANK HOLDINGS SA: Search Failed | Error: Message: 
+
+[2025-01-22 04:50:00] F5 INC: Webpage Found | URL: https://investors.f5.com/esg
+[2025-01-22 04:49:57] EXACT SCIENCES CORP: Search Failed | Error: Message: 
+
+[2025-01-22 04:50:00] F5 INC: No PDF Found in Webpage | URL: https://investors.f5.com/esg
+[2025-01-22 04:49:59] FASTIGHETS BALDER CLASS B: Search Failed | Error: Message: 
+
+[2025-01-22 04:50:14] FISHER AND PAYKEL HEALTHCARE CORPO: Webpage Found | URL: https://www.fphcare.com/nz/corporate/sustainability/
+[2025-01-22 04:50:17] FORTIVE CORP: Search Failed | Error: Message: 
+
+[2025-01-22 04:50:31] FRANCO NEVADA CORP: Webpage Found | URL: https://www.franco-nevada.com/esg/default.aspx
+[2025-01-22 04:50:31] FRANCO NEVADA CORP: No PDF Found in Webpage | URL: https://www.franco-nevada.com/esg/default.aspx
+[2025-01-22 04:50:14] FISHER AND PAYKEL HEALTHCARE CORPO: PDF Found in Webpage | URL: https://resources.fphcare.com/content/fph-annual-report-2024.pdf
+[2025-01-22 04:50:13] FINECOBANK BANCA FINECO: Webpage Found | URL: https://sustainabilityreports.com/reports/finecobank-banca-fineco-spa-2023-sustainability-report-pdf/
+[2025-01-22 04:50:41] FUTU HOLDINGS ADR LTD: Search Failed | Error: Message: 
+
+[2025-01-22 04:50:48] GCL TECHNOLOGY HOLDINGS LTD: Webpage Found | URL: https://sustainabilityreports.com/reports/gcl-technology-holdings-limited-2023-esg-report-pdf/
+[2025-01-22 04:50:13] FINECOBANK BANCA FINECO: No PDF Found in Webpage | URL: https://sustainabilityreports.com/reports/finecobank-banca-fineco-spa-2023-sustainability-report-pdf/
+[2025-01-22 04:50:48] GCL TECHNOLOGY HOLDINGS LTD: No PDF Found in Webpage | URL: https://sustainabilityreports.com/reports/gcl-technology-holdings-limited-2023-esg-report-pdf/
+[2025-01-22 04:50:56] GEN DIGITAL INC: Search Failed | Error: Message: 
+
+[2025-01-22 04:50:59] GEORGE WESTON LTD: Webpage Found | URL: https://issuu.com/georgewestonfoods/docs/gwf5570_sustainability_report_2024_final
+[2025-01-22 04:51:11] GODREJ PROPERTIES LTD: Search Failed | Error: Message: 
+
+[2025-01-22 04:51:01] GJENSIDIGE FORSIKRING: Webpage Found | URL: https://www.gjensidige.com/sustainability
+[2025-01-22 04:51:01] GJENSIDIGE FORSIKRING: No PDF Found in Webpage | URL: https://www.gjensidige.com/sustainability
+[2025-01-22 04:50:59] GEORGE WESTON LTD: No PDF Found in Webpage | URL: https://issuu.com/georgewestonfoods/docs/gwf5570_sustainability_report_2024_final
+[2025-01-22 04:51:26] GREAT WALL MOTOR COMPANY LTD H: Search Failed | Error: Message: 
+
+[2025-01-22 04:51:44] HALMA PLC: Webpage Found | URL: https://www.halma.com/sustainability
+[2025-01-22 04:51:38] GRUPO BIMBO A: Search Failed | Error: Message: 
+
+[2025-01-22 04:51:43] H WORLD GROUP ADR LTD: Webpage Found | URL: https://www.ir.hworld.com/esg
+[2025-01-22 04:51:43] H WORLD GROUP ADR LTD: Search Failed | Error: Message: unknown error: net::ERR_NAME_NOT_RESOLVED
+  (Session info: chrome=131.0.6778.265)
+Stacktrace:
+	GetHandleVerifier [0x00007FF638FB80D5+2992373]
+	(No symbol) [0x00007FF638C4BFD0]
+	(No symbol) [0x00007FF638AE590A]
+	(No symbol) [0x00007FF638AE3061]
+	(No symbol) [0x00007FF638AD3BD9]
+	(No symbol) [0x00007FF638AD592F]
+	(No symbol) [0x00007FF638AD3E9F]
+	(No symbol) [0x00007FF638AD371D]
+	(No symbol) [0x00007FF638AD363A]
+	(No symbol) [0x00007FF638AD1251]
+	(No symbol) [0x00007FF638AD1B1C]
+	(No symbol) [0x00007FF638AE89DA]
+	(No symbol) [0x00007FF638B8038E]
+	(No symbol) [0x00007FF638B5F36A]
+	(No symbol) [0x00007FF638B7F584]
+	(No symbol) [0x00007FF638B5F113]
+	(No symbol) [0x00007FF638B2A918]
+	(No symbol) [0x00007FF638B2BA81]
+	GetHandleVerifier [0x00007FF639016A2D+3379789]
+	GetHandleVerifier [0x00007FF63902C32D+3468109]
+	GetHandleVerifier [0x00007FF639020043+3418211]
+	GetHandleVerifier [0x00007FF638DAC78B+847787]
+	(No symbol) [0x00007FF638C5757F]
+	(No symbol) [0x00007FF638C52FC4]
+	(No symbol) [0x00007FF638C5315D]
+	(No symbol) [0x00007FF638C42979]
+	BaseThreadInitThunk [0x00007FFFB374259D+29]
+	RtlUserThreadStart [0x00007FFFB4B4AF38+40]
+
+[2025-01-22 04:51:55] HANWHA AEROSPACE LTD: Search Failed | Error: Message: 
+
+[2025-01-22 04:52:05] HD HYUNDAI HEAVY INDUSTRIES LTD: Search Failed | Error: Message: 
+
+[2025-01-22 04:52:10] HEINEKEN HOLDING NV: Search Failed | Error: Message: 
+
+[2025-01-22 04:52:24] HIKMA PHARMACEUTICALS PLC: Webpage Found | URL: https://www.hikma.com/responsibility/sustainability-reports/
+[2025-01-22 04:52:19] HENNES & MAURITZ: Search Failed | Error: Message: 
+
+[2025-01-22 04:52:33] HKT TRUST AND HKT UNITS LTD: Webpage Found | URL: https://www.hkt.com/about-hkt/sustainability/environmental-social-and-governance-report?locale=en
+[2025-01-22 04:52:33] HKT TRUST AND HKT UNITS LTD: No PDF Found in Webpage | URL: https://www.hkt.com/about-hkt/sustainability/environmental-social-and-governance-report?locale=en
+[2025-01-22 04:53:02] HONG KONG AND CHINA GAS LTD: Search Failed | Error: Message: 
+
+[2025-01-22 04:53:16] HP INC: Search Failed | Error: Message: 
+
+[2025-01-22 04:51:44] HALMA PLC: No PDF Found in Webpage | URL: https://www.halma.com/sustainability
+[2025-01-22 04:52:24] HIKMA PHARMACEUTICALS PLC: PDF Found in Webpage | URL: https://www.hikma.com/media/unxpgids/hikma_sr2023.pdf
+[2025-01-22 04:53:31] HULIC LTD: Search Failed | Error: Message: 
+
+[2025-01-22 04:53:46] IDEMITSU KOSAN LTD: Search Failed | Error: Message: 
+
+[2025-01-22 04:53:47] ILS CASH: PDF Found Directly | URL: https://d2dycffe7xo3vi.cloudfront.net/app/uploads/2024/08/Sustainability-Report-2024-web.pdf
+[2025-01-22 04:54:01] INDIAN RAILWAY CATERING AND TOURIS: Search Failed | Error: Message: 
+
+[2025-01-22 04:53:35] HYUNDAI MOBIS LTD: Webpage Found | URL: https://www.mobis.com/upload/202209010931476260.pdf
+[2025-01-22 04:54:08] INDUSTRIVARDEN A: Webpage Found | URL: https://www.industrivarden.se/en-gb/operations/sustainability/sustainability-reports/
+[2025-01-22 04:54:17] INGERSOLL RAND INC: Webpage Found | URL: https://www.irco.com/en/company/corporate-responsibility/sustainability-reports
+[2025-01-22 04:53:35] HYUNDAI MOBIS LTD: Search Failed | Error: Message: 
+
+[2025-01-22 04:54:17] INGERSOLL RAND INC: No PDF Found in Webpage | URL: https://www.irco.com/en/company/corporate-responsibility/sustainability-reports
+[2025-01-22 04:54:28] INTACT FINANCIAL CORP: Search Failed | Error: Message: 
+
+[2025-01-22 04:54:08] INDUSTRIVARDEN A: PDF Found in Webpage | URL: https://www.industrivarden.se/globalassets/hallbarhetsrapporter/engelska/sustainability-report_2023.pdf
+[2025-01-22 04:54:36] INTERNATIONAL GAMES SYSTEM LTD: PDF Found Directly | URL: https://www.ygfamily.com/contents/attachments/2024/08/YG+Entertainment_2024_Sustainability+Report_%28ENG%29.pdf
+[2025-01-22 04:54:43] IPSEN SA: Search Failed | Error: Message: 
+
+[2025-01-22 04:54:45] IVANHOE MINES LTD CLASS A: Search Failed | Error: Message: 
+
+[2025-01-22 04:54:58] JERONIMO MARTINS SA: Search Failed | Error: Message: 
+
+: Message: 
+
+[2025-01-22 04:55:01] JM SMUCKER: Search Failed | Error: Message: 
+
+[2025-01-22 04:55:13] KB FINANCIAL GROUP INC: Search Failed | Error: Message: 
+
+[2025-01-22 04:55:18] KEURIG DR PEPPER INC: Search Failed | Error: Message: 
+
+[2025-01-22 04:55:13] JUMBO SA: Webpage Found | URL: https://jumbogroup.listedcompany.com/sr.html
+[2025-01-22 04:55:27] KIMBERLY-CLARK DE MEXICO CLASS A: Search Failed | Error: Message: 
+
+[2025-01-22 04:55:33] KLA CORP: Search Failed | Error: Message: 
+
+[2025-01-22 04:55:41] KONE: Webpage Found | URL: https://www.kone.com/en/sustainability/sustainability-report/
+[2025-01-22 04:55:48] KRAFT HEINZ: Search Failed | Error: Message: 
+
+[2025-01-22 04:55:41] KONE: PDF Found in Webpage | URL: https://www.kone.com/en/Images/KONE%20Sustainability%20Report%202023_tcm17-129519.pdf
+[2025-01-22 04:56:03] KUMHO PETRO CHEMICAL LTD: Webpage Found | URL: http://kumhopolychem.com/resources/download/user/kor/documents/Kumho%20Petrochemical%20Sustainability%20Report%202022.pdf
+[2025-01-22 04:56:03] KUMHO PETRO CHEMICAL LTD: No PDF Found in Webpage | URL: http://kumhopolychem.com/resources/download/user/kor/documents/Kumho%20Petrochemical%20Sustainability%20Report%202022.pdf
+[2025-01-22 04:56:09] LAIR LIQUIDE SOCIETE ANONYME POUR: Webpage Found | URL: https://www.airliquide.com/air-liquide-presents-its-2023-sustainability-results
+[2025-01-22 04:55:13] JUMBO SA: PDF Found in Webpage | URL: https://ir.listedcompany.com/tracker.pl?type=5&id=274700&m=61ee1aa0ef8ae397aa1b24c2918b49677693033877ee83392c1f6ecf35218c63&redirect=https%3A%2F%2Fjumbogroup.listedcompany.com%2Fnewsroom%2F20240131_223723_42R_S38E9IG1LWDLG2IX.1.pdf
+[2025-01-22 04:56:14] LEG IMMOBILIEN N: Webpage Found | URL: https://www.leg-wohnen.de/en/corporation/sustainability/sustainability-reports
+[2025-01-22 04:56:14] LEG IMMOBILIEN N: PDF Found in Webpage | URL: https://www.leg-wohnen.de/fileadmin/dateien/02_Unternehmen/Nachhaltigkeit/Nachhaltigkeitsberichte/LEG_Annual_Report_2023_Non-financial-report.pdf
+[2025-01-22 04:56:09] LAIR LIQUIDE SOCIETE ANONYME POUR: PDF Found in Webpage | URL: https://www.airliquide.com/sites/airliquide.com/files/2024-03/airliquide-sustainability-report-2023.pdf
+[2025-01-22 04:56:35] LIBERTY MEDIA FORMULA ONE CORP SER: Search Failed | Error: Message: 
+
+[2025-01-22 04:56:24] LG CHEM LTD: Webpage Found | URL: http://www.lgchem.com/sustainability/sustainability-strategy/sustainability-reports
+[2025-01-22 04:56:49] LOCKHEED MARTIN CORP: Webpage Found | URL: https://sustainability.lockheedmartin.com/sustainability/index.html
+[2025-01-22 04:56:52] LOWES COMPANIES INC: Webpage Found | URL: https://corporate.lowes.com/our-responsibilities/corporate-responsibility-reports-policies
+[2025-01-22 04:56:24] LG CHEM LTD: PDF Found in Webpage | URL: https://www.lgchem.com/upload/file/sustainability/2023_LGChem_Sustainability_Report_CHN.pdf
+[2025-01-22 04:57:38] LVMH: Search Failed | Error: Message: 
+
+[2025-01-22 04:57:55] MAHINDRA AND MAHINDRA LTD: Search Failed | Error: Message: 
+
+[2025-01-22 04:58:11] MARKETAXESS HOLDINGS INC: Search Failed | Error: Message: 
+
+[2025-01-22 04:58:27] MASTERCARD INC CLASS A: PDF Found Directly | URL: https://www.mastercard.com/content/dam/public/mastercardcom/na/global-site/documents/mastercard-sustainability-statement-2022.pdf
+[2025-01-22 04:58:38] MEDIATEK INC: Webpage Found | URL: https://corp.mediatek.com/about/sustainability
+[2025-01-22 04:56:52] LOWES COMPANIES INC: PDF Found in Webpage | URL: https://corporate.lowes.com/sites/lowes-corp/files/2024-11/Lowes_2023_CRR_Tagged_0.pdf
+[2025-01-22 04:58:59] MERCEDES-BENZ GROUP N AG: PDF Found Directly | URL: https://group.mercedes-benz.com/documents/sustainability/reports/mercedes-benz-sustainability-report-2023.pdf
+[2025-01-22 04:56:49] LOCKHEED MARTIN CORP: PDF Found in Webpage | URL: https://sustainability.lockheedmartin.com/sustainability/content/Lockheed_Martin_2023_Sustainability_Performance_Report.pdf
+[2025-01-22 04:59:25] METRO INC: Search Failed | Error: Message: 
+
+[2025-01-22 04:59:27] MICROSTRATEGY INC CLASS A: Search Failed | Error: Message: 
+
+[2025-01-22 04:58:38] MEDIATEK INC: PDF Found in Webpage | URL: https://d86o2zu8ugzlg.cloudfront.net/reports/CSR/2023-MediaTek-Sustainability-Report_Final.pdf
+[2025-01-22 04:59:42] MIZRAHI TEFAHOT BANK LTD: Webpage Found | URL: https://www.mizrahi-tefahot.co.il/en/investor-relations-en/financial-report/financial-reports-annual-2023-en/
+[2025-01-22 04:59:49] MONDAYCOM LTD: Search Failed | Error: Message: 
+
+[2025-01-22 05:00:04] MOSCOW EXCHANGE: Search Failed | Error: Message: 
+
+[2025-01-22 05:00:21] MTN GROUP LTD: Search Failed | Error: Message: 
+
+[2025-01-22 05:00:37] NANYA TECHNOLOGY CORP: Webpage Found | URL: https://www.nanya.com/ESG/en/csr_report
+[2025-01-22 04:59:40] MITSUBISHI CORP: PDF Found Directly | URL: https://mitsubishicorp.disclosure.site/pdf/202403en.pdf
+[2025-01-22 05:00:37] NANYA TECHNOLOGY CORP: Search Failed | Error: Message: 
+
+[2025-01-22 05:00:56] NATWEST GROUP PLC: Webpage Found | URL: https://www.natwestgroup.com/sustainability.html
+[2025-01-22 04:59:42] MIZRAHI TEFAHOT BANK LTD: No PDF Found in Webpage | URL: https://www.mizrahi-tefahot.co.il/en/investor-relations-en/financial-report/financial-reports-annual-2023-en/
+[2025-01-22 05:00:56] NATWEST GROUP PLC: No PDF Found in Webpage | URL: https://www.natwestgroup.com/sustainability.html
+[2025-01-22 05:01:20] NEWMONT: Search Failed | Error: Message: 
+
+[2025-01-22 05:01:00] NESTLE MALAYSIA: Webpage Found | URL: https://www.nestle.com.my/sustainability
+[2025-01-22 05:01:31] NIKE INC CLASS B: Webpage Found | URL: https://about.nike.com/impact/sustainability
+[2025-01-22 05:01:36] NIPPON YUSEN: Webpage Found | URL: https://www.nyk.com/english/esg/nyk/
+[2025-01-22 05:01:36] NIPPON YUSEN: No PDF Found in Webpage | URL: https://www.nyk.com/english/esg/nyk/
+[2025-01-22 05:01:58] NOK CASH: Webpage Found | URL: https://www.nok.co.jp/en/csr/report.html
+[2025-01-22 05:01:31] NIKE INC CLASS B: PDF Found in Webpage | URL: https://media.about.nike.com/files/9e0cc4dd-8d70-4476-964b-dc8fef9bb636/FY23_Nike_Impact_Report.pdf?download=inline
+[2025-01-22 05:01:00] NESTLE MALAYSIA: PDF Found in Webpage | URL: https://www.nestle.com.my/sites/g/files/pydnoa251/files/2024-03/NIS-NESTLE-AR23.pdf
+[2025-01-22 05:02:12] NORTHERN TRUST CORP: Search Failed | Error: Message: 
+
+[2025-01-22 05:02:22] NUCOR CORP: Search Failed | Error: Message: 
+
+[2025-01-22 05:02:27] OCCIDENTAL PETROLEUM CORP: Search Failed | Error: Message: 
+
+[2025-01-22 05:02:37] ONEOK INC: Webpage Found | URL: https://ir.oneok.com/news-and-events/press-releases/2024/08-01-2024-213111041
+[2025-01-22 05:02:42] ORICA LTD: Search Failed | Error: Message: 
+
+[2025-01-22 05:02:37] ONEOK INC: No PDF Found in Webpage | URL: https://ir.oneok.com/news-and-events/press-releases/2024/08-01-2024-213111041
+[2025-01-22 05:02:57] ORSTED: Webpage Found | URL: https://orsted.com/en/who-we-are/sustainability/sustainability-report
+[2025-01-22 05:03:02] PACCAR INC: Search Failed | Error: Message: 
+
+[2025-01-22 05:01:58] NOK CASH: PDF Found in Webpage | URL: https://www.nok.co.jp/pdf/csr/report/2024/esg_databook_2024e.pdf
+[2025-01-22 05:03:19] PARKLAND CORP: Search Failed | Error: Message: 
+
+[2025-01-22 05:03:26] PEMBINA PIPELINE CORP: Search Failed | Error: Message: 
+
+[2025-01-22 05:03:34] PETROLEO BRASILEIRO SA PETROBRAS: Search Failed | Error: Message: 
+
+[2025-01-22 05:03:41] PHOENIX GROUP HOLDINGS PLC: Webpage Found | URL: https://www.thephoenixgroup.com/our-impact/responsible-business/reports-policies/
+[2025-01-22 05:03:51] PJSC PHOSAGRO GDR: Search Failed | Error: Message: 
+
+[2025-01-22 05:03:41] PHOENIX GROUP HOLDINGS PLC: PDF Found in Webpage | URL: https://www.thephoenixgroup.com/media/1mumolqw/sustainability-report-2023.pdf
+[2025-01-22 05:04:07] POWER FINANCE CORPORATION LTD: PDF Found Directly | URL: https://www.tatapower.com/content/dam/tatapoweraemsitesprogram/tatapower/pdf-root/sustainability/business-responsibility-report/BRSR_FY24.pdf
+[2025-01-22 05:04:19] PROCTER & GAMBLE: Webpage Found | URL: https://us.pg.com/sustainability-reports/
+[2025-01-22 05:04:07] POSCO: Webpage Found | URL: https://posco-inc.com:4453/poscoinc/v3/eng/esg/s91e4000400c.jsp
+[2025-01-22 05:02:57] ORSTED: PDF Found in Webpage | URL: https://cdn.orsted.com/-/media/annual-report-2023/orsted-ar-2023.pdf?rev=526307f68e2047b3a1df8dd2cdf719ec&hash=E6069E12C1792AD620FA12898587394C
+[2025-01-22 05:04:57] PTT EXPLORATION AND PRODUCTION NON: Webpage Found | URL: https://sustainability.pttep.com/en/document/sustainability-reports
+[2025-01-22 05:04:19] PROCTER & GAMBLE: PDF Found in Webpage | URL: https://downloads.ctfassets.net/oggad6svuzkv/7nSofG7XXtcYERIz5Vm3Xc/c8f716206225387fc9f7fe14ffbbac07/updated_citizenship_report_2019_environmental_sustainability.pdf
+[2025-01-22 05:04:57] PTT EXPLORATION AND PRODUCTION NON: No PDF Found in Webpage | URL: https://sustainability.pttep.com/en/document/sustainability-reports
+[2025-01-22 05:05:35] QIFU TECHNOLOGY ADR INC: Webpage Found | URL: https://ir.qifu.tech/zh-hans/node/8936/pdf
+[2025-01-22 05:05:28] PUNJAB NATIONAL BANK: Search Failed | Error: Message: 
+
+[2025-01-22 05:05:35] QIFU TECHNOLOGY ADR INC: Search Failed | Error: Message: 
+
+[2025-01-22 05:05:43] RAMSAY HEALTH CARE LTD: Webpage Found | URL: https://www.ramsayhealth.com/globalassets/global/sustainability/ramsay-health-care-impact-report-2023.pdf
+[2025-01-22 05:04:07] POSCO: PDF Found in Webpage | URL: https://posco-inc.com:4453/resource/v3/file/esg/2023%20POSCO%20Holdings%20Report_KOR.pdf
+[2025-01-22 05:05:43] RAMSAY HEALTH CARE LTD: Search Failed | Error: Message: 
+
+[2025-01-22 05:05:55] RECORDATI INDUSTRIA CHIMICA E FARM: Search Failed | Error: Message: 
+
+[2025-01-22 05:06:06] RESTAURANTS BRANDS INTERNATIONAL I: Search Failed | Error: Message: 
+
+[2025-01-22 05:06:11] ROBINHOOD MARKETS INC CLASS A: Search Failed | Error: Message: 
+
+[2025-01-22 05:06:25] RUMO SA: Webpage Found | URL: https://ri.rumolog.com/en/about-rumo/sustainability/
+[2025-01-22 05:06:21] RONGSHENG PETRO CHEMICAL LTD A: Search Failed | Error: Message: 
+
+[2025-01-22 05:06:25] RUMO SA: No PDF Found in Webpage | URL: https://ri.rumolog.com/en/about-rumo/sustainability/
+[2025-01-22 05:06:36] SAGE GROUP PLC: Webpage Found | URL: https://www.sage.com/en-gb/company/sustainability-and-society/
+[2025-01-22 05:06:36] SAGE GROUP PLC: No PDF Found in Webpage | URL: https://www.sage.com/en-gb/company/sustainability-and-society/
+[2025-01-22 05:06:40] SAMSUNG C&T CORP: Webpage Found | URL: https://www.samsungcnt.com/eng/esg/resource/report/sustainability.do
+[2025-01-22 05:06:51] SAMVARDHANA MOTHERSON INTERNATIONA: Webpage Found | URL: https://www.motherson.com/company/sustainability-and-global-citizenship?period=42
+[2025-01-22 05:06:40] SAMSUNG C&T CORP: No PDF Found in Webpage | URL: https://www.samsungcnt.com/eng/esg/resource/report/sustainability.do
+[2025-01-22 05:06:51] SAMVARDHANA MOTHERSON INTERNATIONA: PDF Found in Webpage | URL: https://www.motherson.com/storage/Sustainability/Report-2020-21/Motherson-Group-Sustainability-Report-2020-21.pdf
+[2025-01-22 05:07:09] SAP: Search Failed | Error: Message: 
+
+[2025-01-22 05:07:18] SAUDI AWWAL BANK: Webpage Found | URL: https://www.sab.com/esg/SAB%202023%20UN%20PRP%20Disclosures.pdf
+[2025-01-22 05:07:24] SBA COMMUNICATIONS REIT CORP CLASS: Webpage Found | URL: https://www.sbasite.com/English/company/corporate-responsibility/Sustainability/default.aspx
+[2025-01-22 05:07:24] SBA COMMUNICATIONS REIT CORP CLASS: No PDF Found in Webpage | URL: https://www.sbasite.com/English/company/corporate-responsibility/Sustainability/default.aspx
+[2025-01-22 05:07:18] SAUDI AWWAL BANK: Search Failed | Error: Message: 
+
+[2025-01-22 05:07:36] SCOUT24 N: Webpage Found | URL: https://www.scout24.com/en/sustainability/reportings
+[2025-01-22 05:07:39] SEEK LTD: Search Failed | Error: Message: 
+
+[2025-01-22 05:07:54] SERVICENOW INC: Webpage Found | URL: https://www.servicenow.com/company/global-impact/sustainability.html
+[2025-01-22 05:07:54] SERVICENOW INC: Search Failed | Error: Message: 
+
+[2025-01-22 05:07:36] SCOUT24 N: PDF Found in Webpage | URL: https://www.scout24.com/media/scout24/Investor_Relations/Berichte_und_Praesentationen/2023_EN/Scout24_Annual_Report_2023_EN.pdf
+[2025-01-22 05:08:16] SHANDONG GOLD-MINING LTD A: Search Failed | Error: Message: 
+
+[2025-01-22 05:06:04] RELIANCE STEEL & ALUMINUM: Webpage Found | URL: https://reliance.com/environmental-social-and-governance/responsibility/
+[2025-01-22 05:08:25] SHANXI XINGHUACUN FEN WINE FACTORY: Search Failed | Error: Message: 
+
+[2025-01-22 05:06:04] RELIANCE STEEL & ALUMINUM: No PDF Found in Webpage | URL: https://reliance.com/environmental-social-and-governance/responsibility/
+[2025-01-22 05:08:31] SHIN ETSU CHEMICAL LTD: Search Failed | Error: Message: 
+
+[2025-01-22 05:08:39] SIBANYE STILLWATER LTD: Search Failed | Error: Message: 
+
+[2025-01-22 05:08:42] SIMON PROPERTY GROUP REIT INC: Search Failed | Error: Message: 
+
+[2025-01-22 05:08:46] SITC INTERNATIONAL HOLDINGS LTD: Search Failed | Error: Message: 
+
+[2025-01-22 05:08:54] SKC LTD: Search Failed | Error: Message: 
+
+[2025-01-22 05:08:56] SNAM: Webpage Found | URL: https://www.snam.it/en/documents/annual-reports.html
+[2025-01-22 05:09:02] SOLAR INDUSTRIES INDIA LTD: Search Failed | Error: Message: 
+
+[2025-01-22 05:09:08] SOUTHWEST AIRLINES: Webpage Found | URL: https://www.southwest.com/onereport/
+[2025-01-22 05:09:19] STARBUCKS CORP: Search Failed | Error: Message: 
+
+[2025-01-22 05:09:34] STRAUMANN HOLDING AG: Webpage Found | URL: https://www.straumann.com/content/dam/media-center/group/en/documents/annual-report/2022/Straumann_AR22_Sustainability.pdf
+[2025-01-22 05:09:34] STRAUMANN HOLDING AG: Search Failed | Error: Message: 
+
+[2025-01-22 05:09:52] SUN HUNG KAI PROPERTIES LTD: Webpage Found | URL: https://www.shkp.com/en-US/sustainable-development/sustainability-reports
+[2025-01-22 05:09:08] SOUTHWEST AIRLINES: PDF Found in Webpage | URL: https://www.southwest.com/assets/pdfs/communications/one-reports/2023-One-Report_Online_Final.pdf
+[2025-01-22 05:09:52] SUN HUNG KAI PROPERTIES LTD: No PDF Found in Webpage | URL: https://www.shkp.com/en-US/sustainable-development/sustainability-reports
+[2025-01-22 05:10:17] SWISS PRIME SITE AG: Webpage Found | URL: https://sps.swiss/en/group/investors/company-reports
+[2025-01-22 05:10:14] SUPREME INDUSTRIES LTD: Webpage Found | URL: https://www.supreme.co.in/sustainability
+[2025-01-22 05:08:56] SNAM: PDF Found in Webpage | URL: https://www.snam.it/content/dam/snam/pages-attachments-search/en/documenti/bilanci-annuali/2023/annual_report_2023.pdf
+[2025-01-22 05:10:17] SWISS PRIME SITE AG: PDF Found in Webpage | URL: https://sps.swiss/fileadmin/user_upload/redakteure/gruppe/pdf/geschaeftsberichte/en/Report_2023_en.pdf
+[2025-01-22 05:11:28] T MOBILE US INC: Search Failed | Error: Message: 
+
+[2025-01-22 05:11:42] TAKE TWO INTERACTIVE SOFTWARE INC: Webpage Found | URL: https://assets.ctfassets.net/wn7ipiv9ue5v/5TyspVTlLFdPvHctrie8n7/ad5a4299bee672b007e94b962b356f4c/Take-Two_Interactive_2023_Impact_Report_Final.pdf
+[2025-01-22 05:11:44] TATA ELXSI LTD: Webpage Found | URL: https://www.tataelxsi.com/storage/quick-links/July2023/BRSR-Tata-Elxsi-IR-22-23.pdf
+[2025-01-22 05:11:42] TAKE TWO INTERACTIVE SOFTWARE INC: Search Failed | Error: Message: 
+
+[2025-01-22 05:11:44] TATA ELXSI LTD: Search Failed | Error: Message: 
+
+[2025-01-22 05:12:12] TELEKOMUNIKASI INDONESIA: Search Failed | Error: Message: 
+
+[2025-01-22 05:12:04] TECH MAHINDRA LTD: Webpage Found | URL: https://insights.techmahindra.com/investors/esg-report-fy2023-24.pdf
+[2025-01-22 05:12:28] TENCENT MUSIC ENTERTAINMENT GROUP: Webpage Found | URL: https://static.www.tencent.com/uploads/2023/04/06/2efdae398c746523320cbb7660e5fafa.pdf
+[2025-01-22 05:12:04] TECH MAHINDRA LTD: Search Failed | Error: Message: 
+
+[2025-01-22 05:12:28] TENCENT MUSIC ENTERTAINMENT GROUP: Search Failed | Error: Message: 
+
+[2025-01-22 05:12:42] TFI INTERNATIONAL INC: Search Failed | Error: Message: 
+
+[2025-01-22 05:12:51] THOMSON REUTERS CORP: Webpage Found | URL: https://www.thomsonreuters.com/en/about-us/social-impact/social-impact-and-esg-report-2023.html
+[2025-01-22 05:12:57] TOKYO ELECTRIC POWER HOLDINGS INC: Webpage Found | URL: https://www.tepco.co.jp/en/challenge/csr/index-e.html
+[2025-01-22 05:12:57] TOKYO ELECTRIC POWER HOLDINGS INC: No PDF Found in Webpage | URL: https://www.tepco.co.jp/en/challenge/csr/index-e.html
+[2025-01-22 05:12:51] THOMSON REUTERS CORP: PDF Found in Webpage | URL: https://www.thomsonreuters.com/content/dam/ewp-m/documents/thomsonreuters/en/pdf/social-impact/social-impact-report-2023-tr4122239.pdf
+[2025-01-22 05:14:42] TRADE DESK INC CLASS A: Search Failed | Error: Message: 
+
+[2025-01-22 05:14:09] TORRENT PHARMACEUTICALS LTD: Webpage Found | URL: https://sustainabilityreports.com/reports/torrent-pharmaceuticals-limited-2023-2024-integrated-annual-report-pdf/
+[2025-01-22 05:14:57] TREND MICRO INC: Webpage Found | URL: https://www.trendmicro.com/en_us/about/corporate-social-responsibility/sustainability.html
+[2025-01-22 05:14:09] TORRENT PHARMACEUTICALS LTD: No PDF Found in Webpage | URL: https://sustainabilityreports.com/reports/torrent-pharmaceuticals-limited-2023-2024-integrated-annual-report-pdf/
+[2025-01-22 05:15:14] TUBE INVESTMENTS OF INDIA LTD: Webpage Found | URL: https://sustainabilityreports.com/reports/tube-investments-of-india-limited-2022-2023-business-responsibility-and-sustainability-report-pdf/
+[2025-01-22 05:15:14] TUBE INVESTMENTS OF INDIA LTD: No PDF Found in Webpage | URL: https://sustainabilityreports.com/reports/tube-investments-of-india-limited-2022-2023-business-responsibility-and-sustainability-report-pdf/
+[2025-01-22 05:14:57] TREND MICRO INC: No PDF Found in Webpage | URL: https://www.trendmicro.com/en_us/about/corporate-social-responsibility/sustainability.html
+[2025-01-22 05:15:29] TYSON FOODS INC CLASS A: Webpage Found | URL: https://www.tysonfoods.com/sustainability/resource-hub
+[2025-01-22 05:15:29] TYSON FOODS INC CLASS A: PDF Found in Webpage | URL: https://www.tysonfoods.com/sites/default/files/2024-01/Tyson%20Foods%20GRI.pdf
+[2025-01-22 05:15:33] UNIBAIL RODAMCO WE STAPLED UNITS: Search Failed | Error: Message: 
+
+[2025-01-22 05:15:47] UNITED PARCEL SERVICE INC CLASS B: Webpage Found | URL: https://about.ups.com/us/en/our-impact/ups-sustainability-and-social-impact-report.html
+[2025-01-22 05:15:49] UPM-KYMMENE: Search Failed | Error: Message: 
+
+[2025-01-22 05:15:47] UNITED PARCEL SERVICE INC CLASS B: PDF Found in Webpage | URL: https://about.ups.com/content/dam/upsstories/images/social-impact/reporting/2023-reporting/2023-GRI.pdf
+[2025-01-22 05:16:06] VEOLIA ENVIRON. SA: Search Failed | Error: Message: 
+
+[2025-01-22 05:16:16] VIBRA ENERGIA SA: Search Failed | Error: Message: 
+
+[2025-01-22 05:16:21] VOLKSWAGEN NON-VOTING PREF AG: Search Failed | Error: Message: 
+
+[2025-01-22 05:16:32] WALT DISNEY: Search Failed | Error: Message: 
+
+[2025-01-22 05:16:38] WATERS CORP: Search Failed | Error: Message: 
+
+[2025-01-22 05:16:48] WEST JAPAN RAILWAY: Search Failed | Error: Message: 
+
+[2025-01-22 05:16:53] WHEATON PRECIOUS METALS CORP: Search Failed | Error: Message: 
+
+[2025-01-22 05:17:03] WISTRON CORP: Search Failed | Error: Message: 
+
+[2025-01-22 05:17:09] WPP PLC: Search Failed | Error: Message: 
+
+[2025-01-22 05:17:18] XCEL ENERGY INC: Search Failed | Error: Message: 
+
+[2025-01-22 05:17:24] YAGEO CORP: Search Failed | Error: Message: 
+
+[2025-01-22 05:17:33] YES BANK LTD: Search Failed | Error: Message: 
+
+[2025-01-22 05:17:39] ZALANDO: Search Failed | Error: Message: 
+
+[2025-01-22 05:17:48] ZHEJIANG NHU LTD A: Search Failed | Error: Message: 
+
+[2025-01-22 05:17:54] ZOETIS INC CLASS A: Webpage Found | URL: https://www.zoetis.com/our-company/corporate-sustainability/report-center
+[2025-01-22 05:10:14] SUPREME INDUSTRIES LTD: PDF Found in Webpage | URL: https://www.supreme.co.in/sustainabilityReport/sustainable-report-opt.pdf
+[2025-01-22 05:17:54] ZOETIS INC CLASS A: Search Failed | Error: HTTPConnectionPool(host='localhost', port=56371): Max retries exceeded with url: /session/48ade854b8cd77b3add2b5c8f2a68b3f/execute/sync (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000155139D8F40>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+==================================================
+End Time: 2025-01-22 05:22:49
+==================================================
+[2025-01-22 05:23:10] 3I GROUP PLC: Search Failed | Error: Search failed with error: Message: stale element reference: stale element not found
+  (Session info: chrome=131.0.6778.265); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+	GetHandleVerifier [0x00007FF638FB80D5+2992373]
+	(No symbol) [0x00007FF638C4BFD0]
+	(No symbol) [0x00007FF638AE590A]
+	(No symbol) [0x00007FF638AF9F04]
+	(No symbol) [0x00007FF638AF89B4]
+	(No symbol) [0x00007FF638AED0E9]
+	(No symbol) [0x00007FF638AED263]
+	(No symbol) [0x00007FF638AEAF32]
+	(No symbol) [0x00007FF638AEF49F]
+	(No symbol) [0x00007FF638B80840]
+	(No symbol) [0x00007FF638B5F36A]
+	(No symbol) [0x00007FF638B7F584]
+	(No symbol) [0x00007FF638B5F113]
+	(No symbol) [0x00007FF638B2A918]
+	(No symbol) [0x00007FF638B2BA81]
+	GetHandleVerifier [0x00007FF639016A2D+3379789]
+	GetHandleVerifier [0x00007FF63902C32D+3468109]
+	GetHandleVerifier [0x00007FF639020043+3418211]
+	GetHandleVerifier [0x00007FF638DAC78B+847787]
+	(No symbol) [0x00007FF638C5757F]
+	(No symbol) [0x00007FF638C52FC4]
+	(No symbol) [0x00007FF638C5315D]
+	(No symbol) [0x00007FF638C42979]
+	BaseThreadInitThunk [0x00007FFFB374259D+29]
+	RtlUserThreadStart [0x00007FFFB4B4AF38+40]
+
+URL: https://www.bing.com/search?q=3I%20GROUP%20PLC%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-22 05:23:10] ABN AMRO BANK NV: Webpage Found | URL: https://www.abnamro.com/en/over-abn-amro/information/sustainability-reporting-and-publications
+[2025-01-22 05:23:10] ABN AMRO BANK NV: No PDF Found in Webpage | URL: https://www.abnamro.com/en/over-abn-amro/information/sustainability-reporting-and-publications
+[2025-01-22 05:23:15] ADMIRAL GROUP PLC: Webpage Found | URL: https://admiralgroup.co.uk/2023-sustainability-report
+[2025-01-22 05:23:15] ADMIRAL GROUP PLC: Search Failed | Error: Message: 
+
+[2025-01-22 05:23:17] AED CASH: PDF Found Directly | URL: https://aepsustainability.com/lib/docs/2024-AEP-GRI-and-SASB-Report.pdf
+[2025-01-22 05:23:34] AIRBUS GROUP: Webpage Found | URL: https://www.airbus.com/en/sustainability
+[2025-01-22 05:23:10] ACS ACTIVIDADES DE CONSTRUCCION Y: Search Failed | Error: Search failed with error: Failed to get search results after 3 attempts: Message: 
+
+URL: https://www.bing.com/search?q=ACS%20ACTIVIDADES%20DE%20CONSTRUCCION%20Y%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-22 05:23:51] AKZO NOBEL NV: Webpage Found | URL: https://www.akzonobel.com/en/about-us/annual-report
+[2025-01-22 05:23:32] AGILENT TECHNOLOGIES INC: Webpage Found | URL: https://www.agilent.com/about/companyinfo/sustainability/2020-Agilent-CSR.html
+[2025-01-22 05:23:32] AGILENT TECHNOLOGIES INC: Search Failed | Error: Message: 
+
+[2025-01-22 05:23:51] AKZO NOBEL NV: PDF Found in Webpage | URL: https://www.akzonobel.com/content/dam/akzonobel-corporate/global/en/investor-relations-images/result-center/archive-annual-reports/2029-2020/akzonobel-annual-report-2023.pdf
+[2025-01-22 05:23:34] AIRBUS GROUP: Search Failed | Error: HTTPConnectionPool(host='localhost', port=56734): Max retries exceeded with url: /session/5419c4d0c56e6b2bea636460202505e0/execute/sync (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000177E6429330>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))

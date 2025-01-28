@@ -1,0 +1,42 @@
+==================================================
+Crawler Summary Report - Batch 2
+Total Companies: 38
+Direct PDF Search Success: 13
+Webpage PDF Search Success: 13
+Failed Companies: 11
+
+List of Failed Companies:
+- ALLEGION PLC
+- ALIBABA GROUP HOLDING LTD
+- ALLSTATE CORP
+- ALTAGAS LTD
+- ALNYLAM PHARMACEUTICALS INC
+- ALTEOGEN INC
+- ALTRIA GROUP INC
+- AMADEUS IT GROUP SA
+- AMBEV SA
+- AMERICAN TOWER REIT CORP
+- AMERICANA RESTAURANTS INTERNATIONA
+
+==================================================
+==================================================
+Crawler Summary Report - Batch 2
+Total Companies: 12
+Direct PDF Search Success: 0
+Webpage PDF Search Success: 1
+Failed Companies: 11
+
+List of Failed Companies:
+- ALLEGION PLC
+- ALIBABA GROUP HOLDING LTD
+- ALLSTATE CORP
+- ALTAGAS LTD
+- ALNYLAM PHARMACEUTICALS INC
+- ALTEOGEN INC
+- ALTRIA GROUP INC
+- AMERICAN TOWER REIT CORP
+- AMADEUS IT GROUP SA
+- AMBEV SA
+- AMERICANA RESTAURANTS INTERNATIONA
+
+==================================================

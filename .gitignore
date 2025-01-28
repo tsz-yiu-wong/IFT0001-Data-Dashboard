@@ -1,0 +1,6 @@
+/__pycache__
+/_history
+/_test_and_verity
+/reports
+.env
+_test.py
