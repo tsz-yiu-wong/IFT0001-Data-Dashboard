@@ -12,8 +12,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from standardization import extract_text_from_pdf, find_emissions_data
-from database import init_connection_pool, get_data, close_connection_pool
+from process_pdf import extract_text_from_pdf
+from database import get_data
 
 # Disable warnings
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -284,7 +284,7 @@ def process_company(company_name):
     driver.quit()
 
 # Process a batch of companies
-def process_batch(batch_num):
+def process_batch(table_name, total_batches, batch_num):
     print(f"\nStarting Batch {batch_num}...")
     
     # Initialize global statistics
@@ -304,26 +304,15 @@ def process_batch(batch_num):
     LOG_FILENAME = f'./logs/crawler_batch{batch_num}_log.txt'
     summary_filename = f'./logs/crawler_batch{batch_num}_summary.txt'
     
-    # Initialize database connection
-    init_connection_pool()
-    
     # Get company list from database
-    query = "SELECT company_name FROM emissions_data_2336"
+    query = f"SELECT company_name FROM {table_name}"
     companies = get_data(query)
     
-    '''
-    # Set test batch
-    batch_companies = [
-        company['company_name'] 
-        for i, company in enumerate(companies) 
-        if (i > 80) and (i < 120)  # Only take first 20 companies
-    ]
-    '''
     # Get company list for corresponding batch
     batch_companies = [
         company['company_name'] 
         for i, company in enumerate(companies) 
-        if i % 10 == (batch_num - 1)
+        if i % total_batches == (batch_num - 1)
     ]
     
     # Get list of existing PDF files
@@ -332,6 +321,7 @@ def process_batch(batch_num):
         for f in os.listdir('./reports') 
         if f.endswith('.pdf')
     }
+
     # Filter out companies that already have PDFs
     companies_to_process = [
         company_name 
@@ -356,14 +346,12 @@ def process_batch(batch_num):
             for company_name in companies_to_process
         ]
         wait(futures)
+
     '''
     # Without using threads
     for company_name in companies_to_process:
         process_company(company_name)
     '''
-    
-    #close database connection pool
-    close_connection_pool()
     
     # Generate summary report
     with open(summary_filename, 'a', encoding='utf-8') as f:
@@ -393,7 +381,11 @@ if __name__ == "__main__":
     #process_company(company_name)
 
     # Batch processing
-    for i in range(8): # each batch try 8 times
-        for j in range(10): # total 10 batches
+    table_name = "emissions_data"
+    total_batches = 10  # Divide the whole list into 10 batches
+    attempt_times = 8  # Each batch try 8 times
+
+    for i in range(attempt_times):
+        for j in range(total_batches):
             batch_num = j + 1
-            process_batch(batch_num)
+            process_batch(table_name, total_batches, batch_num)

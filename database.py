@@ -29,7 +29,6 @@ def init_connection_pool():
 def close_connection_pool():
     global connection_pool
     if connection_pool:
-        # 关闭连接池中的所有连接
         while not connection_pool._cnx_queue.empty():
             conn = connection_pool._cnx_queue.get_nowait()
             if conn.is_connected():
@@ -97,41 +96,51 @@ def delete_data(company_name, table_name):
         cursor.close()
         connection.close()
 
+def delete_table(table_name):
+    connection = get_connection()
+    try:
+        cursor = connection.cursor()
+        cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
+        connection.commit()
+    finally:
+        cursor.close()
+        connection.close()
 
-def print_table_data(table_name):
-    """打印表格内容的辅助函数"""
+
+def print_data(table_name):
+    """Print table data"""
     data = get_all_data(table_name)
     if not data:
-        print("表格为空")
+        print("Table is empty")
         return
     
-    # 获取所有列名
+    # Get all column names
     columns = data[0].keys()
     
-    # 打印表头
+    # Print table header
     print("\n" + "="*100)
     print("\t".join(columns))
     print("-"*100)
     
-    # 打印数据行
-    for row in data:
+    # Print data rows
+    for row in data[:20]:
         print("\t".join(str(row[col]) if row[col] is not None else 'None' for col in columns))
     print("="*100 + "\n")
 
 
 if __name__ == "__main__":
 
-    # 初始化连接池
+    # Initialize connection pool
     init_connection_pool()
 
     try:
-        # 测试数据库功能
-        print("\n=== 数据库功能测试 ===")
+        # Test database functions
+        print("\n=== Database functions test ===")
 
         # 1. 测试表格查询
         test_table = "web_test"  # 修改为要测试的表格名
-        print(f"\n1. 查询表格 {test_table} 的内容：")
-        print_table_data(test_table)
+        print(f"\n1. Query table {test_table} content:")
+        print_data(test_table)
 
         '''
         # 2. 测试条件查询
