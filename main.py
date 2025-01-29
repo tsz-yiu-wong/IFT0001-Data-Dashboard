@@ -34,7 +34,6 @@ def web_test(table_name, company_list_file,):
             insert_data(insert_data_query, (company_name,isin,sector,region,country,scope1_direct,scope2_indirect,scope2_market_based,scope2_location_based))
 '''
 
-
 def create_table(table_name, file_path):
     create_table_query = f"""
     CREATE TABLE IF NOT EXISTS {table_name} (
