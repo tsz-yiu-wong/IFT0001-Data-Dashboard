@@ -1,0 +1,51 @@
+==================================================
+Start Time: 2025-01-29 21:15:59
+==================================================
+[2025-01-29 21:16:00] Darktrace plc: Searching PDF in Bing | URL: https://www.bing.com/search?q=Darktrace%20plc%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-29 21:16:02] Darktrace plc: No PDF Links Found in Search Results | URL: https://www.bing.com/search?q=Darktrace%20plc%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-29 21:16:02] Darktrace plc: Searching Webpage in Bing | URL: https://www.bing.com/search?q=Darktrace%20plc%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-29 21:16:03] Darktrace plc: Searching PDF in Webpage | URL: https://ir.darktrace.com/
+[2025-01-29 21:16:04] Darktrace plc: Found 0 PDF on webpage.
+[2025-01-29 21:16:04] Darktrace plc: Searching PDF in Webpage | URL: https://www.spglobal.com/esg/scores/results?cid=5266273
+[2025-01-29 21:16:07] Darktrace plc: Found 0 PDF on webpage.
+[2025-01-29 21:16:07] Darktrace plc: Searching PDF in Webpage | URL: https://www.csrhub.com/CSR_and_sustainability_information/Darktrace-PLC
+[2025-01-29 21:16:10] Darktrace plc: Found 0 PDF on webpage.
+[2025-01-29 21:16:10] Moonpig Group plc: Searching PDF in Bing | URL: https://www.bing.com/search?q=Moonpig%20Group%20plc%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+==================================================
+Start Time: 2025-01-29 21:17:14
+==================================================
+
+[2025-01-29 21:17:23] Moonpig Group plc: Searching PDF in Bing | URL: https://www.bing.com/search?q=Moonpig%20Group%20plc%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-29 21:17:26] Moonpig Group plc: Valid PDF downloaded | URL: https://www.moonpig.group/media/zdmly3g0/moonpig-sustainability-report-2024_v3.pdf
+[2025-01-29 21:17:26] Trustpilot Group plc: Searching PDF in Bing | URL: https://www.bing.com/search?q=Trustpilot%20Group%20plc%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-29 21:17:28] Trustpilot Group plc: PDF content does not contain 'scope 1' or 'scope 2' | URL: https://cdn.trustpilot.net/trustsite-consumersite/trustpilot-transparency-report-2024.pdf
+[2025-01-29 21:17:30] Trustpilot Group plc: No Valid PDF Found in Search Results
+[2025-01-29 21:17:30] Trustpilot Group plc: Searching Webpage in Bing | URL: https://www.bing.com/search?q=Trustpilot%20Group%20plc%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-29 21:17:31] Trustpilot Group plc: Searching PDF in Webpage | URL: https://investors.trustpilot.com/investor/shareholder-services/investor-downloads
+[2025-01-29 21:17:32] Trustpilot Group plc: Found 0 PDF on webpage.
+[2025-01-29 21:17:32] Trustpilot Group plc: Searching PDF in Webpage | URL: https://sustainabilityreports.com/reports/trustpilot-group-plc-2022-sustainability-report-pdf/
+[2025-01-29 21:17:35] Trustpilot Group plc: Found 0 PDF on webpage.
+[2025-01-29 21:17:35] Trustpilot Group plc: Searching PDF in Webpage | URL: https://investors.trustpilot.com/
+[2025-01-29 21:17:36] Trustpilot Group plc: Found 0 PDF on webpage.
+==================================================
+Start Time: 2025-01-29 21:18:31
+==================================================
+[2025-01-29 21:18:32] Deliveroo plc: Searching PDF in Bing | URL: https://www.bing.com/search?q=Deliveroo%20plc%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-29 21:20:07] Deliveroo plc: Failed to get search results after 3 attempts: Message: 
+
+[2025-01-29 21:20:07] Deliveroo plc: No Search Results Found | URL: https://www.bing.com/search?q=Deliveroo%20plc%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-29 21:20:07] Deliveroo plc: Searching Webpage in Bing | URL: https://www.bing.com/search?q=Deliveroo%20plc%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-29 21:21:43] Deliveroo plc: Failed to get search results after 3 attempts: Message: 
+
+[2025-01-29 21:21:43] Deliveroo plc: No Search Results Found | URL: https://www.bing.com/search?q=Deliveroo%20plc%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-29 21:21:43] Wise plc: Searching PDF in Bing | URL: https://www.bing.com/search?q=Wise%20plc%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-29 21:23:18] Wise plc: Failed to get search results after 3 attempts: Message: 
+
+[2025-01-29 21:23:18] Wise plc: No Search Results Found | URL: https://www.bing.com/search?q=Wise%20plc%20sustainability%20report%202024%20pdf%20-responsibilityreports&first=1&form=QBRE
+[2025-01-29 21:23:18] Wise plc: Searching Webpage in Bing | URL: https://www.bing.com/search?q=Wise%20plc%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+[2025-01-29 21:24:54] Wise plc: Failed to get search results after 3 attempts: Message: 
+
+[2025-01-29 21:24:54] Wise plc: No Search Results Found | URL: https://www.bing.com/search?q=Wise%20plc%20sustainability%20report%20-responsibilityreports&first=1&form=QBRE
+==================================================
+End Time: 2025-01-29 21:24:54
+==================================================

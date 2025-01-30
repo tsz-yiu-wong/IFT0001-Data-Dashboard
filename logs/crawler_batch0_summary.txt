@@ -1,0 +1,12 @@
+==================================================
+Crawler Summary Report - Batch 0
+Total Companies: 2
+Direct PDF Search Success: 0
+Webpage PDF Search Success: 0
+Failed Companies: 2
+
+List of Failed Companies:
+- Deliveroo plc
+- Wise plc
+
+==================================================
