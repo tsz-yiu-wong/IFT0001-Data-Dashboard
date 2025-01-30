@@ -3,6 +3,7 @@ import database as db
 import atexit
 import csv
 from io import StringIO
+import json
 
 app = Flask(__name__)
 
@@ -14,6 +15,10 @@ def before_request():
 
 # 应用关闭时断开连接
 atexit.register(db.close_connection_pool)
+
+# 加载管理员配置
+with open('admin.json', 'r') as f:
+    admin_config = json.load(f)
 
 @app.route('/')
 def home():
@@ -132,6 +137,87 @@ def download_data():
     output.headers["Content-type"] = "text/csv"
     
     return output
+
+@app.route('/admin/login', methods=['POST'])
+def admin_login():
+    data = request.get_json()
+    print("Received login attempt:", data)  # 调试日志
+    print("Stored credentials:", admin_config)  # 调试日志
+    if (data.get('username') == admin_config['username'] and 
+        data.get('password') == admin_config['password']):
+        return jsonify({'success': True})
+    return jsonify({'success': False})
+
+@app.route('/update_data', methods=['POST'])
+def update_data():
+    try:
+        data = request.get_json()
+        print("Received data from frontend:", data)
+        
+        select_query = f"""
+        SELECT * FROM emissions_data 
+        WHERE company_name = '{data['company_name']}' 
+        AND isin = '{data['isin']}'
+        LIMIT 1
+        """
+        
+        result = db.get_data(select_query)
+        print("Found existing record:", result)
+        
+        if not result:
+            return jsonify({'success': False, 'message': 'Record not found'}), 404
+            
+        row = result[0]
+        
+        # 处理 is_fiscal_year，如果为空字符串则设为 NULL
+        is_fiscal_year = data['is_fiscal_year']
+        if is_fiscal_year == '':
+            is_fiscal_year = None
+        
+        # 准备插入/更新的数据
+        insert_data = {
+            'company_name': row['company_name'],
+            'isin': row['isin'],
+            'ticker': row['ticker'],
+            'weight': row['weight'],
+            'sector': data['sector'],
+            'area': data['area'],
+            'country_region': data['country_region'],
+            'scope1_direct': data['scope1_direct'],
+            'scope2_location': data['scope2_location'],
+            'scope2_market': data['scope2_market'],
+            'is_fiscal_year': is_fiscal_year,  # 使用处理后的值
+            'scope1_and_2': data['scope1_and_2']
+        }
+        
+        print("Data to be inserted/updated:", insert_data)
+        
+        insert_query = """
+        INSERT INTO emissions_data (
+            company_name, isin, ticker, weight, sector, area, country_region,
+            scope1_direct, scope2_location, scope2_market,
+            is_fiscal_year, scope1_and_2
+        ) VALUES (
+            %(company_name)s, %(isin)s, %(ticker)s, %(weight)s, %(sector)s, 
+            %(area)s, %(country_region)s, %(scope1_direct)s, %(scope2_location)s, 
+            %(scope2_market)s, %(is_fiscal_year)s, %(scope1_and_2)s
+        ) ON DUPLICATE KEY UPDATE
+            sector = VALUES(sector),
+            area = VALUES(area),
+            country_region = VALUES(country_region),
+            scope1_direct = VALUES(scope1_direct),
+            scope2_location = VALUES(scope2_location),
+            scope2_market = VALUES(scope2_market),
+            is_fiscal_year = VALUES(is_fiscal_year),
+            scope1_and_2 = VALUES(scope1_and_2)
+        """
+        
+        db.insert_data(insert_query, insert_data)
+        return jsonify({'success': True, 'message': 'Data updated successfully'})
+        
+    except Exception as e:
+        print(f"Error updating data: {e}")
+        return jsonify({'success': False, 'message': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
