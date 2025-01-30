@@ -10,6 +10,25 @@
     <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
+    <!-- 添加登录按钮 -->
+    <div class="admin-login-container">
+        <button id="admin-login-btn" class="button">Admin Login</button>
+        <button id="admin-logout-btn" class="button" style="display: none;">Logout</button>
+    </div>
+
+    <!-- 添加登录模态框 -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Admin Login</h2>
+            <div class="login-form">
+                <input type="text" id="username" placeholder="Username">
+                <input type="password" id="password" placeholder="Password">
+                <button id="login-submit" class="button">Login</button>
+            </div>
+        </div>
+    </div>
+
     <h1>Carbon Emissions Data for MSCI AW Companies</h1>
 
     <div class="search-container">
@@ -49,6 +68,7 @@
                 <th>
                     <span id="scope2_market" class="sortable">Scope2-Market</span>
                 </th>
+                <th class="actions-column" style="display: none;">Action</th>
             </tr>
         </thead>
         <tbody id="data-table-body">
@@ -63,6 +83,85 @@
         <button id="next-btn" class="page-btn"> &gt;</button>
     </div>
 
+    <!-- 编辑模态框 -->
+    <div id="edit-modal" class="edit-modal">
+        <div class="edit-modal-content">
+            <span class="close">&times;</span>
+            <div class="company-info">
+                <div class="info-group">
+                    <label>Company Name:</label>
+                    <span id="display_company_name"></span>
+                </div>
+                <div class="info-group">
+                    <label>Ticker:</label>
+                    <span id="display_ticker"></span>
+                </div>
+                <div class="info-group">
+                    <label>ISIN:</label>
+                    <span id="display_isin"></span>
+                </div>
+                <div class="info-group">
+                    <label>Weight:</label>
+                    <span id="display_weight"></span>
+                </div>
+            </div>
+            <div class="edit-form">
+                <div class="edit-form-group">
+                    <label for="sector">Sector</label>
+                    <input type="text" id="sector_input">
+                </div>
+                <div class="edit-form-group">
+                    <label for="area">Area</label>
+                    <input type="text" id="area_input">
+                </div>
+                <div class="edit-form-group">
+                    <label for="country_region">Country/Region</label>
+                    <input type="text" id="country_region_input">
+                </div>
+                <div class="edit-form-group">
+                    <label for="is_fiscal_year">Fiscal Year</label>
+                    <select id="is_fiscal_year_input">
+                        <option value="">Not specified</option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div class="edit-form-group">
+                    <label for="scope1_direct">Scope1 Direct</label>
+                    <input type="text" id="scope1_direct_input">
+                </div>
+                <div class="edit-form-group">
+                    <label for="scope2_location">Scope2 Location</label>
+                    <input type="text" id="scope2_location_input">
+                </div>
+                <div class="edit-form-group">
+                    <label for="scope2_market">Scope2 Market</label>
+                    <input type="text" id="scope2_market_input">
+                </div>
+                <div class="edit-form-group">
+                    <label for="scope1_and_2">Scope1 and 2</label>
+                    <input type="text" id="scope1_and_2_input">
+                </div>
+            </div>
+            <div class="edit-form-actions">
+                <button class="save-btn">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
     <script src="/static/script.js"></script>
+    <script type="module">
+        import * as config from '/static/js/config.js';
+        import { initializeDownloadHandler } from '/static/js/dataDisplay.js';
+        import { loadPageData } from '/static/js/filter.js';
+        import { initializeAdminFeatures } from '/static/js/admin.js';
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', async() => {
+            await loadPageData();
+            initializeDownloadHandler();
+            initializeAdminFeatures();
+        });
+    </script>
 </body>
 </html>
