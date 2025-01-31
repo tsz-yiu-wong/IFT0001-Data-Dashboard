@@ -340,7 +340,7 @@ def process_batch(table_name, total_batches, batch_num):
     
     
     # Use ThreadPoolExecutor for parallel processing
-    with ThreadPoolExecutor(max_workers=3) as executor:
+    with ThreadPoolExecutor(max_workers=5) as executor:
         futures = [
             executor.submit(process_company, company_name)
             for company_name in companies_to_process
@@ -375,6 +375,85 @@ def process_batch(table_name, total_batches, batch_num):
     
     print(f"Batch {batch_num} completed")
 
+
+# Process a batch of companies
+def process_missing_reports(table_name):
+    print(f"\nStarting...")
+    
+    # Initialize global statistics
+    global STATS
+    STATS = {
+        'total_companies': 0,
+        'direct_pdf_success': 0,
+        'webpage_pdf_success': 0,
+        'failed_companies': []
+    }
+    
+    # Set global log filename
+    global LOG_FILENAME
+    LOG_FILENAME = f'./logs/crawler_missing_reports_log.txt'
+    summary_filename = f'./logs/crawler_missing_reports_summary.txt'
+    
+    query = f"SELECT company_name FROM {table_name}"
+    companies = get_data(query)
+
+    existing_pdfs = {
+        os.path.splitext(f)[0] 
+        for f in os.listdir('./reports') 
+        if f.endswith('.pdf')
+    }
+
+    companies_to_process = [
+        company['company_name']
+        for company in companies 
+        if company['company_name'] not in existing_pdfs
+    ]
+
+    with open('./reports/_missing_reports.txt', 'a') as f:
+        f.write(f"="*50 + "\n")
+        f.write(f"Total missing reports: {len(companies_to_process)}\n")
+        for company in companies_to_process:
+            f.write(company + '\n')
+
+    # Add start delimiter to log
+    with open(LOG_FILENAME, 'a', encoding='utf-8') as f:
+        start_time = datetime.datetime.now()
+        f.write("="*50 + "\n")
+        f.write(f"Start Time: {start_time.strftime('%Y-%m-%d %H:%M:%S')}\n")
+        f.write("="*50 + "\n")
+
+    STATS['total_companies'] = len(companies_to_process)
+    
+    # Use ThreadPoolExecutor for parallel processing
+    with ThreadPoolExecutor(max_workers=4) as executor:
+        futures = [
+            executor.submit(process_company, company_name)
+            for company_name in companies_to_process
+        ]
+        wait(futures)
+    
+    # Generate summary report
+    with open(summary_filename, 'a', encoding='utf-8') as f:
+        f.write("="*50 + "\n")
+        f.write(f"Crawler Summary Report - Missing Reports\n")
+        f.write(f"Total Companies: {STATS['total_companies']}\n")
+        f.write(f"Direct PDF Search Success: {STATS['direct_pdf_success']}\n")
+        f.write(f"Webpage PDF Search Success: {STATS['webpage_pdf_success']}\n")
+        f.write(f"Failed Companies: {len(STATS['failed_companies'])}\n")
+        f.write("\nList of Failed Companies:\n")
+        for company in STATS['failed_companies']:
+            f.write(f"- {company}\n")
+        f.write("\n" + "="*50 + "\n")
+    
+    # Add end delimiter to log
+    with open(LOG_FILENAME, 'a', encoding='utf-8') as f:
+        end_time = datetime.datetime.now()
+        f.write("="*50 + "\n")
+        f.write(f"End Time: {end_time.strftime('%Y-%m-%d %H:%M:%S')}\n")
+        f.write("="*50 + "\n")
+    
+    print(f"Completed")
+
 if __name__ == "__main__":
     # Test single company
     #company_name = "APPLE"
@@ -389,3 +468,6 @@ if __name__ == "__main__":
         for j in range(total_batches):
             batch_num = j + 1
             process_batch(table_name, total_batches, batch_num)
+
+    # Process missing reports
+    # process_missing_reports(table_name)
