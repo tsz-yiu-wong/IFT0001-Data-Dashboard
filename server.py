@@ -219,5 +219,42 @@ def update_data():
         print(f"Error updating data: {e}")
         return jsonify({'success': False, 'message': str(e)}), 500
 
+@app.route('/get_bloomberg_data')
+def get_bloomberg_data():
+    isin = request.args.get('isin')
+    if not isin:
+        return jsonify(None)
+    
+    try:
+        query = f"""
+            SELECT 
+                scope1_direct,
+                scope2_location,
+                scope2_market
+            FROM bloomberg_emissions_data 
+            WHERE isin = '{isin}'
+            LIMIT 1
+        """
+        
+        result = db.get_data(query)
+        print(result)
+
+        if result and len(result) > 0:
+            data = result[0]
+            # 格式化数值为保留两位小数的字符串
+            formatted_data = {
+                'scope1_direct': f"{float(data['scope1_direct']):.2f}" if data.get('scope1_direct') else None,
+                'scope2_location': f"{float(data['scope2_location']):.2f}" if data.get('scope2_location') else None,
+                'scope2_market': f"{float(data['scope2_market']):.2f}" if data.get('scope2_market') else None
+            }
+            print(formatted_data)
+            return jsonify(formatted_data)
+            
+        return jsonify(None)
+        
+    except Exception as e:
+        print(f"Error fetching Bloomberg data: {str(e)}")
+        return jsonify(None)
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5001, debug=True)  # 保留host='0.0.0.0'以允许外部访问

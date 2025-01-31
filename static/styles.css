@@ -452,6 +452,19 @@ td:last-child {
     font-size: 14px;
 }
 
+/* Bloomberg参考数据提示样式 */
+.reference-hint {
+    font-size: 12px;
+    color: #979797;  /* 使用蓝色来突出显示Bloomberg数据 */
+    margin-top: 4px;
+    font-style: italic;
+}
+
+/* 当参考数据为空时隐藏提示框 */
+.reference-hint:empty {
+    display: none;
+}
+
 .edit-form-group select {
     padding: 8px;
     border: 1px solid #ddd;

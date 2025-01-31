@@ -49,6 +49,11 @@ const closeBtn = document.querySelector('.close');
 const loginSubmitBtn = document.getElementById('login-submit');
 const loginStatus = document.getElementById('login-status');
 
+// 在文件开头的 DOM Elements 部分添加新的元素引用
+const scope1DirectHint = document.getElementById('scope1_direct_hint');
+const scope2LocationHint = document.getElementById('scope2_location_hint');
+const scope2MarketHint = document.getElementById('scope2_market_hint');
+
 
 /****************************************************/
 /*              Initialization Functions            */
@@ -70,7 +75,7 @@ async function loadFilters() {
         const response = await fetch('/get_filters');
         const filters = await response.json();
         updateSelectOptions(sectorSelect, filters.sectors, 'All Sectors');
-        updateSelectOptions(regionSelect, filters.regions, 'All Regions');
+        updateSelectOptions(regionSelect, filters.regions, 'All Areas');
         updateSelectOptions(countrySelect, filters.countries, 'All Countries/Regions');
     } catch (error) {
         console.error('Error loading filters:', error);
@@ -609,8 +614,8 @@ const editModalClose = editModal.querySelector('.close');
 const saveBtn = editModal.querySelector('.save-btn');
 let currentEditData = null;
 
-// 修改编辑行函数
-function editRow(isin) {
+// 修改 editRow 函数
+async function editRow(isin) {
     const row = event.target.closest('tr');
     const cells = row.cells;
     
@@ -653,6 +658,30 @@ function editRow(isin) {
             element.value = currentEditData[key] || '';
         }
     });
+
+    // 获取 Bloomberg 参考数据
+    try {
+        const response = await fetch(`/get_bloomberg_data?isin=${isin}`);
+        const bloombergData = await response.json();
+        
+        // 设置参考数据提示
+        if (bloombergData) {
+            document.getElementById('scope1_direct_hint').textContent = 
+                `Bloomberg data ('000): ${bloombergData.scope1_direct || 'N/A'}`;
+            document.getElementById('scope2_location_hint').textContent = 
+                `Bloomberg data ('000): ${bloombergData.scope2_location || 'N/A'}`;
+            document.getElementById('scope2_market_hint').textContent = 
+                `Bloomberg data ('000): ${bloombergData.scope2_market || 'N/A'}`;
+        } else {
+            // 如果没有找到参考数据，清空提示
+            ['scope1_direct_hint', 'scope2_location_hint', 'scope2_market_hint', 'scope1_and_2_hint']
+                .forEach(id => document.getElementById(id).textContent = '');
+        }
+    } catch (error) {
+        console.error('Error fetching Bloomberg data:', error);
+        ['scope1_direct_hint', 'scope2_location_hint', 'scope2_market_hint', 'scope1_and_2_hint']
+            .forEach(id => document.getElementById(id).textContent = 'Error fetching Bloomberg data');
+    }
 
     // 显示模态框
     editModal.style.display = 'block';

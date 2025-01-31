@@ -157,8 +157,8 @@ def data_formatting(text):
     # Thousand tonne / kt
     if "thousand" in unit or "kilo tonne" in unit or "kt" in unit:
         value = round(value * 1000, 2)
-    # Million tonne / Mt (separate from Metric Tonne (MT))
-    elif "million" in unit or "mmt" in unit or "Mt" in unit_capital:
+    # Million tonne / mmt (separate from Metric Tonne (MT))
+    elif "million" in unit or "mmt" in unit:
         value = round(value * 1000000, 2)
     elif "billion" in unit or "gt" in unit:
         value = round(value * 1000000000, 2)
