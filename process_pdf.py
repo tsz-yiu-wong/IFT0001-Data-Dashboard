@@ -1,11 +1,11 @@
 import os
 import re
+import glob
+import csv
 
 from PyPDF2 import PdfReader
 from dotenv import load_dotenv
 from openai import OpenAI
-#import openai
-
 
 # Determine if the pdf is a financial report
 def is_fiscal_year(pdf_path):
@@ -39,34 +39,36 @@ def extract_text_from_pdf(pdf_path):
         print(f"Error processing PDF: {pdf_path}")
         print(f"Error message: {str(e)}")
         return None
-'''
+
+
 # Find the specific emissions data in text using ChatGPT
 def find_data_in_text_chatgpt(company_name, pdf_text):
     # Input: emission related text
     # Output: emission data in natural language
 
     load_dotenv()
-    openai.api_key = os.getenv('OPENAI_API')
+    client = OpenAI(
+        api_key=os.getenv('OPENAI_API')
+    )
 
     prompt = f"According to the given text, find the latest scope 1 and scope 2 emissions data of \"{company_name}\",  \
-                and then give me the data in the one of following patterns: \n \
+                and then give me the data in the one of following patterns.\n \
                 ##Pattern 1: \n \
                 Scope 1 (direct): 1,234 unit. \n \
                 Scope 2 (location-based): 2,345 unit. \n \
                 Scope 2 (martket-based): 3,456 unit. \n \
-                ##Pattern 2: \n \
+                ##Pattern 2 (only used when scope1 and scope2 are counted together): \n \
                 Scope 1 and 2 (total): 1,234 unit. \n \
                 ##Requirements: \n \
-                1. Pay attention to the notes and comments about the accurately calculation method of Scope 2.\n \
-                2. Pattern2 is used only the scope1 and scope2 are counted together. \n \
-                3. Pay attention and try hard to find the unit of the data.\n \
-                4. If the data is missing, or you not sure about the data, leave the part as \"N/A\". \n \
-                5. No explanation need. \n \
+                1. No any explanation needed. \n \
+                2. Pay attention and try hard to find the unit of the data.\n \
+                3. Pay more attention in the latter part of the content, as they often contain more accurate and detailed data. \n \
+                4. If the data is missing or does not mention, leave the part as \"N/A\". \n \
                 ---------------------------------- \n \
                 {pdf_text}."
 
     # Call the OpenAI ChatGPT API to analyze the content and find emission data
-    response = openai.chat.completions.create(
+    response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
             {"role": "system","content": "You are a professional analyst who can find scope 1 and scope 2 emissions data from a company's sustainability report."},
@@ -78,7 +80,7 @@ def find_data_in_text_chatgpt(company_name, pdf_text):
     # Extract the answer text from the response
     answer = response.choices[0].message.content.strip()
     return answer
-'''
+
 
 # Find the specific emissions data in text using DeepSeek
 def find_data_in_text_deepseek(company_name, pdf_text):
@@ -98,10 +100,11 @@ def find_data_in_text_deepseek(company_name, pdf_text):
                     ##Pattern 2 (only used when scope1 and scope2 are counted together): \n \
                     Scope 1 and 2 (total): 1,234 unit. \n \
                     ##Requirements: \n \
-                    1. Pay attention and try hard to find the unit of the data.\n \
-                    2. Pay more attention in the latter part of the content, as they often contain more accurate and detailed data. \n \
-                    3. Pay attention to the calculation method of Scope 2.\n \
-                    4. If the data is missing or not sure, leave the part as \"N/A\". \n \
+                    1. No any explanation needed. \n \
+                    2. Pay attention and try hard to find the unit of the data.\n \
+                    3. Pay more attention in the latter part of the content, as they often contain more accurate and detailed data. \n \
+                    4. Pay attention to the calculation method of Scope 2.\n \
+                    5. If the data is missing or not sure, leave the part as \"N/A\". \n \
                     ---------------------------------- \n \
                     {pdf_text}."
         
@@ -128,8 +131,9 @@ def find_data_in_text_deepseek(company_name, pdf_text):
 def data_formatting(text):
 
     # Sample input: "49,860.25 tons CO2e."   
-    try:  
-        split_text = text.replace(",", "").strip().split(" ", 1) # ['49860.25', 'tons CO2e.']
+    try:
+        text_value = text.group(1)
+        split_text = text_value.replace(",", "").strip().split(" ", 1) # ['49860.25', 'tons CO2e.']
         value = float(split_text[0]) # 49860.25
         unit = split_text[1].lower().strip() # tons co2e.
         unit_capital = split_text[1].strip() # tons CO2e
@@ -158,7 +162,7 @@ def data_formatting(text):
     if "thousand" in unit or "kilo tonne" in unit or "kt" in unit:
         value = round(value * 1000, 2)
     # Million tonne / mmt (separate from Metric Tonne (MT))
-    elif "million" in unit or "mmt" in unit:
+    elif "million" in unit or "mmt" in unit or "Mt" in unit_capital:
         value = round(value * 1000000, 2)
     elif "billion" in unit or "gt" in unit:
         value = round(value * 1000000000, 2)
@@ -171,16 +175,25 @@ def data_formatting(text):
 
 
 # Process one company's emissions data
-def find_emissions_data(company_name, file_path, log_file_path):
+def find_emissions_data(company_name, log_file_path, csv_file_path):
 
-    with open(log_file_path, 'a', encoding='utf-8') as log_file:
-        log_file.write(f"\n=========={company_name}==========\n")
+    files_path = glob.glob(os.path.join("./reports", f"*{company_name}*"))
+    file_path = files_path[0] if files_path else None
+    if file_path == None:
+        return None
 
+    fiscal_year = is_fiscal_year(file_path)
+
+    # Extract text from pdf
     pdf_text =extract_text_from_pdf(file_path)
     if pdf_text == None:
         return None
 
-    data_in_text = find_data_in_text_deepseek(company_name, pdf_text)
+    with open(log_file_path, 'a', encoding='utf-8') as log_file:
+        log_file.write(f"\n=========={company_name}==========\n")
+
+    # Find emissions data in text using ChatGPT
+    data_in_text = find_data_in_text_chatgpt(company_name, pdf_text)
     if data_in_text == None:
         return None
     with open(log_file_path, 'a', encoding='utf-8') as log_file:
@@ -191,8 +204,11 @@ def find_emissions_data(company_name, file_path, log_file_path):
         scope_1_and_2 = re.search(r"Scope 1 and 2 \(total\):\s*([^\n]+)", data_in_text) # 49,860.25 tons CO2e.  
         scope_1_and_2_value = data_formatting(scope_1_and_2)
         with open(log_file_path, 'a', encoding='utf-8') as log_file:
-            log_file.write(f"【data only】\n{scope_1_and_2_value}\n")
-        return ("-", "-", "-", scope_1_and_2_value)
+            log_file.write(f"【data only】\n {fiscal_year}, -, -, -, {scope_1_and_2_value}\n")
+        with open(csv_file_path, 'a', encoding='utf-8') as csv_file:
+            writer = csv.writer(csv_file)
+            writer.writerow([company_name, fiscal_year, "-", "-", "-", scope_1_and_2_value])
+        return (fiscal_year, "-", "-", "-", scope_1_and_2_value)
     
     # If the calculation method is "Scope 1" and "Scope 2"
     scope1 = re.search(r"Scope 1 \(direct\):\s*([^\n]+)", data_in_text)
@@ -202,24 +218,33 @@ def find_emissions_data(company_name, file_path, log_file_path):
     scope2_market = re.search(r"Scope 2 \(market-based\):\s*([^\n]+)", data_in_text)
     scope2_market_value = data_formatting(scope2_market)
     with open(log_file_path, 'a', encoding='utf-8') as log_file:
-        log_file.write(f"【data only】\n{scope1_value}-{scope2_location_value}-{scope2_market_value}\n")
-    return (scope1_value, scope2_location_value, scope2_market_value, "-")
+        log_file.write(f"【data only】\n {fiscal_year}, {scope1_value}, {scope2_location_value}, {scope2_market_value}, -\n")
+    with open(csv_file_path, 'a', encoding='utf-8') as csv_file:
+        writer = csv.writer(csv_file)
+        writer.writerow([company_name, fiscal_year, scope1_value, scope2_location_value, scope2_market_value, "-"])
+    return (fiscal_year, scope1_value, scope2_location_value, scope2_market_value, "-")
     
 
 if __name__ == "__main__":
 
-    log_file_path = 'log_deepseek.txt'
     '''
     # Test single company
-    company_name = "HEINEKEN HOLDING NV"
-    file_path = f"./reports2/{company_name}.pdf"
-    emissions_data = find_emissions_data(company_name, file_path, log_file_path)
+    company_name = "APPLE INC"
+    emissions_data = find_emissions_data(company_name)
     '''
     # Batch processing
+    number = 0
+    while os.path.exists(f"./logs/process_pdf_log_{number}.txt"):
+        number += 1
+    log_file_path = f"./logs/process_pdf_log_{number}.txt"
+    csv_file_path = f"./logs/process_pdf_excel_{number}.csv"
+
+    
     reports_dir = "./reports/test"
     pdf_files = [f for f in os.listdir(reports_dir) if f.endswith('.pdf')]
     for pdf_file in pdf_files:
         company_name = os.path.splitext(pdf_file)[0]
-        file_path = os.path.join(reports_dir, pdf_file)
-        emissions_data = find_emissions_data(company_name, file_path, log_file_path)
-            
+        emissions_data = find_emissions_data(company_name, log_file_path, csv_file_path)
+    
+
+    

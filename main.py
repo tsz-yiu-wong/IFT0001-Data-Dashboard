@@ -46,10 +46,10 @@ def create_table(table_name, file_path):
         area VARCHAR(30),
         country_region VARCHAR(30),
         is_fiscal_year BOOLEAN DEFAULT NULL,
-        scope1_direct VARCHAR(10) DEFAULT NULL,
-        scope2_location VARCHAR(10) DEFAULT NULL,
-        scope2_market VARCHAR(10) DEFAULT NULL,
-        scope1_and_2 VARCHAR(10) DEFAULT NULL
+        scope1_direct VARCHAR(20) DEFAULT NULL,
+        scope2_location VARCHAR(20) DEFAULT NULL,
+        scope2_market VARCHAR(20) DEFAULT NULL,
+        scope1_and_2 VARCHAR(20) DEFAULT NULL
     )AUTO_INCREMENT = 1;
     """
     db.create_table(create_table_query)
@@ -91,55 +91,59 @@ def create_table_data_only(table_name, file_path):
             name = row[0]
             isin = row[2]
             scope1_direct = row[7]
-            scope2_location = row[8]
-            scope2_market = row[9]
+            scope2_location = row[9]
+            scope2_market = row[8]
 
             insert_data_query = f"INSERT INTO {table_name} (company_name, isin, scope1_direct, scope2_location, scope2_market) VALUES (%s, %s, %s, %s, %s)"
             db.insert_data(insert_data_query, (name, isin, scope1_direct, scope2_location, scope2_market))
 
 
-def fill_emissions_data(table_name):
+def fill_emissions_data(table_name, log_file_path, csv_file_path):
     
     # Get the whole company list
-    get_data_query = f"SELECT company_name FROM {table_name}"
-    company_names = db.get_data(get_data_query)
+    get_data_query = f"SELECT * FROM {table_name}"
+    results = db.get_data(get_data_query)
+    for result in results:
 
-    # Handle each company
-    for row in company_names:
-        company_name = row['company_name']
-        files_path = glob.glob(os.path.join("./reports", f"*{company_name}*"))
-        file_path = files_path[0] if files_path else None
-
-        if file_path == None:
-            print(f"There is no report for {company_name}")
+        if result['scope1_direct'] != None or result['scope2_location'] != None \
+            or result['scope2_market'] != None or result['scope1_and_2'] != None:
             continue
-        
-        scope1_direct, scope2_location, scope2_market, scope1_and_2 = find_emissions_data(company_name, file_path)
+
+        company_name = result['company_name']
+        isin = result['isin']
+
+        result = find_emissions_data(company_name, log_file_path, csv_file_path) or (None, None, None, None, None)
+        is_fiscal_year, scope1_direct, scope2_location, scope2_market, scope1_and_2 = result
 
         insert_data_query = f"""
             INSERT INTO  {table_name} (
-                company_name, scope1_direct, scope2_location, scope2_market, scope1_and_2
-            ) VALUES (%s, %s, %s, %s, %s)
+                company_name, isin, is_fiscal_year, scope1_direct, scope2_location, scope2_market, scope1_and_2
+            ) VALUES (%s, %s, %s, %s, %s, %s, %s)
             ON DUPLICATE KEY UPDATE
+                is_fiscal_year = VALUES(is_fiscal_year),
                 scope1_direct = VALUES(scope1_direct),
                 scope2_location = VALUES(scope2_location),
                 scope2_market = VALUES(scope2_market),
                 scope1_and_2 = VALUES(scope1_and_2);
             """
-        db.insert_data(insert_data_query, (company_name, scope1_direct, scope2_location, scope2_market, scope1_and_2))
+        db.insert_data(insert_data_query, (company_name, isin, is_fiscal_year, scope1_direct, scope2_location, scope2_market, scope1_and_2))
 
 
 
 if __name__ == "__main__":
 
     data_path = "./data/data.csv"
+    number = 0
+    while os.path.exists(f"./logs/process_pdf_log_{number}.txt"):
+        number += 1
+    log_file_path = f"./logs/process_pdf_log_{number}.txt"
+    csv_file_path = f"./logs/process_pdf_excel_{number}.csv"
 
-    db.delete_table("emissions_data")
-    db.delete_table("bloomberg_emissions_data")
+    #db.delete_table("emissions_data")
+    #db.delete_table("bloomberg_emissions_data")
     create_table("emissions_data", data_path)
     create_table_data_only("bloomberg_emissions_data", data_path)
 
-    #fill_emissions_data("emissions_data")
-
+    fill_emissions_data("emissions_data", log_file_path, csv_file_path)
     db.print_data("emissions_data")
 
