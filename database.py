@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# Database configuration
 db_config = {
     'host': os.getenv('DB_HOST'),
     'port': int(os.getenv('DB_PORT')),
@@ -14,8 +15,11 @@ db_config = {
     "ssl_ca": os.getenv('DB_SSL_CA')
 }
 
+
+# Database connection pool
 connection_pool = None
 
+# Initialize database connection pool
 def init_connection_pool():
     global connection_pool
     if connection_pool is None:
@@ -26,6 +30,7 @@ def init_connection_pool():
         )
         print("Database connection pool initialized")
 
+# Close database connection pool
 def close_connection_pool():
     global connection_pool
     if connection_pool:
@@ -37,11 +42,13 @@ def close_connection_pool():
         print("Database connection pool closed")
 
 
+# Get database connection
 def get_connection():
     if connection_pool is None:
         init_connection_pool()
     return connection_pool.get_connection()
 
+# Get data from database
 def get_data(query):
     connection = get_connection()
     try:
@@ -52,6 +59,7 @@ def get_data(query):
         cursor.close()
         connection.close()
 
+# Get all data from database
 def get_all_data(table_name):
     connection = get_connection()
     try:
@@ -63,6 +71,7 @@ def get_all_data(table_name):
         connection.close()
 
 
+# Create table
 def create_table(create_table_query):
     connection = get_connection()
     try:
@@ -74,6 +83,7 @@ def create_table(create_table_query):
         cursor.close()
         connection.close()
 
+# Insert data into database
 def insert_data(insert_data_query, data):
     connection = get_connection()
     try:
@@ -85,6 +95,7 @@ def insert_data(insert_data_query, data):
         connection.close()
 
 
+# Delete data from database
 def delete_data(company_name, table_name):
     connection = get_connection()
     try:
@@ -96,6 +107,7 @@ def delete_data(company_name, table_name):
         cursor.close()
         connection.close()
 
+# Delete table
 def delete_table(table_name):
     connection = get_connection()
     try:
@@ -107,8 +119,8 @@ def delete_table(table_name):
         connection.close()
 
 
+# Print table data
 def print_data(table_name):
-    """Print table data"""
     data = get_all_data(table_name)
     if not data:
         print("Table is empty")
@@ -130,37 +142,19 @@ def print_data(table_name):
 
 if __name__ == "__main__":
 
-    # Initialize connection pool
     init_connection_pool()
 
     try:
         # Test database functions
         print("\n=== Database functions test ===")
-
-        # 1. 测试表格查询
-        test_table = "web_test"  # 修改为要测试的表格名
-        print(f"\n1. Query table {test_table} content:")
+        test_table = "web_test"
+        print(f"\n{test_table} content:")
         print_data(test_table)
 
-        '''
-        # 2. 测试条件查询
-        print("\n2. 测试条件查询（例：查询特定地区的公司）：")
-        query = f"SELECT * FROM {test_table} WHERE region = 'asia' LIMIT 5"
-        results = get_data(query)
-        if results:
-            print("\n条件查询结果：")
-            print("\t".join(results[0].keys()))
-            print("-"*100)
-            for row in results:
-                print("\t".join(str(val) if val is not None else 'None' for val in row.values()))
-        else:
-            print("没有找到匹配的数据")
-        '''
-
     except Exception as e:
-        print(f"测试过程中出现错误: {e}")
+        print(f"Error occurred during testing: {e}")
 
     finally:
-        # 关闭连接池
+        # Close connection pool
         close_connection_pool()
-        print("\n测试完成")
+        print("\nTest completed")

@@ -75,7 +75,7 @@ def get_search_results(driver, company_name, search_url, search_query, max_trial
     return None
 
 # Helper Function: Download PDF file (including verify whether content contains scope 1 or scope 2)
-def download_pdf(url, company_name, max_trials=3):
+def download_pdf(company_name, url, max_trials=3):
     
     # Check if URL is PDF
     if 'pdf' not in url:
@@ -102,9 +102,8 @@ def download_pdf(url, company_name, max_trials=3):
                     f.write(response.content)
                 
                 # Check if PDF content contains scope 1 or scope 2
-                text = extract_text_from_pdf(pdf_path)
-
-                if text == None or text == "":
+                text = extract_text_from_pdf(pdf_path) # Only extract the page that contains scope 1 or scope 2
+                if text == None or text == "": 
                     write_log(f"{company_name}: PDF content does not contain 'scope 1' or 'scope 2' | URL: {url}")
                     if os.path.exists(pdf_path):
                         os.remove(pdf_path)
@@ -118,20 +117,21 @@ def download_pdf(url, company_name, max_trials=3):
             if trial < max_trials - 1:
                 time.sleep(2)
                 continue
+
             # If reached max trials, delete PDF file
             if os.path.exists(pdf_path):
                 os.remove(pdf_path)
             write_log(f"{company_name}: PDF Processing Error | Error: {e} | URL: {url}")
             return None
     
+    # If all attempts failed, delete file path
     write_log(f"{company_name}: Failed to download PDF after {max_trials} attempts | URL: {url}")
     if os.path.exists(pdf_path):
         os.remove(pdf_path)
     return None
 
-
 # Step 1: Try to search PDF directly in Bing
-def search_pdf_in_bing(company_name, driver):
+def search_pdf_in_bing(driver, company_name):
     
     # Search query
     search_query = f"{company_name} sustainability report 2024 pdf -responsibilityreports"
@@ -142,6 +142,7 @@ def search_pdf_in_bing(company_name, driver):
     search_query = (By.CSS_SELECTOR, '.b_algo h2 a')
     search_results = get_search_results(driver, company_name, search_url, search_query)
     
+    # If no search results found, return None
     if not search_results:
         write_log(f"{company_name}: No Search Results Found | URL: {search_url}")
         return None
@@ -153,22 +154,22 @@ def search_pdf_in_bing(company_name, driver):
         if url and '.pdf' in url:
             pdf_links.append(url)   
 
+    # If no PDF links found, return None
     if not pdf_links:
         write_log(f"{company_name}: No PDF Links Found in Search Results | URL: {search_url}")
         return None
 
     # Try to download PDF (only pdf content contains scope 1 or scope 2 will be downloaded)
     for pdf in pdf_links:
-        pdf_path = download_pdf(pdf, company_name)
+        pdf_path = download_pdf(company_name, pdf)
         if pdf_path:
             return pdf_path
         
     write_log(f"{company_name}: No Valid PDF Found in Search Results")
     return None
 
-
 # Step 2: If PDF not found directly in Bing, search company's sustainability website
-def search_webpage_in_bing(company_name, driver):
+def search_webpage_in_bing(driver, company_name):
     
     # Search query
     search_query = f"{company_name} sustainability report -responsibilityreports"
@@ -179,6 +180,7 @@ def search_webpage_in_bing(company_name, driver):
     search_query = (By.CSS_SELECTOR, '.b_algo h2 a')
     search_results = get_search_results(driver, company_name, search_url, search_query)
 
+    # If no search results found, return None
     if not search_results:
         write_log(f"{company_name}: No Search Results Found | URL: {search_url}")
         return None
@@ -198,21 +200,23 @@ def search_webpage_in_bing(company_name, driver):
             write_log(f"{company_name}: Error getting URL from search result: {str(e)}")
             continue
 
+    # If no valid URL found, return None
     if not url_list:
         write_log(f"{company_name}: No Valid URL Found in Search Results")
         return None
             
     return url_list
 
-
 # Step 3: Find PDF links in company's sustainability website
-def find_pdf_in_webpage(url, driver, company_name):
+def find_pdf_in_webpage(driver, company_name, url):
 
     write_log(f"{company_name}: Searching PDF in Webpage | URL: {url}")
 
     # Call helper function to get search results
     search_query = (By.TAG_NAME, "a")
     search_results = get_search_results(driver, company_name, url, search_query)
+
+    # If no search results found, return None
     if not search_results:
         write_log(f"{company_name}: No Search Results Found | URL: {url}")
         return None
@@ -225,6 +229,7 @@ def find_pdf_in_webpage(url, driver, company_name):
             href = result.get_attribute('href')
             if not href:  # Skip if href is None or empty string
                 continue
+
             # Check if link is PDF
             is_pdf = ('.pdf' in href.lower())
 
@@ -247,7 +252,7 @@ def find_pdf_in_webpage(url, driver, company_name):
 
     # Download and check first 10 PDFs
     for pdf in pdf_links[:10]:
-        pdf_path = download_pdf(pdf, company_name)
+        pdf_path = download_pdf(company_name, pdf)
         if pdf_path:
             return pdf_path
     
@@ -256,27 +261,28 @@ def find_pdf_in_webpage(url, driver, company_name):
         
 # Process single company
 def process_company(company_name):
+
     print(f"Processing {company_name}...")
     driver = init_driver()
     
     # 1. Search PDF directly
-    pdf_url = search_pdf_in_bing(company_name, driver)
+    pdf_url = search_pdf_in_bing(driver, company_name)
     if pdf_url:
         with threading.Lock():  # Use lock to protect shared resource access
             STATS['direct_pdf_success'] += 1
         driver.quit()
-        return
+        return pdf_url
     
-    # 2. If PDF not found, search webpage
-    webpage_url_list = search_webpage_in_bing(company_name, driver)
+    # 2. If PDF not found, search webpage, and find PDF in webpage
+    webpage_url_list = search_webpage_in_bing(driver, company_name)
     if webpage_url_list:
         for url in webpage_url_list:
-            pdf_url = find_pdf_in_webpage(url, driver, company_name)
+            pdf_url = find_pdf_in_webpage(driver, company_name, url)
             if pdf_url: 
                 with threading.Lock():  # Use lock to protect shared resource access
                     STATS['webpage_pdf_success'] += 1
                 driver.quit()
-                return
+                return pdf_url
     
     # If all methods failed
     with threading.Lock():  # Use lock to protect shared resource access
@@ -285,6 +291,7 @@ def process_company(company_name):
 
 # Process a batch of companies
 def process_batch(table_name, total_batches, batch_num):
+
     print(f"\nStarting Batch {batch_num}...")
     
     # Initialize global statistics
@@ -375,12 +382,11 @@ def process_batch(table_name, total_batches, batch_num):
     
     print(f"Batch {batch_num} completed")
 
-
 # Process a batch of companies
 def process_missing_reports(table_name):
+
     print(f"\nStarting...")
     
-    # Initialize global statistics
     global STATS
     STATS = {
         'total_companies': 0,
@@ -389,7 +395,6 @@ def process_missing_reports(table_name):
         'failed_companies': []
     }
     
-    # Set global log filename
     global LOG_FILENAME
     LOG_FILENAME = f'./logs/crawler_missing_reports_log.txt'
     summary_filename = f'./logs/crawler_missing_reports_summary.txt'
@@ -415,7 +420,6 @@ def process_missing_reports(table_name):
         for company in companies_to_process:
             f.write(company + '\n')
 
-    # Add start delimiter to log
     with open(LOG_FILENAME, 'a', encoding='utf-8') as f:
         start_time = datetime.datetime.now()
         f.write("="*50 + "\n")
@@ -424,7 +428,6 @@ def process_missing_reports(table_name):
 
     STATS['total_companies'] = len(companies_to_process)
     
-    # Use ThreadPoolExecutor for parallel processing
     with ThreadPoolExecutor(max_workers=4) as executor:
         futures = [
             executor.submit(process_company, company_name)
@@ -432,7 +435,6 @@ def process_missing_reports(table_name):
         ]
         wait(futures)
     
-    # Generate summary report
     with open(summary_filename, 'a', encoding='utf-8') as f:
         f.write("="*50 + "\n")
         f.write(f"Crawler Summary Report - Missing Reports\n")
@@ -445,7 +447,6 @@ def process_missing_reports(table_name):
             f.write(f"- {company}\n")
         f.write("\n" + "="*50 + "\n")
     
-    # Add end delimiter to log
     with open(LOG_FILENAME, 'a', encoding='utf-8') as f:
         end_time = datetime.datetime.now()
         f.write("="*50 + "\n")

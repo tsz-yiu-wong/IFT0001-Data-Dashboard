@@ -11,6 +11,7 @@ from openai import OpenAI
 def is_fiscal_year(pdf_path):
     try:
         reader = PdfReader(pdf_path)
+        # Keywords to determine if the pdf is a financial report
         keywords = ['fy2', 'fiscal year']
         for page in reader.pages:
             page_text = page.extract_text()
@@ -22,7 +23,7 @@ def is_fiscal_year(pdf_path):
         return None
 
 
-# Extract text from pdf
+# Extract text from pdf (only the page that contains ('scope 1' or 'scope 2') and ('2024' or '2023'))
 def extract_text_from_pdf(pdf_path):
     try:
         reader = PdfReader(pdf_path)
@@ -42,9 +43,13 @@ def extract_text_from_pdf(pdf_path):
 
 
 # Find the specific emissions data in text using ChatGPT
+# Sample input: 
+#       pdf text
+# Sample output:
+#       Scope 1 (direct): 1,234 t CO2e.
+#       Scope 2 (location-based): 2,345 t CO2e.
+#       Scope 2 (martket-based): 3,456 t CO2e.
 def find_data_in_text_chatgpt(company_name, pdf_text):
-    # Input: emission related text
-    # Output: emission data in natural language
 
     load_dotenv()
     client = OpenAI(
@@ -80,7 +85,6 @@ def find_data_in_text_chatgpt(company_name, pdf_text):
     # Extract the answer text from the response
     answer = response.choices[0].message.content.strip()
     return answer
-
 
 # Find the specific emissions data in text using DeepSeek
 def find_data_in_text_deepseek(company_name, pdf_text):
@@ -128,6 +132,12 @@ def find_data_in_text_deepseek(company_name, pdf_text):
 
 
 # Convert data from sentence to number, including unit conversion
+# Sample input:
+#       Scope 1 (direct): 1,234 t CO2e.
+#       Scope 2 (location-based): 2,345 t CO2e.
+#       Scope 2 (martket-based): 3,456 t CO2e.
+# Sample output: 
+#       (1234, 2345, 3456)
 def data_formatting(text):
 
     # Sample input: "49,860.25 tons CO2e."   
@@ -174,14 +184,16 @@ def data_formatting(text):
     return str(value)
 
 
-# Process one company's emissions data
+# Process one company with specific company name
 def find_emissions_data(company_name, log_file_path, csv_file_path):
 
+    # Find the pdf file path with the company name
     files_path = glob.glob(os.path.join("./reports", f"*{company_name}*"))
     file_path = files_path[0] if files_path else None
     if file_path == None:
         return None
 
+    # Determine if the pdf is a financial report
     fiscal_year = is_fiscal_year(file_path)
 
     # Extract text from pdf
@@ -235,16 +247,12 @@ if __name__ == "__main__":
     # Batch processing
     number = 0
     while os.path.exists(f"./logs/process_pdf_log_{number}.txt"):
-        number += 1
+        number += 1 # Make sure the log file name is unique
     log_file_path = f"./logs/process_pdf_log_{number}.txt"
     csv_file_path = f"./logs/process_pdf_excel_{number}.csv"
 
-    
-    reports_dir = "./reports/test"
+    reports_dir = "./reports/"
     pdf_files = [f for f in os.listdir(reports_dir) if f.endswith('.pdf')]
     for pdf_file in pdf_files:
         company_name = os.path.splitext(pdf_file)[0]
         emissions_data = find_emissions_data(company_name, log_file_path, csv_file_path)
-    
-
-    

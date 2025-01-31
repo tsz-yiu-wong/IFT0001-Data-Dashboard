@@ -6,7 +6,7 @@ from crawler import *
 from process_pdf import *
 import database as db
 
-'''
+# A test function to test creating a table
 def web_test(table_name, company_list_file,):
     create_table_query = f"""
     CREATE TABLE IF NOT EXISTS {table_name} (
@@ -26,14 +26,15 @@ def web_test(table_name, company_list_file,):
 
     with open(company_list_file, "r", encoding="utf-8") as csvfile:
         reader = csv.reader(csvfile)
-        next(reader)  # 跳过CSV表头
+        next(reader)  # Skip CSV header
         for row in reader:
             company_name,isin,sector,region,country,scope1_direct,scope2_indirect,scope2_market_based,scope2_location_based = row
 
             insert_data_query = f"INSERT INTO {table_name} (company_name,isin,sector,region,country,scope1_direct,scope2_indirect,scope2_market_based,scope2_location_based) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
-            insert_data(insert_data_query, (company_name,isin,sector,region,country,scope1_direct,scope2_indirect,scope2_market_based,scope2_location_based))
-'''
+            db.insert_data(insert_data_query, (company_name,isin,sector,region,country,scope1_direct,scope2_indirect,scope2_market_based,scope2_location_based))
 
+
+# Create table with all company information and emissions data
 def create_table(table_name, file_path):
     create_table_query = f"""
     CREATE TABLE IF NOT EXISTS {table_name} (
@@ -71,6 +72,7 @@ def create_table(table_name, file_path):
             db.insert_data(insert_data_query, (name, ticker, isin, weight, sector, area, country_region))
 
 
+# Create table with only emissions data
 def create_table_data_only(table_name, file_path):
     create_table_query = f"""
     CREATE TABLE IF NOT EXISTS {table_name} (
@@ -98,6 +100,7 @@ def create_table_data_only(table_name, file_path):
             db.insert_data(insert_data_query, (name, isin, scope1_direct, scope2_location, scope2_market))
 
 
+# Fill emissions data into database
 def fill_emissions_data(table_name, log_file_path, csv_file_path):
     
     # Get the whole company list
@@ -130,6 +133,7 @@ def fill_emissions_data(table_name, log_file_path, csv_file_path):
 
 
 
+
 if __name__ == "__main__":
 
     data_path = "./data/data.csv"
@@ -146,4 +150,3 @@ if __name__ == "__main__":
 
     fill_emissions_data("emissions_data", log_file_path, csv_file_path)
     db.print_data("emissions_data")
-
