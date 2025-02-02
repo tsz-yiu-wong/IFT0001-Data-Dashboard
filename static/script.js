@@ -54,6 +54,9 @@ const scope1DirectHint = document.getElementById('scope1_direct_hint');
 const scope2LocationHint = document.getElementById('scope2_location_hint');
 const scope2MarketHint = document.getElementById('scope2_market_hint');
 
+// 在全局变量部分添加
+let emissionsChart = null;
+
 
 /****************************************************/
 /*              Initialization Functions            */
@@ -67,6 +70,19 @@ document.addEventListener('DOMContentLoaded', async() => {
     const data = await getDataFromServer(basic_query, 1, itemsPerPage);
     updateTable(data.items);
     initPagination(data.totalItems, itemsPerPage);
+    
+    // 初始化Select2
+    $('#chart-items').select2({
+        placeholder: 'Select items to compare',
+        allowClear: true,
+        width: '100%'
+    });
+    
+    // 初始化图表
+    initializeChart();
+    
+    // 添加图表控件事件监听
+    setupChartControls();
 });
 
 // Load Filter Options
@@ -116,7 +132,7 @@ async function loadPageData() {
         }
 
         if (sortBy && sortOrder) {
-            query += ` ORDER BY CAST(${sortBy} AS DECIMAL(10,2)) ${sortOrder}`;
+            query += ` ORDER BY CAST(${sortBy} AS DECIMAL(18,2)) ${sortOrder}`;
         }
 
         // 使用 fetch 获取数据
@@ -244,7 +260,7 @@ async function applyFilters() {
     }
 
     if (sortBy && sortOrder) {
-        query += ` ORDER BY CAST(${sortBy} AS DECIMAL(10,2)) ${sortOrder}`;
+        query += ` ORDER BY CAST(${sortBy} AS DECIMAL(18,2)) ${sortOrder}`;
     }
 
     await loadPageData();
@@ -743,3 +759,295 @@ saveBtn.addEventListener('click', async () => {
         alert('Error updating data');
     }
 });
+
+
+// 添加图表相关函数
+function initializeChart() {
+    console.log('开始初始化图表');
+    const ctx = document.getElementById('emissions-chart').getContext('2d');
+    if (!ctx) {
+        console.error('未找到图表canvas元素');
+        return;
+    }
+    
+    emissionsChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [],
+            datasets: []
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Emissions Data'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'top'
+                }
+            }
+        }
+    });
+    console.log('图表初始化完成');
+}
+
+function setupChartControls() {
+    const groupBySelect = document.getElementById('chart-group-by');
+    const itemsSelect = document.getElementById('chart-items');
+    const metricCheckboxes = document.querySelectorAll('.chart-metrics input[type="checkbox"]');
+    
+    // 初始化 Select2，添加搜索和最大选择限制
+    $('#chart-items').select2({
+        placeholder: 'Select items to compare (max 11)',
+        allowClear: true,
+        width: '100%',
+        maximumSelectionLength: 11,
+        language: {
+            maximumSelected: function (e) {
+                return 'You can only select up to 11 items';
+            }
+        }
+    });
+    
+    // 添加复选框互斥逻辑
+    const scope1Checkbox = document.getElementById('chart-scope1');
+    const scope2LocationCheckbox = document.getElementById('chart-scope2-location');
+    const scope2MarketCheckbox = document.getElementById('chart-scope2-market');
+    const scope1And2Checkbox = document.getElementById('chart-scope1-and-2');
+    
+    // 分组复选框
+    const individualScopes = [scope1Checkbox, scope2LocationCheckbox, scope2MarketCheckbox];
+    
+    // 处理单项scope的变化
+    individualScopes.forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+                // 如果选中任一单项，禁用 scope1_and_2
+                scope1And2Checkbox.checked = false;
+                scope1And2Checkbox.disabled = true;
+            } else {
+                // 如果所有单项都未选中，启用 scope1_and_2
+                if (!individualScopes.some(cb => cb.checked)) {
+                    scope1And2Checkbox.disabled = false;
+                }
+            }
+            updateChart();
+        });
+    });
+    
+    // 处理 scope1_and_2 的变化
+    scope1And2Checkbox.addEventListener('change', () => {
+        if (scope1And2Checkbox.checked) {
+            // 如果选中 scope1_and_2，禁用并取消选中所有单项
+            individualScopes.forEach(checkbox => {
+                checkbox.checked = false;
+                checkbox.disabled = true;
+            });
+        } else {
+            // 如果取消选中 scope1_and_2，启用所有单项
+            individualScopes.forEach(checkbox => {
+                checkbox.disabled = false;
+            });
+        }
+        updateChart();
+    });
+    
+    // 初始化时执行一次复选框状态检查
+    if (individualScopes.some(cb => cb.checked)) {
+        // 如果有任何单项被选中，禁用 scope1_and_2
+        scope1And2Checkbox.checked = false;
+        scope1And2Checkbox.disabled = true;
+    } else if (scope1And2Checkbox.checked) {
+        // 如果 scope1_and_2 被选中，禁用所有单项
+        individualScopes.forEach(checkbox => {
+            checkbox.checked = false;
+            checkbox.disabled = true;
+        });
+    }
+    
+    // 组别变化时更新多选框选项
+    groupBySelect.addEventListener('change', async () => {
+        console.log('分组选项改变');
+        await updateChartItems();
+    });
+    
+    // 修改选项变化的监听方式
+    $('#chart-items').on('change', function(e) {
+        console.log('选项变化事件触发');
+        console.log('当前选中值:', $(this).val());
+        updateChart();
+    });
+    
+    // 初始加载选项
+    updateChartItems();
+}
+
+async function updateChartItems() {
+    console.log('开始更新选项列表');
+    const groupBy = document.getElementById('chart-group-by').value;
+    const itemsSelect = document.getElementById('chart-items');
+    
+    // 获取分组选项
+    const query = `SELECT DISTINCT ${groupBy} FROM emissions_data WHERE ${groupBy} IS NOT NULL ORDER BY ${groupBy}`;
+    console.log('获取选项的查询:', query);
+    
+    try {
+        const response = await fetch(`/get_chart_items?query=${encodeURIComponent(query)}`);
+        const items = await response.json();
+        console.log('获取到的选项:', items);
+        
+        // 清空并更新多选框选项
+        const itemsSelect = $('#chart-items');
+        itemsSelect.empty();
+        
+        items.forEach(item => {
+            if (item) { // 确保不添加空值
+                itemsSelect.append(new Option(item, item, false, false));
+            }
+        });
+        
+        // 触发 select2 更新
+        itemsSelect.trigger('change');
+        console.log('选项更新完成');
+        
+    } catch (error) {
+        console.error('更新选项时出错:', error);
+    }
+}
+
+async function updateChart() {
+    console.log('开始更新图表');
+    const groupBy = document.getElementById('chart-group-by').value;
+    
+    // 修改获取选中项目的方式
+    const selectedItems = $('#chart-items').val() || [];
+    console.log('Select2原始值:', $('#chart-items').val());
+    console.log('选中的项目:', selectedItems);
+    
+    const metrics = {
+        scope1: document.getElementById('chart-scope1').checked,
+        scope2_location: document.getElementById('chart-scope2-location').checked,
+        scope2_market: document.getElementById('chart-scope2-market').checked,
+        scope1_and_2: document.getElementById('chart-scope1-and-2').checked
+    };
+    console.log('选中的指标:', metrics);
+    
+    if (selectedItems.length === 0) {
+        console.log('没有选中任何项目，清空图表');
+        emissionsChart.data.labels = [];
+        emissionsChart.data.datasets = [];
+        emissionsChart.update();
+        return;
+    }
+
+    // 构建要查询的指标列表
+    const selectedMetrics = Object.entries(metrics)
+        .filter(([_, isChecked]) => isChecked)
+        .map(([metric, _]) => {
+            switch(metric) {
+                case 'scope1': return 'scope1_direct';
+                case 'scope2_location': return 'scope2_location';
+                case 'scope2_market': return 'scope2_market';
+                case 'scope1_and_2': return 'scope1_and_2';
+            }
+        });
+
+    if (selectedMetrics.length === 0) {
+        console.log('没有选中任何指标，清空图表');
+        emissionsChart.data.labels = [];
+        emissionsChart.data.datasets = [];
+        emissionsChart.update();
+        return;
+    }
+
+    // 构建查询条件时处理特殊字符
+    const conditions = selectedItems.map(item => 
+        `${groupBy} = '${item.replace(/'/g, "''")}'`
+    ).join(' OR ');
+
+    // 根据不同的分组类型构建不同的查询
+    let query;
+    if (groupBy === 'company_name') {
+        // 公司级别的查询，直接获取数据
+        const metricsQuery = selectedMetrics
+            .map(metric => `CAST(NULLIF(${metric}, '') AS DECIMAL(18,2)) as ${metric}`)
+            .join(', ');
+        
+        query = `
+            SELECT ${groupBy}, ${metricsQuery}
+            FROM emissions_data
+            WHERE ${conditions}
+            ORDER BY ${groupBy}
+        `;
+    } else {
+        // 分组级别的查询，需要汇总数据
+        const metricsQuery = selectedMetrics
+            .map(metric => `SUM(CAST(NULLIF(${metric}, '') AS DECIMAL(18,2))) as ${metric}`)
+            .join(', ');
+        
+        query = `
+            SELECT ${groupBy}, ${metricsQuery}
+            FROM emissions_data
+            WHERE ${conditions}
+            GROUP BY ${groupBy}
+            ORDER BY ${groupBy}
+        `;
+    }
+    
+    console.log('构建的SQL查询:', query);
+    
+    try {
+        // 获取数据
+        const response = await fetch(`/get_chart_data?query=${encodeURIComponent(query)}`);
+        const data = await response.json();
+        console.log('获取到的数据:', data);
+        
+        // 更新图表数据
+        const labels = data.map(item => item[groupBy]);
+        console.log('图表标签:', labels);
+        
+        emissionsChart.data.labels = labels;
+        emissionsChart.data.datasets = [];
+        
+        const colors = {
+            scope1_direct: 'rgba(255, 99, 132, 0.8)',
+            scope2_location: 'rgba(54, 162, 235, 0.8)',
+            scope2_market: 'rgba(75, 192, 192, 0.8)',
+            scope1_and_2: 'rgba(153, 102, 255, 0.8)'
+        };
+        
+        const metricLabels = {
+            scope1_direct: 'Scope1 Direct',
+            scope2_location: 'Scope2 Location',
+            scope2_market: 'Scope2 Market',
+            scope1_and_2: 'Scope1 and 2'
+        };
+        
+        // 为每个选中的指标创建数据集
+        selectedMetrics.forEach(metric => {
+            const dataset = {
+                label: metricLabels[metric],
+                data: data.map(item => item[metric]),
+                backgroundColor: colors[metric],
+                borderColor: colors[metric],
+                borderWidth: 1
+            };
+            console.log(`${metric} 数据集:`, dataset);
+            emissionsChart.data.datasets.push(dataset);
+        });
+        
+        console.log('更新前的图表数据:', emissionsChart.data);
+        emissionsChart.update();
+        console.log('图表更新完成');
+    } catch (error) {
+        console.error('更新图表时出错:', error);
+    }
+}
+

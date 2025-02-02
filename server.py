@@ -24,23 +24,7 @@ with open('admin.json', 'r') as f:
 def home():
     return render_template('index.html')  # 渲染 HTML 页面
 
-@app.route('/get_all_data', methods=['GET'])
-def get_all_data():
-    # 定义列的顺序
-    columns = [
-        'company_name', 'isin', 'sector', 'area', 'country_region',
-        'is_fiscal_year', 'scope1_direct', 'scope2_location', 'scope2_market', 'scope1_and_2'
-    ]
-    
-    # 使用指定的列顺序获取数据
-    query = f"SELECT {', '.join(columns)} FROM web_test"
-    results = db.get_data(query)
-    
-    return jsonify({
-        "columns": columns,  # 返回列顺序
-        "data": results
-    })
-
+# Data display
 @app.route('/get_data', methods=['GET'])
 def get_data():
     query = request.args.get('query', '')
@@ -138,6 +122,8 @@ def download_data():
     
     return output
 
+
+# Admin login and edit data
 @app.route('/admin/login', methods=['POST'])
 def admin_login():
     data = request.get_json()
@@ -256,5 +242,22 @@ def get_bloomberg_data():
         print(f"Error fetching Bloomberg data: {str(e)}")
         return jsonify(None)
 
+
+# Data chart
+@app.route('/get_chart_items', methods=['GET'])
+def get_chart_items():
+    query = request.args.get('query', '')
+    results = db.get_data(query)
+    items = [row[list(row.keys())[0]] for row in results]  # 获取第一列的值
+    return jsonify(items)
+
+@app.route('/get_chart_data', methods=['GET'])
+def get_chart_data():
+    query = request.args.get('query', '')
+    results = db.get_data(query)
+    return jsonify(results)
+
+# Data chart
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5001, debug=True)  # 保留host='0.0.0.0'以允许外部访问
+    app.run(host='0.0.0.0', port=5000, debug=True)  # 保留host='0.0.0.0'以允许外部访问
