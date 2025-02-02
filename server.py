@@ -7,22 +7,28 @@ import json
 
 app = Flask(__name__)
 
-# 在每个请求之前检查并初始化数据库连接池
+# Initialize database connection
 @app.before_request
 def before_request():
     if db.connection_pool is None:
         db.init_connection_pool()
 
-# 应用关闭时断开连接
+# Close database connection when application shuts down
 atexit.register(db.close_connection_pool)
 
-# 加载管理员配置
+# Load admin configuration
 with open('admin.json', 'r') as f:
     admin_config = json.load(f)
 
+
+############################################
+#            Basic routes                  #
+############################################
+
+# Home page
 @app.route('/')
 def home():
-    return render_template('index.html')  # 渲染 HTML 页面
+    return render_template('index.html')
 
 # Data display
 @app.route('/get_data', methods=['GET'])
@@ -32,7 +38,7 @@ def get_data():
     items_per_page = int(request.args.get('items_per_page', 10))
     offset = (page - 1) * items_per_page
 
-    # 使用子查询一次性获取数据和总数
+    # Get data and total count in one query
     modified_query = f"""
     SELECT *, (
         SELECT COUNT(*) 
@@ -45,7 +51,7 @@ def get_data():
     results = db.get_data(modified_query)
     total = results[0]['total_count'] if results else 0
     
-    # 移除结果中的total_count字段
+    # Remove total_count field from results
     for row in results:
         if 'total_count' in row:
             del row['total_count']
@@ -55,6 +61,7 @@ def get_data():
         "totalItems": total
     })
 
+# Get filters
 @app.route('/get_filters', methods=['GET'])
 def get_filters():
     sectors_query = "SELECT DISTINCT sector FROM emissions_data ORDER BY sector"
@@ -71,6 +78,7 @@ def get_filters():
         "countries": countries
     })
 
+# Get region and country map
 @app.route('/get_region_country_map', methods=['GET'])
 def get_region_country_map():
     query = "SELECT DISTINCT area, country_region FROM emissions_data ORDER BY area, country_region"
@@ -90,6 +98,7 @@ def get_region_country_map():
 
     return jsonify(region_country_map)
 
+# Download data
 @app.route('/download_data', methods=['GET'])
 def download_data():
     query = request.args.get('query', '')
@@ -123,7 +132,11 @@ def download_data():
     return output
 
 
-# Admin login and edit data
+############################################
+#        Admin related routes               #
+############################################
+
+# Admin login
 @app.route('/admin/login', methods=['POST'])
 def admin_login():
     data = request.get_json()
@@ -134,6 +147,7 @@ def admin_login():
         return jsonify({'success': True})
     return jsonify({'success': False})
 
+# Edit and update data
 @app.route('/update_data', methods=['POST'])
 def update_data():
     try:
@@ -205,6 +219,7 @@ def update_data():
         print(f"Error updating data: {e}")
         return jsonify({'success': False, 'message': str(e)}), 500
 
+# Get Bloomberg data
 @app.route('/get_bloomberg_data')
 def get_bloomberg_data():
     isin = request.args.get('isin')
@@ -243,21 +258,27 @@ def get_bloomberg_data():
         return jsonify(None)
 
 
-# Data chart
+############################################
+#        Visualization related routes       #
+############################################
+
+# Get chart items
 @app.route('/get_chart_items', methods=['GET'])
 def get_chart_items():
     query = request.args.get('query', '')
     results = db.get_data(query)
-    items = [row[list(row.keys())[0]] for row in results]  # 获取第一列的值
+    items = [row[list(row.keys())[0]] for row in results]
     return jsonify(items)
 
+# Get chart data
 @app.route('/get_chart_data', methods=['GET'])
 def get_chart_data():
     query = request.args.get('query', '')
     results = db.get_data(query)
     return jsonify(results)
 
-# Data chart
+
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)  # 保留host='0.0.0.0'以允许外部访问

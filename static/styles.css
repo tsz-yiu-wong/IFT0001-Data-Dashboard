@@ -1,14 +1,14 @@
 /****************************************************/
-/*                    基础设置                        */
+/*                Basic Settings                    */
 /****************************************************/
 
-/* 字体定义 */
+/* Font definition */
 :root {
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     --font-heading: 'Poppins', var(--font-primary);
 }
 
-/* 全局样式 */
+/* Global styles */
 body {
     font-family: var(--font-primary);
     font-size: 14px;
@@ -21,7 +21,7 @@ body {
     background-color: #f5f5f5;
 }
 
-/* 标题样式 */
+/* Title style */
 h1 {
     font-family: var(--font-heading);
     font-weight: 600;
@@ -33,10 +33,10 @@ h1 {
 }
 
 /****************************************************/
-/*                    搜索区域                        */
+/*                    Search Area                    */
 /****************************************************/
 
-/* 搜索区域容器 */
+/* Search container */
 .search-container {
     display: flex;
     align-items: center;
@@ -50,7 +50,7 @@ h1 {
     gap: 10px;
 }
 
-/* 搜索输入框 */
+/* Search input */
 #search-input {
     font-family: var(--font-primary);
     font-size: 14px;
@@ -60,7 +60,7 @@ h1 {
     width: 250px;
 }
 
-/* 按钮通用样式 */
+/* Button style */
 .button {
     font-family: var(--font-heading);
     font-weight: 500;
@@ -77,7 +77,7 @@ h1 {
     background-color: #d0d0d0;
 }
 
-/* 搜索和下载按钮特殊样式 */
+/* Search and download button special style */
 #search-btn,
 #download-btn,
 #clear-btn {
@@ -87,10 +87,10 @@ h1 {
 }
 
 /****************************************************/
-/*                    数据表格                        */
+/*                    Data Table                    */
 /****************************************************/
 
-/* 表格基础样式 */
+/* Table base style */
 table {
     table-layout: fixed;
     width: 100%;
@@ -102,7 +102,7 @@ table {
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-/* 表头样式 */
+/* Table header style */
 thead {
     background-color: #e0e0e0;
 }
@@ -119,7 +119,7 @@ th {
     letter-spacing: -0.2px;
 }
 
-/* 修改列宽设置 */
+/* Modify column width settings */
 th:nth-child(1) { /* Company Name */
      width: 13%;
 }
@@ -137,18 +137,18 @@ th:nth-child(6),
 th:nth-child(7) {  /* Scope1, Scope2-Location & Scope2-Market */
     width: 15%; 
     text-align: center;
-    cursor: pointer;  /* 显示可点击状态 */
+    cursor: pointer;  /* Show clickable state */
 }
 
-/* 筛选列表头样式 */
+/* Filter list header style */
 th:nth-child(2),
 th:nth-child(3),
 th:nth-child(4) {
-    padding: 0;  /* 移除内边距以便下拉菜单填充整个空间 */
+    padding: 0;  /* Remove padding to allow dropdown to fill the space */
     cursor: pointer;
 }
 
-/* 数据单元格基础样式 */
+/* Data cell base style */
 td {
     padding: 12px 15px;
     border-bottom: 1px solid #eee;
@@ -158,15 +158,14 @@ td {
     position: relative;
 }
 
-/* 单元格对齐和内边距 */
- /* 筛选项列 */
+/* Cell alignment and padding */
 td:nth-child(5),
 td:nth-child(6),
-td:nth-child(7) {  /* 数值列 */
+td:nth-child(7) {  /* Numerical columns */
     text-align: center;
 }
 
-/* 分隔线样式 */
+/* Separator style */
 /*
 t:nth-child(1),
 td:nth-child(1),
@@ -176,11 +175,11 @@ td:nth-child(4) {
 }
 */
 
-/* 表格行样式 */
+/* Table row style */
 tbody tr:nth-child(even) { background-color: #f9f9f9; }
 tbody tr:hover { background-color: #f5f5f5; }
 
-/* Tooltip样式 */
+/* Tooltip style */
 td:hover::after {
     content: attr(title);
     position: absolute;
@@ -198,14 +197,14 @@ td:hover::after {
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-/* 下拉菜单样式 */
+/* Dropdown menu style */
 .dropdown {
     font-family: var(--font-heading);
     font-weight: 500;
     font-size: 14px;
     width: 100%;
-    height: 100%;  /* 填充整个表头单元格 */
-    padding: 15px 10px 15px 20px;  /* 修改内边距，为左侧箭头留出空间 */
+    height: 100%;  /* Fill the entire table header cell */
+    padding: 15px 10px 15px 20px;  /* Modify padding, leave space for left arrow */
     border: none;
     background-color: transparent;
     cursor: pointer;
@@ -215,11 +214,11 @@ td:hover::after {
     text-overflow: ellipsis;
 }
 
-/* 下拉箭头 */
+/* Dropdown arrow */
 th:has(.dropdown)::after {
     content: "▼";
     position: absolute;
-    left: 7px;  /* 改为left */
+    left: 7px;  /* Changed to left */
     top: 50%;
     transform: translateY(-50%);
     font-size: 12px;
@@ -227,13 +226,13 @@ th:has(.dropdown)::after {
     pointer-events: none;
 }
 
-/* 下拉菜单展开时箭头向上 */
+/* Dropdown menu arrow up when expanded */
 th.dropdown-open::after {
-    transform: translateY(-50%) rotate(180deg);  /* 只旋转，不改变位置 */
+    transform: translateY(-50%) rotate(180deg);  /* Rotate only, do not change position */
 }
 
 /****************************************************/
-/*                    分页控件                        */
+/*               Pagination Control                 */
 /****************************************************/
 
 #pagination {
@@ -275,23 +274,24 @@ th.dropdown-open::after {
     margin: 0;
 }
 
-/* 总页数显示样式 */
+/* Total pages display style */
 #total-pages {
     display: inline-block;
-    width: 30px;  /* 与输入框相同的宽度 */
+    width: 30px;  /* Same width as input box */
     text-align: center;
 }
 
-/* 分页分隔符样式 */
+/* Pagination separator style */
 #pagination span {
     white-space: nowrap;
 }
 
+
 /****************************************************/
-/*                    管理员登录                      */
+/*                  Admin Login                     */
 /****************************************************/
 
-/* 修改管理员登录容器样式 */
+/* Modify admin login container style */
 .admin-login-container {
     position: absolute;
     top: 20px;
@@ -301,7 +301,7 @@ th.dropdown-open::after {
     gap: 10px;
 }
 
-/* 修改编辑按钮样式 */
+/* Modify edit button style */
 .edit-btn {
     padding: 4px 8px;
     background-color: #2196F3;
@@ -320,17 +320,17 @@ th.dropdown-open::after {
 
 .actions-column {
     width: 80px;
-    text-align: center;  /* 已有的居中设置 */
-    padding: 8px 0;  /* 添加垂直内边距 */
+    text-align: center;  /* Existing center setting */
+    padding: 8px 0;  /* Add vertical padding */
 }
 
-/* 修改操作列的单元格样式 */
+/* Modify actions column cell style */
 td:last-child {
-    text-align: center;  /* 确保单元格内容居中 */
-    vertical-align: middle;  /* 垂直居中 */
+    text-align: center;  /* Ensure cell content is centered */
+    vertical-align: middle;  /* Vertical center */
 }
 
-/* 模态框样式 */
+/* Modal style */
 .modal {
     display: none;
     position: fixed;
@@ -375,7 +375,7 @@ td:last-child {
     border-radius: 4px;
 }
 
-/* 编辑模态框样式 */
+/* Edit modal style */
 .edit-modal {
     display: none;
     position: fixed;
@@ -429,7 +429,7 @@ td:last-child {
 
 .edit-form {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);  /* 改为两列布局 */
+    grid-template-columns: repeat(2, 1fr);  /* Changed to two column layout */
     gap: 20px;
     margin-top: 20px;
 }
@@ -452,15 +452,15 @@ td:last-child {
     font-size: 14px;
 }
 
-/* Bloomberg参考数据提示样式 */
+/* Bloomberg reference data hint style */
 .reference-hint {
     font-size: 12px;
-    color: #979797;  /* 使用蓝色来突出显示Bloomberg数据 */
+    color: #979797;  /* Use blue to highlight Bloomberg data */
     margin-top: 4px;
     font-style: italic;
 }
 
-/* 当参考数据为空时隐藏提示框 */
+/* Hide hint when reference data is empty */
 .reference-hint:empty {
     display: none;
 }
@@ -496,13 +496,18 @@ td:last-child {
 }
 
 .edit-modal-content {
-    width: 800px;  /* 增加宽度 */
+    width: 800px;  /* Increase width */
     max-width: 90%;
     max-height: 90vh;
-    overflow-y: auto;  /* 添加滚动条 */
+    overflow-y: auto;  /* Add scrollbar */
 }
 
-/* 图表容器样式 */
+
+/****************************************************/
+/*               Visualization Area                 */
+/****************************************************/
+
+/* Chart container style */
 #chart-container {
     margin-top: 40px;
     padding: 20px;
@@ -511,21 +516,21 @@ td:last-child {
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-/* 修改图表控件布局 */
+/* Modify chart control layout */
 .chart-controls {
     display: flex;
-    flex-direction: column;  /* 改为纵向布局 */
+    flex-direction: column;  /* Changed to vertical layout */
     gap: 20px;
     margin-bottom: 20px;
 }
 
-/* 将指标选择区域移到顶部 */
+/* Move metric selection area to the top */
 .chart-metrics {
     display: flex;
     gap: 15px;
     align-items: center;
     padding-bottom: 15px;
-    border-bottom: 1px solid #eee;  /* 添加分隔线 */
+    border-bottom: 1px solid #eee;  /* Add separator */
 }
 
 .chart-filters {
@@ -533,17 +538,17 @@ td:last-child {
     gap: 15px;
 }
 
-/* 调整第一个筛选组的宽度 */
+/* Adjust the width of the first filter group */
 .filter-group:first-child {
-    flex: 0.1;  /* 设置为总宽度的1/5 */
+    flex: 0.1;  /* Set to 1/5 of total width */
 }
 
-/* 调整第二个筛选组的宽度 */
+/* Adjust the width of the second filter group */
 .filter-group:last-child {
-    flex: 0.9;  /* 设置为总宽度的4/5 */
+    flex: 0.9;  /* Set to 4/5 of total width */
 }
 
-/* 保持其他样式不变 */
+/* Keep other styles unchanged */
 .filter-group select {
     width: 100%;
     padding: 8px;
@@ -571,7 +576,7 @@ td:last-child {
     height: 400px;
 }
 
-/* Select2 自定义样式 */
+/* Select2 custom style */
 .select2-container .select2-selection--multiple {
     min-height: 38px;
     border: 1px solid #ddd;
