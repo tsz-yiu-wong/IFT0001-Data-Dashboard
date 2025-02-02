@@ -49,7 +49,7 @@ def extract_text_from_pdf(pdf_path):
 #       Scope 1 (direct): 1,234 t CO2e.
 #       Scope 2 (location-based): 2,345 t CO2e.
 #       Scope 2 (martket-based): 3,456 t CO2e.
-def find_data_in_text_chatgpt(company_name, pdf_text):
+def find_data_in_text_chatgpt(company_name, pdf_text):  
 
     load_dotenv()
     client = OpenAI(
@@ -146,7 +146,6 @@ def data_formatting(text):
         split_text = text_value.replace(",", "").strip().split(" ", 1) # ['49860.25', 'tons CO2e.']
         value = float(split_text[0]) # 49860.25
         unit = split_text[1].lower().strip() # tons co2e.
-        unit_capital = split_text[1].strip() # tons CO2e
     except:
         return "-"
 
@@ -171,8 +170,8 @@ def data_formatting(text):
     # Thousand tonne / kt
     if "thousand" in unit or "kilo tonne" in unit or "kt" in unit:
         value = round(value * 1000, 2)
-    # Million tonne / mmt (separate from Metric Tonne (MT))
-    elif "million" in unit or "mmt" in unit or "Mt" in unit_capital:
+    # Million tonne / mmt /
+    elif "million" in unit or "mmt" in unit:
         value = round(value * 1000000, 2)
     elif "billion" in unit or "gt" in unit:
         value = round(value * 1000000000, 2)
