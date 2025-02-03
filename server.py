@@ -92,7 +92,7 @@ def get_region_country_map():
             region_country_map[region] = []
         region_country_map[region].append(country)
 
-    # 确保每个区域下的国家/地区也是排序的
+    # Ensure each region's countries are sorted
     for region in region_country_map:
         region_country_map[region].sort()
 
@@ -140,8 +140,6 @@ def download_data():
 @app.route('/admin/login', methods=['POST'])
 def admin_login():
     data = request.get_json()
-    print("Received login attempt:", data)  # 调试日志
-    print("Stored credentials:", admin_config)  # 调试日志
     if (data.get('username') == admin_config['username'] and 
         data.get('password') == admin_config['password']):
         return jsonify({'success': True})
@@ -152,7 +150,6 @@ def admin_login():
 def update_data():
     try:
         data = request.get_json()
-        print("Received data from frontend:", data)
         
         select_query = f"""
         SELECT * FROM emissions_data 
@@ -162,19 +159,18 @@ def update_data():
         """
         
         result = db.get_data(select_query)
-        print("Found existing record:", result)
         
         if not result:
             return jsonify({'success': False, 'message': 'Record not found'}), 404
             
         row = result[0]
         
-        # 处理 is_fiscal_year，如果为空字符串则设为 NULL
+        # Handle is_fiscal_year, set to NULL if empty string
         is_fiscal_year = data['is_fiscal_year']
         if is_fiscal_year == '':
             is_fiscal_year = None
         
-        # 准备插入/更新的数据
+        # Prepare data to be inserted/updated
         insert_data = {
             'company_name': row['company_name'],
             'isin': row['isin'],
@@ -186,11 +182,9 @@ def update_data():
             'scope1_direct': data['scope1_direct'],
             'scope2_location': data['scope2_location'],
             'scope2_market': data['scope2_market'],
-            'is_fiscal_year': is_fiscal_year,  # 使用处理后的值
+            'is_fiscal_year': is_fiscal_year,
             'scope1_and_2': data['scope1_and_2']
         }
-        
-        print("Data to be inserted/updated:", insert_data)
         
         insert_query = """
         INSERT INTO emissions_data (
@@ -238,17 +232,14 @@ def get_bloomberg_data():
         """
         
         result = db.get_data(query)
-        print(result)
 
         if result and len(result) > 0:
             data = result[0]
-            # 格式化数值为保留两位小数的字符串
             formatted_data = {
                 'scope1_direct': f"{float(data['scope1_direct']):.2f}" if data.get('scope1_direct') else None,
                 'scope2_location': f"{float(data['scope2_location']):.2f}" if data.get('scope2_location') else None,
                 'scope2_market': f"{float(data['scope2_market']):.2f}" if data.get('scope2_market') else None
             }
-            print(formatted_data)
             return jsonify(formatted_data)
             
         return jsonify(None)
@@ -279,6 +270,5 @@ def get_chart_data():
 
 
 
-
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)  # 保留host='0.0.0.0'以允许外部访问
+    app.run(host='0.0.0.0', port=5000, debug=True)
