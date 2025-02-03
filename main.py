@@ -58,7 +58,7 @@ def create_table(table_name, file_path):
     
     with open(file_path, "r", encoding="utf-8") as csvfile:
         reader = csv.reader(csvfile)
-        next(reader)  # 跳过CSV表头
+        next(reader)
         for row in reader:
             name = row[0]
             ticker = row[1]
@@ -68,36 +68,51 @@ def create_table(table_name, file_path):
             area = row[5]
             country_region = row[6]
 
-            insert_data_query = f"INSERT INTO {table_name} (company_name, ticker, isin, weight, sector, area, country_region) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+            insert_data_query = f"INSERT INTO {table_name} \
+                (company_name, ticker, isin, weight, sector, area, country_region) \
+                VALUES (%s, %s, %s, %s, %s, %s, %s)"
             db.insert_data(insert_data_query, (name, ticker, isin, weight, sector, area, country_region))
 
 
 # Create table with only emissions data
-def create_table_data_only(table_name, file_path):
+def create_table_bloomberg_data(table_name, file_path):
     create_table_query = f"""
     CREATE TABLE IF NOT EXISTS {table_name} (
         id INT AUTO_INCREMENT PRIMARY KEY,
         company_name VARCHAR(50),
+        ticker VARCHAR(30),
         isin VARCHAR(30) UNIQUE,
-        scope1_direct VARCHAR(10),
-        scope2_location VARCHAR(10),
-        scope2_market VARCHAR(10)
+        weight DECIMAL(8, 6),
+        sector VARCHAR(30),
+        area VARCHAR(30),
+        country_region VARCHAR(30),
+        scope1_direct VARCHAR(20),
+        scope2_location VARCHAR(20),
+        scope2_market VARCHAR(20)
     )AUTO_INCREMENT = 1;
     """
     db.create_table(create_table_query)
 
     with open(file_path, "r", encoding="utf-8") as csvfile:
         reader = csv.reader(csvfile)
-        next(reader)  # 跳过CSV表头
+        next(reader) 
         for row in reader:
             name = row[0]
+            ticker = row[1]
             isin = row[2]
+            weight = row[3]
+            sector = row[4]
+            area = row[5]
+            country_region = row[6]
             scope1_direct = row[7]
             scope2_location = row[9]
             scope2_market = row[8]
 
-            insert_data_query = f"INSERT INTO {table_name} (company_name, isin, scope1_direct, scope2_location, scope2_market) VALUES (%s, %s, %s, %s, %s)"
-            db.insert_data(insert_data_query, (name, isin, scope1_direct, scope2_location, scope2_market))
+            insert_data_query = f"INSERT INTO {table_name} \
+                (company_name, ticker, isin, weight, sector, area, country_region, \
+                scope1_direct, scope2_location, scope2_market) \
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+            db.insert_data(insert_data_query, (name, ticker, isin, weight, sector, area, country_region, scope1_direct, scope2_location, scope2_market))
 
 
 # Fill emissions data into database
@@ -146,7 +161,8 @@ if __name__ == "__main__":
     #db.delete_table("emissions_data")
     #db.delete_table("bloomberg_emissions_data")
     create_table("emissions_data", data_path)
-    create_table_data_only("bloomberg_emissions_data", data_path)
+    create_table_bloomberg_data("bloomberg_emissions_data", data_path)
 
     fill_emissions_data("emissions_data", log_file_path, csv_file_path)
     db.print_data("emissions_data")
+    db.print_data("bloomberg_emissions_data")
